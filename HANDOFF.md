@@ -577,3 +577,38 @@ V1 入口光斑照字 / V4 单光子余辉 / V5 读数数字滚动 / V6 屏带�
 **回归**：8 路由 × 1440/390 `scrollWidth==clientWidth`、越界 0、`onerror=[]`；概念页 `body background-image: none`（纸面不受影响）；打印白底；缺字仍 34/7/7。
 **打包**：`dist` = `docs` = `传GitHub` = zip，**1592498 B / sha256 前16位 `224641aad371053d`**（zip 1095649 B）。
 **材料**：`shots/fx/材质-前后对照3.png`（左无材质 / 右有材质）、`shots/fx/mat4-on.png`、`shots/fx/mat-mobile.png`；`shots/验收/桌面-02 前测.png` 已换成材质版。
+
+---
+
+## 17. 发布记录（GitHub Pages，2026-11-25）
+
+**线上地址**：<https://qianhui-pev.github.io/yang-double-slit/>
+**仓库**：`qianhui-pev/yang-double-slit`（Public，分支 `main`，Pages 源 = `/docs`）
+
+### 17.1 入库内容（50 个文件 / 11.5 MB）
+
+`src/`（全部源码）· `docs/`（index.html + .nojekyll + 发布说明）· `dist/index.html` · `build.py` · `build/fontsrc`（两款字体原文件）· `文案/`（改稿表与脚本，不含 `backup/`）· `HANDOFF.md` · `CHECK-20261124.md` · `README.md` · 双击入口 `.bat/.url`。
+**不进库**：`shots/`（43 MB 截图）、`build/fonts/cache/`、`文案/backup/`、`传GitHub（拖这两个文件）/`、zip、`dist_prev.html` —— 见根目录 `.gitignore`。
+
+### 17.2 怎么发上去的（git 走不通，改走 REST）
+
+- `gh` CLI 已装：`D:\hermes-workspace\ops\gh\bin\gh.exe`（v2.105.0，从 release 直下）
+- 授权走 **device flow**（GitHub CLI 的公开 OAuth client），用户在自己浏览器批准；token 存在 `D:\hermes-workspace\ops\gh_token.txt`（撤销入口：GitHub → Settings → Applications → GitHub CLI）
+- **`git push` 在这台机器上会挂**：代理（127.0.0.1:7897）下 4.8 MiB 的推送 300 s 未完成；而且空仓库上 `/git/blobs` 直接返回 `409 Git Repository is empty`。
+- 实际用的脚本：**`D:\hermes-workspace\ops\gh_publish.py`**（可重跑）
+  1. `PUT /contents/README.md` 建第一个提交（空仓库只有 Contents API 能写）
+  2. 其余 49 个文件并发 6 线程 `POST /git/blobs`
+  3. `POST /git/trees`（`base_tree` = 首提交的树）→ `POST /git/commits` → `PATCH /git/refs/heads/main`
+  4. `POST /pages` 开 Pages（`/docs`）
+  5. 日志：`D:\hermes-workspace\ops\publish.log`
+
+### 17.3 线上验证（实测，不是「应该能用」）
+
+- Pages `status: built`，`builds/latest` = built
+- 首页 HTTP 200，**1592498 字节**，与本地 `dist/index.html` 完全一致；标题命中「双缝之外」
+- 浏览器实测 live 站点：`App` 正常、四款内嵌字体 `document.fonts.check` 全 true、`enter/pre/concept/lab/post/review/gate` 七条路由 `scrollWidth==clientWidth`、`onerror=[]`
+
+### 17.4 以后怎么更新
+
+改源码 → `python build.py` → 把 `dist/index.html` 覆盖到 `docs/index.html` → 再跑一次 `gh_publish.py`（或网页上传 / 代理稳定时 `git push`）。
+本地仓库已 init 并提交过一次（`.git`，remote 指向该仓库，凭据在 URL 里，别把 `.git/config` 外发）。

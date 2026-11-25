@@ -657,3 +657,14 @@ V1 入口光斑照字 / V4 单光子余辉 / V5 读数数字滚动 / V6 屏带�
 | 768×1024 | 420 | 870/1024 | ✅ |
 
 桌面回归：1440×900 下 `.stage__canvas` 仍 `inset:0`（高 855）、`h1` 78px、`scrollWidth 1431/1431` —— 未受影响。
+
+### 16.14 手机上的步骤导航（§31.4，2026-11-25，用户问"看不到上面切换页面的按钮"）
+
+**不是 bug，是被故意藏掉的**：`refine.css @media (max-width:520px){ .stepper{display:none} }`。后果是手机上无法在 START / PRE-TEST / THEORY / LAB / POST-TEST / REVIEW 之间跳转，只能靠页内「下一步」按钮单向往前 —— 对学生来回翻查（回看理论、回实验台改参数）实际不可用，所以按缺陷处理。
+
+**做法**：
+- ≤520px：`.topbar{flex-wrap:wrap}`，步骤条变成**顶栏第二行**、横向可滚动（`.stepper{flex:1 0 100%;order:9;height:34px}`）；`body[data-step="enter"] .stepper{display:none}` —— 入口页仍隐藏，首屏留给表单（实测 CTA bottom 830/844，比修前更宽裕）。
+- `.step-dot` 缩小到 `padding:4px 9px 11px / font 9px`，6 个标签在 360 宽下恰好全部可见（scrollW=clientW=336）。
+- `core.js renderStepper()` 末尾加：渲染后把 `[data-on]` 用 `scrollIntoView({block:'nearest',inline:'center'})` 滚到可见处（更窄的屏幕上也不会把当前步骤滚出屏幕外）。
+
+**实测（390×844 / 360×740）**：入口页 `stepper:none`、顶栏 52px；PRE 页 `stepper:flex`、顶栏 74px、6 个按钮全可见、点 THEORY 成功切到 concept（纸页主题顶栏同步变白）；LAB 页 `taskbar top=222`、无横向溢出 390/390。

@@ -122,6 +122,11 @@ function renderStepper(){
     return '<button class="step-dot" data-step="'+s.k+'"'+(on?' data-on':'')+(done?' data-done':'')+'>'+
       '<i></i>'+esc(s.label)+'</button>';
   }).join('');
+  // 窄屏步骤条可横向滚动：把当前步骤滚到中间，否则当前项可能落在屏幕外
+  const onEl = host.querySelector('.step-dot[data-on]');
+  if(onEl && host.scrollWidth > host.clientWidth + 4){
+    try{ onEl.scrollIntoView({ block:'nearest', inline:'center' }); }catch(e){}
+  }
 }
 
 /* ---------- 顶栏主题 ---------- */

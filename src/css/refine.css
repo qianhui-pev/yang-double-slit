@@ -1256,3 +1256,17 @@ body:not([data-step=concept]) #fxGrain{mix-blend-mode:screen;opacity:.062}
 @media (max-width: 820px) and (max-height: 820px) {
   .stage__canvas { height: 38vh; min-height: 240px; margin-bottom: -156px; }
 }
+/* 31.4 手机上的「步骤导航」（原来 ≤520px 直接把 .stepper 藏了 —— 手机上无法在
+   START / PRE-TEST / THEORY / LAB / POST-TEST / REVIEW / EVAL 之间跳转，只能靠页内按钮往前走）。
+   改成：顶栏换行，步骤条作为第二行横向滚动；入口页(enter)仍隐藏，保证首屏留给表单。 */
+@media (max-width: 520px) {
+  .topbar { flex-wrap: wrap; height: auto; min-height: 52px; align-content: flex-start; padding: 5px 12px 0; }
+  body[data-step="enter"] .topbar { padding: 0 12px; min-height: 52px; }
+  .stepper { display: flex; flex: 1 0 100%; order: 9; margin: 0 0 2px; padding: 0; height: 34px; overflow-x: auto; }
+  body[data-step="enter"] .stepper { display: none; }
+  .step-dot { padding: 4px 9px 11px; font-size: 9px; letter-spacing: .13em; }
+  .stepper::before { left: 8px; right: 8px; bottom: 8px; }
+  .stage__hud { display: none; }
+  /* 步骤条滚到当前项居中，避免当前步骤落在屏幕外看不见 */
+  .stepper { scroll-behavior: smooth; }
+}

@@ -628,3 +628,7 @@ V1 入口光斑照字 / V4 单光子余辉 / V5 读数数字滚动 / V6 屏带�
 `(hover: none)` 把平板/触屏笔记本也一起排除了。
 
 **实测**：390 宽下 `.hero-veil` / `.hero-glow` 均为 `display:none`（修前 veil `block`、203px×1097px）；1440 下仍是 `block / 660px`（桌面版不受影响），`scrollWidth 1431/1431`。
+
+**同批修的第二个手机 bug（refine.css §31.2）**：`.tutor-fab` 悬浮球在 390 宽下 rect = 318..368 × 772..822，与学号/姓名输入框横向重叠 **50px**、纵向 11px（实测交集），直接压住表单右端。窄屏改为 `display:none`，助教改从实验台的「问助教」按钮开（窄屏下该按钮存在，已验 `btnTutor=true`）。
+
+**发布方式**：本工程 Pages 项目（`https://yang-double-slit.pages.dev`）已连 GitHub `qianhui-pev/yang-double-slit` main 分支 → 用 Git Data API 单次提交 `docs/index.html` + `dist/index.html` + `src/css/refine.css`，Cloudflare 自动重建（实测提交后 12 秒内新文件已在线上，`/` 与 `/index.html` 都返回新长度）。**再也不用手动上传。**

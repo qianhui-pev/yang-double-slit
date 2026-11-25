@@ -615,3 +615,16 @@ V1 入口光斑照字 / V4 单光子余辉 / V5 读数数字滚动 / V6 屏带�
 
 **坑（已踩过）**：连续两条 API 提交后 Pages 会卡在 `errored`（`builds/latest` 却一直显示 `building`），站点本身仍正常返回。
 修法：`POST /repos/qianhui-pev/yang-double-slit/pages/builds` 手动重跑一次，15–30 s 后回到 `built`。
+
+### 16.12 手机端「左半边一层黑幕」修复（2026-11-25，用户实测反馈）
+
+**根因**：V1「手电照字」的 `.hero-veil` 是按**桌面双栏**设计的 —— `width:min(660px,52vw)` + `mask` 在指针处挖洞。手机是单栏，390px 宽下这层暗纱算出来 **203px × 1097px、`rgba(3,5,9,.58)`**，把左半屏整块压暗；而手机根本没有指针，光斑也跟不了手 —— 效果只剩「左半边黑一块」。
+
+**修法**（`refine.css` §31.1）：
+```css
+@media (max-width: 980px), (hover: none) { .hero-veil, .hero-glow { display: none !important; } }
+@media (max-width: 820px) { body { background-attachment: scroll; } }   /* 窄屏大范围 fixed 渐变拖慢滚动 */
+```
+`(hover: none)` 把平板/触屏笔记本也一起排除了。
+
+**实测**：390 宽下 `.hero-veil` / `.hero-glow` 均为 `display:none`（修前 veil `block`、203px×1097px）；1440 下仍是 `block / 660px`（桌面版不受影响），`scrollWidth 1431/1431`。

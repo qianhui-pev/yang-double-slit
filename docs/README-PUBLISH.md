@@ -1,5 +1,8 @@
 # 双缝之外 · 杨氏干涉实验室 — 发布说明
 
+> **已发布**：<https://qianhui-pev.github.io/yang-double-slit/>（仓库 `qianhui-pev/yang-double-slit`，Pages 源 `/docs`，2026-11-25）
+> 更新流程见文末第五节；本文件里的四步是**首次发布**的做法。
+
 ## 一、这是什么
 
 单文件网页（`index.html`，约 1.45 MB / 1521175 字节，字体已子集化内嵌），零外链、零依赖、断网可用。

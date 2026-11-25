@@ -1,0 +1,82 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YDS-01 文案清单 · 673 条</title>
+<style>
+:root{--bg:#05070A;--panel:#090C10;--rule:rgba(158,197,216,.14);--rule2:rgba(158,197,216,.26);
+ --ink:#EFF3F4;--ink2:#A9B4BB;--ink3:#7C8892;--laser:#FF3B2E;--jade:#63E6A8;--amber:#FFB03A;
+ --sans:"Microsoft YaHei UI","Segoe UI",system-ui,sans-serif;--mono:"Cascadia Mono",Consolas,monospace;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);
+ background-image:radial-gradient(120% 70% at 12% 0%,rgba(158,197,216,.06),transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 90px}
+h1{font-size:30px;letter-spacing:.01em;margin:0 0 10px;font-weight:600}
+.sub{color:var(--ink2);font-size:13.5px;line-height:1.9;max-width:70ch;margin:0}
+.sub b{color:var(--ink);font-weight:500}
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+ margin:26px 0 8px;padding:14px 0;background:linear-gradient(180deg,rgba(5,7,10,.98),rgba(5,7,10,.86));
+ border-bottom:1px solid var(--rule);backdrop-filter:blur(8px)}
+.bar button{font:11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);
+ background:none;border:1px solid var(--rule);padding:9px 13px;cursor:pointer}
+.bar button[data-on]{color:#0B0402;background:var(--laser);border-color:var(--laser)}
+.bar input{flex:1;min-width:200px;background:rgba(255,255,255,.05);border:1px solid var(--rule);color:var(--ink);
+ font:13px var(--sans);padding:9px 12px}
+.meta{font:11px/1 var(--mono);letter-spacing:.14em;color:var(--ink3);margin-left:auto}
+.kpi{display:flex;gap:26px;flex-wrap:wrap;margin:18px 0 0;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kpi div{font:11px/1.7 var(--mono);letter-spacing:.12em;color:var(--ink3)} .kpi b{display:block;font-size:22px;color:var(--ink);letter-spacing:0}
+section{margin-top:46px} h2{font-size:15px;font-weight:600;letter-spacing:.12em;margin:0 0 4px;
+ display:flex;align-items:baseline;gap:14px} .cnt{font:10.5px/1 var(--mono);letter-spacing:.14em;color:var(--ink3)}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{text-align:left;vertical-align:top;padding:9px 8px;border-bottom:1px solid rgba(158,197,216,.10)}
+th{font:9.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);border-bottom-color:var(--rule2)}
+td.id{width:62px;font:11px/1.4 var(--mono);color:var(--ink3)}
+td.loc{width:150px;font:11px/1.4 var(--mono);color:var(--ink3)} .ln{color:#5D6B75}
+td.txt{color:var(--ink2);line-height:1.72} td.txt .id{color:var(--ink3)}
+td.n{width:44px;text-align:right;font:11px/1.4 var(--mono);color:#5D6B75}
+.chip{display:inline-block;margin-left:8px;padding:1px 7px;border:1px solid rgba(255,176,58,.4);
+ color:var(--amber);font:9px/1.6 var(--mono);letter-spacing:.1em;font-style:normal}
+.tone{display:inline-block;margin-left:6px;padding:1px 7px;border:1px solid rgba(158,197,216,.28);
+ color:#8FA3B0;font:9px/1.6 var(--mono);letter-spacing:.1em;font-style:normal}
+tr[data-long="1"] td.txt{color:var(--ink)}
+.hide{display:none}
+foot{display:block;margin-top:60px;padding-top:18px;border-top:1px solid var(--rule2);color:var(--ink3);font:11px/1.9 var(--mono);letter-spacing:.06em}
+</style></head><body><div class="wrap">
+<h1>文案清单 · YDS-01</h1>
+<p class="sub">这是全部面向学生的文字（调试面板不算）。<b>ID 是改稿时的抓手</b>：你只要说「C-117 改成 ……」，我就能精确替换，不用你碰代码。
+标 <i class="chip" style="font-style:normal">含排版标记</i> 的条目里嵌着 HTML（加粗/换行/变量拼接），改文字时我负责接线；
+标 <i class="tone" style="font-style:normal">祈使</i>/<i class="tone" style="font-style:normal">解释</i>/<i class="tone" style="font-style:normal">鼓励</i> 的是自动扫出来的「说教味」嫌疑，优先改这些。</p>
+<div class="kpi"><div><b>{{TOT}}</b>条文案</div><div><b>{{CHARS}}</b>字</div><div><b>{{LONGN}}</b>条长文案（≥16 字）</div><div><b>{{TAGD}}</b>条含标记</div></div>
+<div class="bar">
+  <button data-f="all" data-on>全部</button>
+  <button data-f="long">只长文案</button>
+  <button data-f="tone">带语气标记</button>
+  <input id="q" placeholder="搜关键字，例如「其实」「只要」「请」">
+  <span class="meta" id="stat"></span>
+</div>
+{{SECS}}<foot>生成于 2026-11-17 · 数据源 文案/strings.json · 改完双击「重写文案并打包.bat」即可应用（或把新文案发我，我来灌）</foot>
+</div>
+<script>
+const rows=[...document.querySelectorAll('tr[data-long]')];
+const secs=[...document.querySelectorAll('section')];
+const q=document.getElementById('q'), stat=document.getElementById('stat');
+let f='all';
+function apply(){
+  const s=q.value.trim().toLowerCase();
+  let n=0;
+  rows.forEach(r=>{
+    const long=r.dataset.long==='1', tag=r.dataset.tag==='1';
+    const hasTone=r.querySelector('.tone');
+    let ok = (f==='all') || (f==='long'&&long) || (f==='tone'&&!!hasTone);
+    if(s) ok = ok && r.textContent.toLowerCase().includes(s);
+    r.classList.toggle('hide',!ok); if(ok)n++;
+  });
+  secs.forEach(sc=>{
+    const vis=[...sc.querySelectorAll('tr[data-long]')].filter(r=>!r.classList.contains('hide')).length;
+    sc.classList.toggle('hide',vis===0);
+  });
+  stat.textContent=n+' / '+rows.length+' 条';
+}
+document.querySelectorAll('.bar button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.bar button').forEach(x=>x.removeAttribute('data-on'));
+  b.setAttribute('data-on',''); f=b.dataset.f; apply();
+}));
+q.addEventListener('input',apply); apply();
+</script></body></html>

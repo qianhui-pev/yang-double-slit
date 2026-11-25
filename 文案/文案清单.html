@@ -1,0 +1,750 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YDS-01 文案清单 · 673 条</title>
+<style>
+:root{--bg:#05070A;--panel:#090C10;--rule:rgba(158,197,216,.14);--rule2:rgba(158,197,216,.26);
+ --ink:#EFF3F4;--ink2:#A9B4BB;--ink3:#7C8892;--laser:#FF3B2E;--jade:#63E6A8;--amber:#FFB03A;
+ --sans:"Microsoft YaHei UI","Segoe UI",system-ui,sans-serif;--mono:"Cascadia Mono",Consolas,monospace;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans);
+ background-image:radial-gradient(120% 70% at 12% 0%,rgba(158,197,216,.06),transparent 60%)}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 90px}
+h1{font-size:30px;letter-spacing:.01em;margin:0 0 10px;font-weight:600}
+.sub{color:var(--ink2);font-size:13.5px;line-height:1.9;max-width:70ch;margin:0}
+.sub b{color:var(--ink);font-weight:500}
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+ margin:26px 0 8px;padding:14px 0;background:linear-gradient(180deg,rgba(5,7,10,.98),rgba(5,7,10,.86));
+ border-bottom:1px solid var(--rule);backdrop-filter:blur(8px)}
+.bar button{font:11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);
+ background:none;border:1px solid var(--rule);padding:9px 13px;cursor:pointer}
+.bar button[data-on]{color:#0B0402;background:var(--laser);border-color:var(--laser)}
+.bar input{flex:1;min-width:200px;background:rgba(255,255,255,.05);border:1px solid var(--rule);color:var(--ink);
+ font:13px var(--sans);padding:9px 12px}
+.meta{font:11px/1 var(--mono);letter-spacing:.14em;color:var(--ink3);margin-left:auto}
+.kpi{display:flex;gap:26px;flex-wrap:wrap;margin:18px 0 0;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.kpi div{font:11px/1.7 var(--mono);letter-spacing:.12em;color:var(--ink3)} .kpi b{display:block;font-size:22px;color:var(--ink);letter-spacing:0}
+section{margin-top:46px} h2{font-size:15px;font-weight:600;letter-spacing:.12em;margin:0 0 4px;
+ display:flex;align-items:baseline;gap:14px} .cnt{font:10.5px/1 var(--mono);letter-spacing:.14em;color:var(--ink3)}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{text-align:left;vertical-align:top;padding:9px 8px;border-bottom:1px solid rgba(158,197,216,.10)}
+th{font:9.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);border-bottom-color:var(--rule2)}
+td.id{width:62px;font:11px/1.4 var(--mono);color:var(--ink3)}
+td.loc{width:150px;font:11px/1.4 var(--mono);color:var(--ink3)} .ln{color:#5D6B75}
+td.txt{color:var(--ink2);line-height:1.72} td.txt .id{color:var(--ink3)}
+td.n{width:44px;text-align:right;font:11px/1.4 var(--mono);color:#5D6B75}
+.chip{display:inline-block;margin-left:8px;padding:1px 7px;border:1px solid rgba(255,176,58,.4);
+ color:var(--amber);font:9px/1.6 var(--mono);letter-spacing:.1em;font-style:normal}
+.tone{display:inline-block;margin-left:6px;padding:1px 7px;border:1px solid rgba(158,197,216,.28);
+ color:#8FA3B0;font:9px/1.6 var(--mono);letter-spacing:.1em;font-style:normal}
+tr[data-long="1"] td.txt{color:var(--ink)}
+.hide{display:none}
+foot{display:block;margin-top:60px;padding-top:18px;border-top:1px solid var(--rule2);color:var(--ink3);font:11px/1.9 var(--mono);letter-spacing:.06em}
+</style></head><body><div class="wrap">
+<h1>文案清单 · YDS-01</h1>
+<p class="sub">这是全部面向学生的文字（调试面板不算）。<b>ID 是改稿时的抓手</b>：你只要说「C-117 改成 ……」，我就能精确替换，不用你碰代码。
+标 <i class="chip" style="font-style:normal">含排版标记</i> 的条目里嵌着 HTML（加粗/换行/变量拼接），改文字时我负责接线；
+标 <i class="tone" style="font-style:normal">祈使</i>/<i class="tone" style="font-style:normal">解释</i>/<i class="tone" style="font-style:normal">鼓励</i> 的是自动扫出来的「说教味」嫌疑，优先改这些。</p>
+<div class="kpi"><div><b>681</b>条文案</div><div><b>8843</b>字</div><div><b>181</b>条长文案（≥16 字）</div><div><b>230</b>条含标记</div></div>
+<div class="bar">
+  <button data-f="all" data-on>全部</button>
+  <button data-f="long">只长文案</button>
+  <button data-f="tone">带语气标记</button>
+  <input id="q" placeholder="搜关键字，例如「其实」「只要」「请」">
+  <span class="meta" id="stat"></span>
+</div>
+<section><h2>顶栏外壳<span class="cnt">5 条 · 66 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-001</td><td class="loc">shell.html<span class="ln">:7</span></td><td class="txt">杨氏双缝干涉 · 光程差与相干性 交互探究实验室</td><td class="n">24</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-005</td><td class="loc">shell.html<span class="ln">:44</span></td><td class="txt">问一个关于光程、条纹或相干性的问题…</td><td class="n">18</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-002</td><td class="loc">shell.html<span class="ln">:24</span></td><td class="txt">仅任课教师 · 需口令</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-003</td><td class="loc">shell.html<span class="ln">:30</span></td><td class="txt">打开 AI 助教</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-004</td><td class="loc">shell.html<span class="ln">:32</span></td><td class="txt">AI 助教</td><td class="n">5</td></tr></table></section><section><h2>口令门 / 顶栏入口<span class="cnt">8 条 · 59 字</span></h2><table><tr data-long="0" data-tag="1"><td class="id">C-038</td><td class="loc">boot.js<span class="ln">:19</span></td><td class="txt">&lt;h2 class=&quot;gate__t&quot;&gt;持有口令即可查看数据。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-037</td><td class="loc">boot.js<span class="ln">:18</span></td><td class="txt">&lt;div class=&quot;gate__n&quot;&gt;&lt;span class=&quot;gate__r&quot;&gt;CONSOLE&lt;/span&gt;&lt;i&gt;控制台&lt;/i&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-041</td><td class="loc">boot.js<span class="ln">:24</span></td><td class="txt">&lt;p class=&quot;gate__hint&quot;&gt;口令由任课教师持有。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-044</td><td class="loc">boot.js<span class="ln">:64</span></td><td class="txt">请先填写学号与姓名。<i class="tone">祈使</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-042</td><td class="loc">boot.js<span class="ln">:26</span></td><td class="txt">&lt;div style=&quot;margin-top:28px&quot;&gt;&lt;button class=&quot;btn btn--sm btn--ghost&quot; id=&quot;gateBack&quot;&gt;← 回到学生端&lt;/button&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-043</td><td class="loc">boot.js<span class="ln">:40</span></td><td class="txt">口令错误。</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-039</td><td class="loc">boot.js<span class="ln">:21</span></td><td class="txt">输入口令</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-040</td><td class="loc">boot.js<span class="ln">:22</span></td><td class="txt">&lt;button class=&quot;btn btn--solid&quot; id=&quot;gateGo&quot;&gt;进入&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>步骤名 / 存档<span class="cnt">7 条 · 37 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-045</td><td class="loc">core.js<span class="ln">:21</span></td><td class="txt">本地存储写入失败：浏览器可能处于隐私模式或空间不足</td><td class="n">25</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-046</td><td class="loc">core.js<span class="ln">:25</span></td><td class="txt">入口</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-047</td><td class="loc">core.js<span class="ln">:26</span></td><td class="txt">前测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-048</td><td class="loc">core.js<span class="ln">:27</span></td><td class="txt">概念</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-049</td><td class="loc">core.js<span class="ln">:28</span></td><td class="txt">实验</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-050</td><td class="loc">core.js<span class="ln">:29</span></td><td class="txt">后测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-051</td><td class="loc">core.js<span class="ln">:30</span></td><td class="txt">复盘</td><td class="n">2</td></tr></table></section><section><h2>入口页<span class="cnt">33 条 · 656 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-263</td><td class="loc">views-enter.js<span class="ln">:31</span></td><td class="txt">&lt;input class=&quot;input&quot; id=&quot;sid&quot; name=&quot;sid&quot; inputmode=&quot;numeric&quot; placeholder=&quot;例如 21376001&quot; value=&quot;</td><td class="n">94</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-269</td><td class="loc">views-enter.js<span class="ln">:35</span></td><td class="txt">&lt;input class=&quot;input&quot; id=&quot;sgroup&quot; name=&quot;sgroup&quot; placeholder=&quot;选填，便于教师端归档&quot; value=&quot;</td><td class="n">79</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-266</td><td class="loc">views-enter.js<span class="ln">:33</span></td><td class="txt">&lt;input class=&quot;input&quot; id=&quot;sname&quot; name=&quot;sname&quot; placeholder=&quot;真实姓名&quot; value=&quot;</td><td class="n">71</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-274</td><td class="loc">views-enter.js<span class="ln">:46</span></td><td class="txt">&lt;span class=&quot;stage__rail&quot; aria-hidden=&quot;true&quot;&gt;OPTICAL BENCH · YDS-01 · 380—780 nm · 光程与相干性&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">44</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-277</td><td class="loc">views-enter.js<span class="ln">:58</span></td><td class="txt">屏上条纹由两列球面波叠加计算；点击屏上任意一点可读出该点光程差与相对强度。</td><td class="n">37</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-273</td><td class="loc">views-enter.js<span class="ln">:43</span></td><td class="txt">记录仅保存于本机浏览器，是否导出由使用者决定。不排名，不计成绩。</td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-279</td><td class="loc">views-enter.js<span class="ln">:59</span></td><td class="txt">缝距、屏距、波长、光源宽度、谱宽均可调节，可推到模型失效的边界。</td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-260</td><td class="loc">views-enter.js<span class="ln">:25</span></td><td class="txt">δ 为 λ 的整数倍时干涉加强，为 λ/2 的奇数倍时相消。</td><td class="n">30</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-281</td><td class="loc">views-enter.js<span class="ln">:60</span></td><td class="txt">预测、参数改动、停留时长全部记录，可复盘，可整份导出。</td><td class="n">27</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-261</td><td class="loc">views-enter.js<span class="ln">:26</span></td><td class="txt">缝距、屏距、波长改变的都只是 &lt;span style=&quot;color:var(--ink-0)&quot;&gt;δ&lt;/span&gt; 本身。<i class="chip">含排版标记</i></td><td class="n">20</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-286</td><td class="loc">views-enter.js<span class="ln">:101</span></td><td class="txt"> 条记录。确定＝继续，取消＝新建档案。<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-256</td><td class="loc">views-enter.js<span class="ln">:18</span></td><td class="txt">&lt;div class=&quot;hr-rule anim-up&quot;&gt;&lt;span&gt;YDS-01 / 干涉与相干性&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-257</td><td class="loc">views-enter.js<span class="ln">:20</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:16px&quot;&gt;杨氏双缝 · 光程 · 相干性&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-259</td><td class="loc">views-enter.js<span class="ln">:24</span></td><td class="txt">两条缝到屏上同一点的光程不等。</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-282</td><td class="loc">views-enter.js<span class="ln">:95</span></td><td class="txt">学号与姓名必填，用于归档。</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-275</td><td class="loc">views-enter.js<span class="ln">:53</span></td><td class="txt">&lt;div class=&quot;stage__tag&quot; aria-hidden=&quot;true&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;span&gt;READY · 光路就绪&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-264</td><td class="loc">views-enter.js<span class="ln">:31</span></td><td class="txt">例如 21376001</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-258</td><td class="loc">views-enter.js<span class="ln">:21</span></td><td class="txt">&lt;h1 class=&quot;display&quot;&gt;光程差&lt;br&gt;决定屏上亮暗。&lt;/h1&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-270</td><td class="loc">views-enter.js<span class="ln">:35</span></td><td class="txt">选填，便于教师端归档</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-284</td><td class="loc">views-enter.js<span class="ln">:98</span></td><td class="txt">」占用，请更换。<i class="tone">祈使</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-268</td><td class="loc">views-enter.js<span class="ln">:34</span></td><td class="txt">&lt;div class=&quot;field field--wide&quot;&gt;&lt;label class=&quot;field__lb&quot; for=&quot;sgroup&quot;&gt;班级 / 小组&lt;/label&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-271</td><td class="loc">views-enter.js<span class="ln">:39</span></td><td class="txt">&lt;button class=&quot;btn btn--solid&quot; id=&quot;btnStart&quot;&gt;开始探究 &lt;span class=&quot;btn__arrow&quot;&gt;→&lt;/span&gt;&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-272</td><td class="loc">views-enter.js<span class="ln">:40</span></td><td class="txt">&lt;button class=&quot;btn btn--ghost&quot; id=&quot;btnResume&quot;&gt;载入上次档案&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-276</td><td class="loc">views-enter.js<span class="ln">:58</span></td><td class="txt">条纹实时计算</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-278</td><td class="loc">views-enter.js<span class="ln">:59</span></td><td class="txt">参数可至边界</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-283</td><td class="loc">views-enter.js<span class="ln">:98</span></td><td class="txt">学号已被「</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-285</td><td class="loc">views-enter.js<span class="ln">:101</span></td><td class="txt">该学号已有 <i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-262</td><td class="loc">views-enter.js<span class="ln">:30</span></td><td class="txt">&lt;div class=&quot;field&quot;&gt;&lt;label class=&quot;field__lb&quot; for=&quot;sid&quot;&gt;学号 &lt;span&gt;*&lt;/span&gt;&lt;/label&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-265</td><td class="loc">views-enter.js<span class="ln">:32</span></td><td class="txt">&lt;div class=&quot;field&quot;&gt;&lt;label class=&quot;field__lb&quot; for=&quot;sname&quot;&gt;姓名 &lt;span&gt;*&lt;/span&gt;&lt;/label&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-267</td><td class="loc">views-enter.js<span class="ln">:33</span></td><td class="txt">真实姓名</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-280</td><td class="loc">views-enter.js<span class="ln">:60</span></td><td class="txt">过程留档</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-287</td><td class="loc">views-enter.js<span class="ln">:124</span></td><td class="txt">已载入 <i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-288</td><td class="loc">views-enter.js<span class="ln">:124</span></td><td class="txt"> 的档案<i class="chip">含排版标记</i></td><td class="n">3</td></tr></table></section><section><h2>前测<span class="cnt">93 条 · 1203 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-501</td><td class="loc">views-pre.js<span class="ln">:146</span></td><td class="txt">&quot; placeholder=&quot;写出判断依据（一句话即可）&quot; style=&quot;margin-top:12px;min-height:64px&quot;&gt;</td><td class="n">70</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-464</td><td class="loc">views-pre.js<span class="ln">:75</span></td><td class="txt">钠黄光双线 λ ≈ 589 nm，Δλ ≈ 0.6 nm。它的相干长度 L_c = λ²/Δλ 大约是：</td><td class="n">52</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-454</td><td class="loc">views-pre.js<span class="ln">:57</span></td><td class="txt">λ = 600 nm，d = 0.20 mm，L = 1.5 m。相邻两条亮纹的间距约为：</td><td class="n">45</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-498</td><td class="loc">views-pre.js<span class="ln">:141</span></td><td class="txt">&lt;div class=&quot;conf&quot;&gt;&lt;span class=&quot;conf__lb&quot;&gt;把握程度&lt;/span&gt;&lt;div class=&quot;conf__pips&quot; data-conf=&quot;<i class="chip">含排版标记</i></td><td class="n">39</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-478</td><td class="loc">views-pre.js<span class="ln">:93</span></td><td class="txt">把光强降到一次只有一个光子通过双缝。累计足够长时间后，屏上的分布是：</td><td class="n">34</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-506</td><td class="loc">views-pre.js<span class="ln">:202</span></td><td class="txt">5 题为判断题，只需给出结论；结果与实验数据对照，用于定位判断偏差。</td><td class="n">34</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-471</td><td class="loc">views-pre.js<span class="ln">:84</span></td><td class="txt">用太阳光（极大的扩展光源）直接照双缝，屏上会出现干涉条纹吗？</td><td class="n">30</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-457</td><td class="loc">views-pre.js<span class="ln">:66</span></td><td class="txt">某点两条光路的光程差为 1.5λ，这一点的相位差和明暗是：</td><td class="n">29</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-488</td><td class="loc">views-pre.js<span class="ln">:108</span></td><td class="txt">明暗判据（δ = kλ 亮 / (k+½)λ 暗）记反</td><td class="n">27</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-447</td><td class="loc">views-pre.js<span class="ln">:45</span></td><td class="txt">光源为宽度 b 的扩展光源而非点光源，条纹如何变化？</td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-433</td><td class="loc">views-pre.js<span class="ln">:27</span></td><td class="txt">光源由红光换为紫光（波长更短），条纹间距如何变化？</td><td class="n">25</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-419</td><td class="loc">views-pre.js<span class="ln">:9</span></td><td class="txt">缝距 d 增大，其余参数不变，屏上条纹如何变化？</td><td class="n">24</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-426</td><td class="loc">views-pre.js<span class="ln">:18</span></td><td class="txt">屏上某点光程差为 λ/2，该点为亮纹还是暗纹？</td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-493</td><td class="loc">views-pre.js<span class="ln">:113</span></td><td class="txt">光程差与相位差换算错误（Δφ = 2πδ/λ）</td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-443</td><td class="loc">views-pre.js<span class="ln">:40</span></td><td class="txt">频率相同，且相位差在观测时间内保持不变</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-450</td><td class="loc">views-pre.js<span class="ln">:49</span></td><td class="txt">对比度下降，b 增大到临界值时条纹消失</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-505</td><td class="loc">views-pre.js<span class="ln">:199</span></td><td class="txt">不计分，不排名&lt;br&gt;5 题 · 约 3 分钟&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-503</td><td class="loc">views-pre.js<span class="ln">:195</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;02&lt;/b&gt; / PRE-TEST · 前测&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-474</td><td class="loc">views-pre.js<span class="ln">:88</span></td><td class="txt">不会：太阳的空间相干宽度远小于缝距</td><td class="n">17</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-489</td><td class="loc">views-pre.js<span class="ln">:109</span></td><td class="txt">只看光强，忽略相干性对可见度的影响</td><td class="n">17</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-483</td><td class="loc">views-pre.js<span class="ln">:99</span></td><td class="txt">一个光子不会干涉，所以没有条纹<i class="tone">解释</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-492</td><td class="loc">views-pre.js<span class="ln">:112</span></td><td class="txt">未建立光源宽度与空间相干的关系</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-440</td><td class="loc">views-pre.js<span class="ln">:36</span></td><td class="txt">两束光相干的首要条件是什么？</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-495</td><td class="loc">views-pre.js<span class="ln">:115</span></td><td class="txt">系数 2 用错（多乘或少除）</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-499</td><td class="loc">views-pre.js<span class="ln">:143</span></td><td class="txt"> aria-label=&quot;把握 <i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-490</td><td class="loc">views-pre.js<span class="ln">:110</span></td><td class="txt">将偏振条件误作相干首要条件</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-502</td><td class="loc">views-pre.js<span class="ln">:146</span></td><td class="txt">写出判断依据（一句话即可）</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-451</td><td class="loc">views-pre.js<span class="ln">:50</span></td><td class="txt">条纹间距变大，对比度不变</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-461</td><td class="loc">views-pre.js<span class="ln">:71</span></td><td class="txt">Δφ = 1.5π，亮纹</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-469</td><td class="loc">views-pre.js<span class="ln">:81</span></td><td class="txt">与 Δλ 无关，无法计算</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-485</td><td class="loc">views-pre.js<span class="ln">:105</span></td><td class="txt">波长与条纹间距的关系记反</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-486</td><td class="loc">views-pre.js<span class="ln">:106</span></td><td class="txt">忽略缝距对条纹间距的影响</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-487</td><td class="loc">views-pre.js<span class="ln">:107</span></td><td class="txt">忽略波长对条纹间距的影响</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-497</td><td class="loc">views-pre.js<span class="ln">:117</span></td><td class="txt">误认为单光子不发生自干涉</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-504</td><td class="loc">views-pre.js<span class="ln">:196</span></td><td class="txt">&lt;h2 class=&quot;h-sec&quot; style=&quot;margin-top:14px&quot;&gt;先记录判断，&lt;br&gt;再进实验室。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-423</td><td class="loc">views-pre.js<span class="ln">:14</span></td><td class="txt">条纹间距不变，只是变暗</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-429</td><td class="loc">views-pre.js<span class="ln">:22</span></td><td class="txt">暗：相位相反，互相抵消</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-475</td><td class="loc">views-pre.js<span class="ln">:89</span></td><td class="txt">会，但只有中央一条亮纹</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-491</td><td class="loc">views-pre.js<span class="ln">:111</span></td><td class="txt">误认为同一光源必然相干</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-507</td><td class="loc">views-pre.js<span class="ln">:206</span></td><td class="txt">&lt;button class=&quot;btn btn--solid&quot; id=&quot;preNext&quot;&gt;保存判断，进入概念 &lt;span class=&quot;btn__arrow&quot;&gt;→&lt;/span&gt;&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-424</td><td class="loc">views-pre.js<span class="ln">:15</span></td><td class="txt">先变宽，调多了又变窄</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-449</td><td class="loc">views-pre.js<span class="ln">:48</span></td><td class="txt">更亮更清晰，光强更大</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-459</td><td class="loc">views-pre.js<span class="ln">:69</span></td><td class="txt">Δφ = 3π，暗纹</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-460</td><td class="loc">views-pre.js<span class="ln">:70</span></td><td class="txt">Δφ = 3π，亮纹</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-462</td><td class="loc">views-pre.js<span class="ln">:72</span></td><td class="txt">Δφ = 2π，亮纹</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-480</td><td class="loc">views-pre.js<span class="ln">:96</span></td><td class="txt">两条亮线，对应两个缝</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-496</td><td class="loc">views-pre.js<span class="ln">:116</span></td><td class="txt">相干长度量级估算错误</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-421</td><td class="loc">views-pre.js<span class="ln">:12</span></td><td class="txt">条纹变宽，间距变大</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-422</td><td class="loc">views-pre.js<span class="ln">:13</span></td><td class="txt">条纹变窄，间距变小</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-428</td><td class="loc">views-pre.js<span class="ln">:21</span></td><td class="txt">亮：两束光均已到达</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-437</td><td class="loc">views-pre.js<span class="ln">:32</span></td><td class="txt">不变，仅由缝距决定</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-442</td><td class="loc">views-pre.js<span class="ln">:39</span></td><td class="txt">两束光强度尽量相同</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-448</td><td class="loc">views-pre.js<span class="ln">:46</span></td><td class="txt">判断 · 光源宽度</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-465</td><td class="loc">views-pre.js<span class="ln">:76</span></td><td class="txt">迁移 · 时间相干</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-466</td><td class="loc">views-pre.js<span class="ln">:78</span></td><td class="txt">约 0.58 mm</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-472</td><td class="loc">views-pre.js<span class="ln">:85</span></td><td class="txt">迁移 · 空间相干</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-481</td><td class="loc">views-pre.js<span class="ln">:97</span></td><td class="txt">逐渐累积出干涉条纹</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-482</td><td class="loc">views-pre.js<span class="ln">:98</span></td><td class="txt">均匀铺满，没有结构</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-484</td><td class="loc">views-pre.js<span class="ln">:104</span></td><td class="txt">正比、反比关系记反</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-431</td><td class="loc">views-pre.js<span class="ln">:24</span></td><td class="txt">取决于两束光强度</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-444</td><td class="loc">views-pre.js<span class="ln">:41</span></td><td class="txt">偏振方向必须一致<i class="tone">断言</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-455</td><td class="loc">views-pre.js<span class="ln">:58</span></td><td class="txt">迁移 · 算一算</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-467</td><td class="loc">views-pre.js<span class="ln">:79</span></td><td class="txt">约 5.8 mm</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-468</td><td class="loc">views-pre.js<span class="ln">:80</span></td><td class="txt">约 0.58 m</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-473</td><td class="loc">views-pre.js<span class="ln">:87</span></td><td class="txt">会，只要缝足够细<i class="tone">断言</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-476</td><td class="loc">views-pre.js<span class="ln">:90</span></td><td class="txt">会，条纹间距更大</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-500</td><td class="loc">views-pre.js<span class="ln">:143</span></td><td class="txt">把握 &#x27;+n+&#x27;</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-420</td><td class="loc">views-pre.js<span class="ln">:10</span></td><td class="txt">判断 · 缝距</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-427</td><td class="loc">views-pre.js<span class="ln">:19</span></td><td class="txt">判断 · 明暗</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-434</td><td class="loc">views-pre.js<span class="ln">:28</span></td><td class="txt">判断 · 波长</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-441</td><td class="loc">views-pre.js<span class="ln">:37</span></td><td class="txt">判断 · 相干</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-458</td><td class="loc">views-pre.js<span class="ln">:67</span></td><td class="txt">迁移 · 相位</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-479</td><td class="loc">views-pre.js<span class="ln">:94</span></td><td class="txt">迁移 · 量子</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-452</td><td class="loc">views-pre.js<span class="ln">:51</span></td><td class="txt">条纹间距变小</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-470</td><td class="loc">views-pre.js<span class="ln">:83</span></td><td class="txt">空间相干迁移</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-494</td><td class="loc">views-pre.js<span class="ln">:114</span></td><td class="txt">单位换算错误</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-439</td><td class="loc">views-pre.js<span class="ln">:35</span></td><td class="txt">相干的含义</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-445</td><td class="loc">views-pre.js<span class="ln">:42</span></td><td class="txt">同源即相干</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-510</td><td class="loc">views-pre.js<span class="ln">:224</span></td><td class="txt"> 题未作答。<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-418</td><td class="loc">views-pre.js<span class="ln">:8</span></td><td class="txt">条纹间距</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-425</td><td class="loc">views-pre.js<span class="ln">:17</span></td><td class="txt">明暗判据</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-430</td><td class="loc">views-pre.js<span class="ln">:23</span></td><td class="txt">半明半暗</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-432</td><td class="loc">views-pre.js<span class="ln">:26</span></td><td class="txt">波长依赖</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-438</td><td class="loc">views-pre.js<span class="ln">:33</span></td><td class="txt">完全消失</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-446</td><td class="loc">views-pre.js<span class="ln">:44</span></td><td class="txt">空间相干</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-453</td><td class="loc">views-pre.js<span class="ln">:56</span></td><td class="txt">定量计算</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-463</td><td class="loc">views-pre.js<span class="ln">:74</span></td><td class="txt">相干长度</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-456</td><td class="loc">views-pre.js<span class="ln">:65</span></td><td class="txt">相位差</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-477</td><td class="loc">views-pre.js<span class="ln">:92</span></td><td class="txt">单光子</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-508</td><td class="loc">views-pre.js<span class="ln">:216</span></td><td class="txt">已回答 <i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-435</td><td class="loc">views-pre.js<span class="ln">:30</span></td><td class="txt">变宽</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-436</td><td class="loc">views-pre.js<span class="ln">:31</span></td><td class="txt">变窄</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-509</td><td class="loc">views-pre.js<span class="ln">:224</span></td><td class="txt">还有 <i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>概念导读<span class="cnt">71 条 · 1353 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-249</td><td class="loc">views-concept.js<span class="ln">:266</span></td><td class="txt">要求 d ≪ L、θ 很小。d 与 L 可比时 sinθ 不能近似为 y/L，条纹间距不再均匀。</td><td class="n">48</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-203</td><td class="loc">views-concept.js<span class="ln">:139</span></td><td class="txt">本实验在空气中进行（&lt;i&gt;n&lt;/i&gt; ≈ 1），光程差数值等于几何路程差；该等价仅在 &lt;i&gt;n&lt;/i&gt; = 1 时成立。<i class="chip">含排版标记</i></td><td class="n">46</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-213</td><td class="loc">views-concept.js<span class="ln">:173</span></td><td class="txt">两波叠加：相位差为 2π 整数倍时峰位重合，干涉加强；为 π 奇数倍时峰谷重合，干涉相消。</td><td class="n">45</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-219</td><td class="loc">views-concept.js<span class="ln">:184</span></td><td class="txt">&lt;span&gt;上式仅在 &lt;span class=&quot;mono&quot;&gt;d ≪ L&lt;/span&gt;、θ 很小条件下成立。d 接近 L 时须改用 &lt;span class=&quot;mono&quot;&gt;δ = d sinθ&lt;/span&gt;，<i class="chip">含排版标记</i></td><td class="n">44</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-253</td><td class="loc">views-concept.js<span class="ln">:268</span></td><td class="txt">Δy = λL/d 假定单色、线性介质与理想缝。实际缝有宽度，条纹受单缝衍射包络调制。</td><td class="n">43</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-251</td><td class="loc">views-concept.js<span class="ln">:267</span></td><td class="txt">仅计算强度叠加，忽略偏振。两束光偏振方向垂直时无干涉项，故偏振一致属相干条件之一。</td><td class="n">41</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-217</td><td class="loc">views-concept.js<span class="ln">:179</span></td><td class="txt">小角近似（&lt;span class=&quot;mono&quot;&gt;θ ≈ y/L&lt;/span&gt;）下，δ = d·y/L。代入亮纹条件可得相邻亮纹间距：&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-233</td><td class="loc">views-concept.js<span class="ln">:224</span></td><td class="txt">光程差超过 L_c 时，两束光来自不同波列，互不相干，该处呈平均亮度，条纹消失。</td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-205</td><td class="loc">views-concept.js<span class="ln">:143</span></td><td class="txt">&lt;span&gt;光程差与相位差相差因子 2π/λ，单位不同：前者为长度，后者为弧度（rad）。<i class="chip">含排版标记</i></td><td class="n">39</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-227</td><td class="loc">views-concept.js<span class="ln">:213</span></td><td class="txt">两束光须在观测时间内保持固定相位差。破坏该条件有两种情形：&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;谱线不纯&lt;/b&gt;使波列过短，<i class="chip">含排版标记</i></td><td class="n">39</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-255</td><td class="loc">views-concept.js<span class="ln">:274</span></td><td class="txt">进入实验台前先做一次预测：缝距加倍后，条纹间距变为原来的几分之一。先说，再量。&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">39</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-186</td><td class="loc">views-concept.js<span class="ln">:98</span></td><td class="txt">&lt;div class=&quot;paper__rail&quot; aria-hidden=&quot;true&quot;&gt;YDS-01 · 概念导读 · 光程 · 相干性 · 档案 ARCHIVE&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">37</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-236</td><td class="loc">views-concept.js<span class="ln">:228</span></td><td class="txt">光源宽度 b 使缝上各点接收的相位不同。b 超过临界值时两缝光场互不相关：&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">37</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-246</td><td class="loc">views-concept.js<span class="ln">:255</span></td><td class="txt">看的是条纹的「包络」。包络塌下去的地方，光还是亮的，只是两条光不再相干。</td><td class="n">36</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-197</td><td class="loc">views-concept.js<span class="ln">:131</span></td><td class="txt">相位由光行进的周期数决定。介质中光速较低，同样的几何长度对应更多波长。</td><td class="n">35</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-193</td><td class="loc">views-concept.js<span class="ln">:117</span></td><td class="txt">屏上每点亮度只由&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;光程差 δ&lt;/b&gt; 决定；δ 能否稳定存在，由相干性决定。<i class="chip">含排版标记</i></td><td class="n">33</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-210</td><td class="loc">views-concept.js<span class="ln">:157</span></td><td class="txt">δ 为缝距 d 在观察方向 θ 上的投影：&lt;span class=&quot;mono&quot;&gt;δ = d sinθ&lt;/span&gt;。<i class="chip">含排版标记</i></td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-185</td><td class="loc">views-concept.js<span class="ln">:13</span></td><td class="txt">双缝干涉几何：光程差 delta = d sin theta</td><td class="n">30</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-187</td><td class="loc">views-concept.js<span class="ln">:99</span></td><td class="txt">&lt;div class=&quot;paper__stamp&quot; aria-hidden=&quot;true&quot;&gt;&lt;b&gt;YDS-01&lt;/b&gt;&lt;span&gt;概念导读&lt;/span&gt;&lt;i&gt;CONCEPT / THEORY&lt;/i&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-209</td><td class="loc">views-concept.js<span class="ln">:156</span></td><td class="txt">在 S₁P 上截取等于 S₂P 的长度，余量即 δ。</td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-198</td><td class="loc">views-concept.js<span class="ln">:132</span></td><td class="txt">几何长度乘折射率 &lt;i&gt;n&lt;/i&gt; 即得&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;光程&lt;/b&gt;，光程直接决定相位。<i class="chip">含排版标记</i></td><td class="n">25</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-228</td><td class="loc">views-concept.js<span class="ln">:214</span></td><td class="txt">&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;光源过宽&lt;/b&gt;使缝上各点互不相关。两者在屏上表现一致：<i class="chip">含排版标记</i></td><td class="n">24</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-238</td><td class="loc">views-concept.js<span class="ln">:231</span></td><td class="txt">杨氏原实验用针孔限制光源尺寸，即针对这一情形。</td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-194</td><td class="loc">views-concept.js<span class="ln">:118</span></td><td class="txt">条纹、可见度与条纹消失均为这两条的直接推论。</td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-237</td><td class="loc">views-concept.js<span class="ln">:229</span></td><td class="txt">&lt;div class=&quot;eq&quot;&gt;&lt;span&gt;b&lt;sub&gt;临界&lt;/sub&gt; = λ R / d&lt;/span&gt;&lt;span style=&quot;margin-left:auto;font-size:12px;color:var(--paper-ink-3)&quot;&gt;R 为源到缝距&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">20</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-188</td><td class="loc">views-concept.js<span class="ln">:104</span></td><td class="txt">&lt;span&gt;&lt;b&gt;YDS-01&lt;/b&gt;&lt;i class=&quot;paper__strip-dot&quot;&gt;&lt;/i&gt;THEORY · 概念导读&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-224</td><td class="loc">views-concept.js<span class="ln">:200</span></td><td class="txt">&lt;div class=&quot;dimmer&quot; style=&quot;font-size:11.5px;margin-top:10px;line-height:1.65&quot;&gt;曲线由实验台当前参数计算，随参数变化。&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-229</td><td class="loc">views-concept.js<span class="ln">:215</span></td><td class="txt">&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;可见度 V&lt;/b&gt; 下降，条纹变糊并最终消失。<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-231</td><td class="loc">views-concept.js<span class="ln">:221</span></td><td class="txt">谱宽 Δλ 决定波列长度，即&lt;b style=&quot;color:var(--paper-ink)&quot;&gt;相干长度&lt;/b&gt;：&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-190</td><td class="loc">views-concept.js<span class="ln">:110</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;03&lt;/b&gt; / THEORY · 概念导读&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-220</td><td class="loc">views-concept.js<span class="ln">:185</span></td><td class="txt">条纹间距不再均匀；实验台会给出提示。&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-206</td><td class="loc">views-concept.js<span class="ln">:144</span></td><td class="txt">此处换算错误将直接使明暗判据失效。</td><td class="n">17</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-232</td><td class="loc">views-concept.js<span class="ln">:222</span></td><td class="txt">&lt;div class=&quot;eq&quot;&gt;&lt;span&gt;L&lt;sub&gt;c&lt;/sub&gt; = λ² / Δλ&lt;/span&gt;&lt;span style=&quot;margin-left:auto;font-size:12px;color:var(--paper-ink-3)&quot;&gt;矩形谱近似&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">17</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-189</td><td class="loc">views-concept.js<span class="ln">:105</span></td><td class="txt">&lt;span class=&quot;paper__strip-r&quot;&gt;档案 &lt;b&gt;003&lt;/b&gt; / 008&lt;i class=&quot;paper__strip-dot&quot;&gt;&lt;/i&gt;第二校次&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-202</td><td class="loc">views-concept.js<span class="ln">:137</span></td><td class="txt">&lt;span&gt;相位差 Δφ = 2πδ / λ&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-234</td><td class="loc">views-concept.js<span class="ln">:225</span></td><td class="txt">可观察的条纹级数约为 &lt;span class=&quot;mono&quot;&gt;λ/Δλ&lt;/span&gt;。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-216</td><td class="loc">views-concept.js<span class="ln">:177</span></td><td class="txt">&lt;div class=&quot;eq&quot; style=&quot;margin-top:8px&quot;&gt;&lt;span&gt;暗纹&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;δ = (k + ½) λ&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-191</td><td class="loc">views-concept.js<span class="ln">:111</span></td><td class="txt">&lt;h2 class=&quot;h-sec&quot; style=&quot;margin-top:14px;font-size:clamp(28px,4vw,52px)&quot;&gt;光程：&lt;br&gt;几何长度&lt;br&gt;折算为相位。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-241</td><td class="loc">views-concept.js<span class="ln">:240</span></td><td class="txt">&lt;div class=&quot;sld__scale&quot;&gt;&lt;span&gt;0 单色&lt;/span&gt;&lt;span&gt;150 nm 宽带&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-207</td><td class="loc">views-concept.js<span class="ln">:151</span></td><td class="txt">&lt;span class=&quot;figcap__t&quot;&gt;双缝几何 · 光程差构造&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-222</td><td class="loc">views-concept.js<span class="ln">:196</span></td><td class="txt">&lt;tr&gt;&lt;td&gt;当前 λ / d / L&lt;/td&gt;&lt;td class=&quot;num&quot; id=&quot;cPd&quot; style=&quot;text-align:right&quot;&gt;&lt;/td&gt;&lt;/tr&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-211</td><td class="loc">views-concept.js<span class="ln">:166</span></td><td class="txt">&lt;span class=&quot;sec-rule__t&quot;&gt;&lt;i&gt;&lt;/i&gt;明暗条件 · 条纹间距&lt;i&gt;&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-243</td><td class="loc">views-concept.js<span class="ln">:247</span></td><td class="txt">&lt;div class=&quot;sld__scale&quot;&gt;&lt;span&gt;0 点源&lt;/span&gt;&lt;span&gt;1.50 mm&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-196</td><td class="loc">views-concept.js<span class="ln">:129</span></td><td class="txt">&lt;h3 class=&quot;h-sub&quot; style=&quot;font-size:22px;margin:0 0 14px;font-family:var(--serif);font-weight:600&quot;&gt;光程与几何长度的区别&lt;/h3&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-201</td><td class="loc">views-concept.js<span class="ln">:136</span></td><td class="txt">&lt;div class=&quot;eq&quot; style=&quot;margin-top:8px&quot;&gt;&lt;span&gt;两根光线的&lt;b&gt;光程差&lt;/b&gt;&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;δ&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;⇒&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-225</td><td class="loc">views-concept.js<span class="ln">:208</span></td><td class="txt">&lt;span class=&quot;sec-rule__t&quot;&gt;&lt;i&gt;&lt;/i&gt;相干条件 · 可见度&lt;i&gt;&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-212</td><td class="loc">views-concept.js<span class="ln">:171</span></td><td class="txt">&lt;h3 class=&quot;h-sub&quot; style=&quot;font-size:22px;margin:0 0 16px;font-family:var(--serif);font-weight:600&quot;&gt;相干叠加的明暗条件&lt;/h3&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-215</td><td class="loc">views-concept.js<span class="ln">:175</span></td><td class="txt">&lt;div class=&quot;eq&quot;&gt;&lt;span&gt;亮纹&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;δ = k λ&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-221</td><td class="loc">views-concept.js<span class="ln">:190</span></td><td class="txt">&lt;div class=&quot;panel__hd&quot; style=&quot;border:0;padding:0 0 10px&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;屏上强度 I(y)&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-244</td><td class="loc">views-concept.js<span class="ln">:251</span></td><td class="txt">&lt;div&gt;&lt;div class=&quot;eyebrow&quot; style=&quot;font-size:9px;color:var(--paper-ink-2)&quot;&gt;可见度 V&lt;/div&gt;&lt;div class=&quot;mono&quot; id=&quot;vV&quot; style=&quot;font-size:18px&quot;&gt;1.00&lt;/div&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-245</td><td class="loc">views-concept.js<span class="ln">:252</span></td><td class="txt">&lt;div&gt;&lt;div class=&quot;eyebrow&quot; style=&quot;font-size:9px;color:var(--paper-ink-2)&quot;&gt;相干长度 L_c&lt;/div&gt;&lt;div class=&quot;mono&quot; id=&quot;vLc&quot; style=&quot;font-size:18px&quot;&gt;∞&lt;/div&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-192</td><td class="loc">views-concept.js<span class="ln">:114</span></td><td class="txt">四节&lt;br&gt;约 8 分钟&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-199</td><td class="loc">views-concept.js<span class="ln">:134</span></td><td class="txt">&lt;div class=&quot;eq&quot;&gt;&lt;span&gt;光程&lt;/span&gt;&lt;span class=&quot;v&quot;&gt;=&lt;/span&gt;&lt;span&gt;&lt;i&gt;n&lt;/i&gt; · &lt;i&gt;s&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-208</td><td class="loc">views-concept.js<span class="ln">:152</span></td><td class="txt">&lt;span class=&quot;figcap__s&quot;&gt;示意 · 非等比&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-214</td><td class="loc">views-concept.js<span class="ln">:174</span></td><td class="txt">按光程差写出即：&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-230</td><td class="loc">views-concept.js<span class="ln">:219</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;color:var(--paper-ink-2)&quot;&gt;A · 时间相干&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-235</td><td class="loc">views-concept.js<span class="ln">:226</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;color:var(--paper-ink-2);margin-top:28px&quot;&gt;B · 空间相干&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-200</td><td class="loc">views-concept.js<span class="ln">:135</span></td><td class="txt">&lt;span style=&quot;margin-left:auto;color:var(--paper-ink-3);font-size:12px&quot;&gt;s 为几何长度&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-223</td><td class="loc">views-concept.js<span class="ln">:197</span></td><td class="txt">&lt;tr&gt;&lt;td&gt;条纹间距 Δy&lt;/td&gt;&lt;td class=&quot;num&quot; id=&quot;cDy&quot; style=&quot;text-align:right&quot;&gt;&lt;/td&gt;&lt;/tr&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-226</td><td class="loc">views-concept.js<span class="ln">:211</span></td><td class="txt">&lt;h3 class=&quot;h-sub&quot; style=&quot;font-size:22px;margin:0 0 12px;font-family:var(--serif);font-weight:600&quot;&gt;相干性与可见度&lt;/h3&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-240</td><td class="loc">views-concept.js<span class="ln">:236</span></td><td class="txt">&lt;div class=&quot;sld__top&quot;&gt;&lt;span class=&quot;sld__nm&quot;&gt;光谱宽度 &lt;i&gt;Δλ&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-247</td><td class="loc">views-concept.js<span class="ln">:262</span></td><td class="txt">&lt;span class=&quot;sec-rule__t&quot;&gt;&lt;i&gt;&lt;/i&gt;模型的适用边界&lt;i&gt;&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-252</td><td class="loc">views-concept.js<span class="ln">:268</span></td><td class="txt">单色 + 线性</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-254</td><td class="loc">views-concept.js<span class="ln">:272</span></td><td class="txt">&lt;button class=&quot;btn btn--solid&quot; id=&quot;toLab&quot;&gt;进入实验台 &lt;span class=&quot;btn__arrow&quot;&gt;→&lt;/span&gt;&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-195</td><td class="loc">views-concept.js<span class="ln">:124</span></td><td class="txt">&lt;span class=&quot;sec-rule__t&quot;&gt;&lt;i&gt;&lt;/i&gt;光程与光程差&lt;i&gt;&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-242</td><td class="loc">views-concept.js<span class="ln">:243</span></td><td class="txt">&lt;div class=&quot;sld__top&quot;&gt;&lt;span class=&quot;sld__nm&quot;&gt;光源宽度 &lt;i&gt;b&lt;/i&gt;&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-239</td><td class="loc">views-concept.js<span class="ln">:234</span></td><td class="txt">&lt;div class=&quot;panel__hd&quot; style=&quot;border:0;padding:0 0 12px&quot;&gt;&lt;span class=&quot;dot&quot;&gt;&lt;/span&gt;相干性调节&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-250</td><td class="loc">views-concept.js<span class="ln">:267</span></td><td class="txt">标量波近似</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-248</td><td class="loc">views-concept.js<span class="ln">:266</span></td><td class="txt">小角近似</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-204</td><td class="loc">views-concept.js<span class="ln">:142</span></td><td class="txt">&lt;span class=&quot;note__k&quot;&gt;陷阱&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-218</td><td class="loc">views-concept.js<span class="ln">:183</span></td><td class="txt">&lt;span class=&quot;note__k&quot;&gt;边界&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>实验台<span class="cnt">121 条 · 1645 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-305</td><td class="loc">views-lab.js<span class="ln">:27</span></td><td class="txt">将 Δλ 推至 60 nm 附近：中央条纹位置基本不变，两侧先变糊。0.1 nm 窄线光源相干长度达数十厘米，可见上千级。</td><td class="n">61</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-318</td><td class="loc">views-lab.js<span class="ln">:40</span></td><td class="txt">仅 b 可变。b 决定两缝处光场的空间相干性，临界值 b = λR/d；推至该值附近可观察到可见度归零。</td><td class="n">52</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-304</td><td class="loc">views-lab.js<span class="ln">:25</span></td><td class="txt">仅 Δλ 可变。相干长度 L_c = λ²/Δλ；Δλ 增至数十纳米（白光量级）时条纹在数十级内消失。</td><td class="n">51</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-319</td><td class="loc">views-lab.js<span class="ln">:42</span></td><td class="txt">当前参数下临界宽度 b = λR/d ≈ 1.27 mm。推至该值附近，可见度趋近 0。</td><td class="n">44</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-292</td><td class="loc">views-lab.js<span class="ln">:12</span></td><td class="txt">单一变量。d 改变后，同一 y 处光程差随之改变，亮纹须落在新的 δ = kλ 处。</td><td class="n">42</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-293</td><td class="loc">views-lab.js<span class="ln">:13</span></td><td class="txt">d 由 0.30 mm 增至 0.60 mm（2 倍），条纹间距 Δy 变为原来的：</td><td class="n">42</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-298</td><td class="loc">views-lab.js<span class="ln">:19</span></td><td class="txt">d 增大使同一 y 处 δ = d·y/L 增大，亮纹条件在更小的 y 上即满足</td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-361</td><td class="loc">views-lab.js<span class="ln">:174</span></td><td class="txt">&lt;div class=&quot;note note--quiet&quot; style=&quot;margin-top:14px&quot;&gt;&lt;span class=&quot;note__k&quot;&gt;FREE&lt;/span&gt;&lt;span&gt;自由探索：六项参数全部解锁，结论不进入任务档案，记录与轨迹照常保存。&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">38</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-291</td><td class="loc">views-lab.js<span class="ln">:10</span></td><td class="txt">仅 d 可变（L、λ 锁定）。观察条纹变宽或变密，并用记录数据说明原因。</td><td class="n">36</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-333</td><td class="loc">views-lab.js<span class="ln">:57</span></td><td class="txt">落点位置随机，抽样概率由 cos²(πδ/λ) 决定，需等待累积。</td><td class="n">33</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-332</td><td class="loc">views-lab.js<span class="ln">:55</span></td><td class="txt">光强降至单光子水平。本任务无参数实验，仅观察散点累积成条纹。</td><td class="n">30</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-326</td><td class="loc">views-lab.js<span class="ln">:49</span></td><td class="txt">光源各点各自形成一套条纹，位置错开，叠加后亮暗互相填平</td><td class="n">27</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-341</td><td class="loc">views-lab.js<span class="ln">:65</span></td><td class="txt">每个光子落点概率由两条路径的光程差决定，条纹即概率分布</td><td class="n">27</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-306</td><td class="loc">views-lab.js<span class="ln">:28</span></td><td class="txt">Δλ 由 0 增至数十 nm（白光量级），屏上条纹：</td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-297</td><td class="loc">views-lab.js<span class="ln">:18</span></td><td class="txt">用记录的两组数据说明：d 增大时条纹为何变密？</td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-348</td><td class="loc">views-lab.js<span class="ln">:128</span></td><td class="txt">线性标量波模型 · 理想双缝&lt;br&gt;参数与停留全程记录&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-357</td><td class="loc">views-lab.js<span class="ln">:163</span></td><td class="txt">可见光谱 380—780 nm，白线是当前 λ</td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-311</td><td class="loc">views-lab.js<span class="ln">:33</span></td><td class="txt">为何离中央远处先失去条纹，而非整片同时变糊？</td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-322</td><td class="loc">views-lab.js<span class="ln">:45</span></td><td class="txt">对比度持续下降，b ≈ λR/d 时条纹消失</td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-336</td><td class="loc">views-lab.js<span class="ln">:60</span></td><td class="txt">每个光子同时经过两条缝，落点概率由光程差决定</td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-391</td><td class="loc">views-lab.js<span class="ln">:311</span></td><td class="txt">条纹间距小于 20 μm，低于常规观察分辨率</td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-399</td><td class="loc">views-lab.js<span class="ln">:396</span></td><td class="txt">&lt;div class=&quot;reclist__empty&quot;&gt;暂无数据。调参后点击「＋ 记录这一组数据」。&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-308</td><td class="loc">views-lab.js<span class="ln">:30</span></td><td class="txt">两侧先消失：离中央越远越糊，可见条纹数减少</td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-335</td><td class="loc">views-lab.js<span class="ln">:59</span></td><td class="txt">每个光子随机选择一条缝，屏上应出现两条亮线</td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-312</td><td class="loc">views-lab.js<span class="ln">:34</span></td><td class="txt">离中央越远光程差越大，更早超出 L_c</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-320</td><td class="loc">views-lab.js<span class="ln">:43</span></td><td class="txt">b 由 0 增至临界值附近，屏上条纹：</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-339</td><td class="loc">views-lab.js<span class="ln">:63</span></td><td class="txt">单光子逐个到达，累积后为何仍出现条纹？</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-367</td><td class="loc">views-lab.js<span class="ln">:206</span></td><td class="txt">写出依据：引用记录到的数值或曲线变化。</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-299</td><td class="loc">views-lab.js<span class="ln">:20</span></td><td class="txt">d 增大使单缝出射光减弱，条纹被压缩</td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-334</td><td class="loc">views-lab.js<span class="ln">:58</span></td><td class="txt">单光子逐个通过双缝时，从哪条缝通过？</td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-346</td><td class="loc">views-lab.js<span class="ln">:123</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;04&lt;/b&gt; / LAB · 控制变量实验&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">17</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-296</td><td class="loc">views-lab.js<span class="ln">:16</span></td><td class="txt">不变：Δy 仅由 λ、L 决定</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-301</td><td class="loc">views-lab.js<span class="ln">:22</span></td><td class="txt">d 增大使光程差减小，条纹变密</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-404</td><td class="loc">views-lab.js<span class="ln">:457</span></td><td class="txt">理由过短，请写出记录到的数值。<i class="tone">祈使</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-325</td><td class="loc">views-lab.js<span class="ln">:48</span></td><td class="txt">光源宽度增大后条纹为何消失？</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-343</td><td class="loc">views-lab.js<span class="ln">:67</span></td><td class="txt">光子实为连续波，仅表现为粒子</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-363</td><td class="loc">views-lab.js<span class="ln">:192</span></td><td class="txt">&lt;div class=&quot;chip chip--jade&quot;&gt;预测已锁定 · 开始调节参数&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-394</td><td class="loc">views-lab.js<span class="ln">:314</span></td><td class="txt">光源宽度 b / b临界 = <i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-294</td><td class="loc">views-lab.js<span class="ln">:14</span></td><td class="txt">2 倍：缝距增大，条纹变宽</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-295</td><td class="loc">views-lab.js<span class="ln">:15</span></td><td class="txt">1/2：缝距增大，条纹变密</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-327</td><td class="loc">views-lab.js<span class="ln">:50</span></td><td class="txt">宽光源光强过大，条纹被冲白</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-329</td><td class="loc">views-lab.js<span class="ln">:52</span></td><td class="txt">缝被照亮更充分，条纹被平均</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-338</td><td class="loc">views-lab.js<span class="ln">:62</span></td><td class="txt">单光子不产生干涉，分布均匀</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-383</td><td class="loc">views-lab.js<span class="ln">:293</span></td><td class="txt">已吸附亮纹中心 · m = <i class="chip">含排版标记</i></td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-384</td><td class="loc">views-lab.js<span class="ln">:294</span></td><td class="txt">已吸附暗纹中心 · m = <i class="chip">含排版标记</i></td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-402</td><td class="loc">views-lab.js<span class="ln">:432</span></td><td class="txt">预测已锁定，开始调节参数。</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-337</td><td class="loc">views-lab.js<span class="ln">:61</span></td><td class="txt">光子互相碰撞，聚集于中央</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-340</td><td class="loc">views-lab.js<span class="ln">:64</span></td><td class="txt">大量光子之间存在相互作用</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-344</td><td class="loc">views-lab.js<span class="ln">:118</span></td><td class="txt">&lt;span class=&quot;labrail__t&quot;&gt;LAB · 单一变量实验&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-353</td><td class="loc">views-lab.js<span class="ln">:154</span></td><td class="txt">&lt;div class=&quot;chip chip--quiet&quot; id=&quot;modelChip&quot;&gt;理想双缝 · 线性标量波&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-387</td><td class="loc">views-lab.js<span class="ln">:297</span></td><td class="txt">暗纹附近 · δ ≈ (</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-388</td><td class="loc">views-lab.js<span class="ln">:309</span></td><td class="txt">小角近似失效：d/L = <i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-390</td><td class="loc">views-lab.js<span class="ln">:310</span></td><td class="txt">小角近似成立：d/L = <i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-310</td><td class="loc">views-lab.js<span class="ln">:32</span></td><td class="txt">无影响，谱宽仅改变颜色</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-382</td><td class="loc">views-lab.js<span class="ln">:290</span></td><td class="txt">&lt;div class=&quot;probe__row&quot;&gt;&lt;span&gt;相对强度 I/I&lt;sub&gt;max&lt;/sub&gt;&lt;/span&gt;&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-385</td><td class="loc">views-lab.js<span class="ln">:295</span></td><td class="txt">明暗之间 · 相位连续</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-400</td><td class="loc">views-lab.js<span class="ln">:415</span></td><td class="txt">预测已锁定，不可修改。</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-300</td><td class="loc">views-lab.js<span class="ln">:21</span></td><td class="txt">d 增大使波长被压缩</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-307</td><td class="loc">views-lab.js<span class="ln">:29</span></td><td class="txt">整体变暗，条纹数不变</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-314</td><td class="loc">views-lab.js<span class="ln">:36</span></td><td class="txt">宽谱光在边缘发生色散</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-342</td><td class="loc">views-lab.js<span class="ln">:66</span></td><td class="txt">探测器存在规律性抖动</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-347</td><td class="loc">views-lab.js<span class="ln">:124</span></td><td class="txt">&lt;h2 class=&quot;h-sec&quot; style=&quot;margin-top:12px&quot;&gt;单一变量，&lt;br&gt;数据判定。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-349</td><td class="loc">views-lab.js<span class="ln">:142</span></td><td class="txt">&gt;&lt;span class=&quot;tasktab__n&quot;&gt;&lt;b class=&quot;tasktab__r&quot;&gt;✦&lt;/b&gt;&lt;i&gt;FREE&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;tasktab__t&quot;&gt;自由探索&lt;/span&gt;&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-386</td><td class="loc">views-lab.js<span class="ln">:296</span></td><td class="txt">亮纹附近 · δ ≈ <i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-396</td><td class="loc">views-lab.js<span class="ln">:316</span></td><td class="txt"> vs 屏上最大光程差 <i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-408</td><td class="loc">views-lab.js<span class="ln">:469</span></td><td class="txt">本任务尚未提交结论。</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-290</td><td class="loc">views-lab.js<span class="ln">:9</span></td><td class="txt">光程差：条纹从哪来</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-303</td><td class="loc">views-lab.js<span class="ln">:24</span></td><td class="txt">谱线宽度：时间相干</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-315</td><td class="loc">views-lab.js<span class="ln">:37</span></td><td class="txt">谱宽增大会改变波长</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-317</td><td class="loc">views-lab.js<span class="ln">:39</span></td><td class="txt">光源宽度：空间相干</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-324</td><td class="loc">views-lab.js<span class="ln">:47</span></td><td class="txt">波长改变，颜色偏移</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-328</td><td class="loc">views-lab.js<span class="ln">:51</span></td><td class="txt">宽光源波长范围更大</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-358</td><td class="loc">views-lab.js<span class="ln">:166</span></td><td class="txt">&lt;button class=&quot;btn btn--wide btn--sm&quot; id=&quot;btnRecord&quot;&gt;＋ 记录这一组数据&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-366</td><td class="loc">views-lab.js<span class="ln">:200</span></td><td class="txt">&lt;div class=&quot;tstep&quot; data-st=&quot;C&quot;&gt;&lt;div class=&quot;tstep__k&quot;&gt;C · 结论与依据&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-372</td><td class="loc">views-lab.js<span class="ln">:263</span></td><td class="txt">可见度 V（边缘）</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-321</td><td class="loc">views-lab.js<span class="ln">:44</span></td><td class="txt">更清晰，光强更大</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-323</td><td class="loc">views-lab.js<span class="ln">:46</span></td><td class="txt">条纹间距逐渐增大</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-374</td><td class="loc">views-lab.js<span class="ln">:265</span></td><td class="txt">相干长度 L_c</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-389</td><td class="loc">views-lab.js<span class="ln">:309</span></td><td class="txt">%，条纹不等间距</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-406</td><td class="loc">views-lab.js<span class="ln">:462</span></td><td class="txt">可进入下一任务。</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-407</td><td class="loc">views-lab.js<span class="ln">:462</span></td><td class="txt">四个任务已完成。</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-313</td><td class="loc">views-lab.js<span class="ln">:35</span></td><td class="txt">屏边缘光强本低</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-370</td><td class="loc">views-lab.js<span class="ln">:216</span></td><td class="txt">&lt;button class=&quot;btn&quot; id=&quot;btnNextTask&quot;&gt;下一个任务 &lt;span class=&quot;btn__arrow&quot;&gt;→&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-371</td><td class="loc">views-lab.js<span class="ln">:262</span></td><td class="txt">条纹间距 Δy</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-373</td><td class="loc">views-lab.js<span class="ln">:264</span></td><td class="txt">可观察条纹级数</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-392</td><td class="loc">views-lab.js<span class="ln">:312</span></td><td class="txt">可见度 V = <i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-401</td><td class="loc">views-lab.js<span class="ln">:427</span></td><td class="txt">请先选择预测。<i class="tone">祈使</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-403</td><td class="loc">views-lab.js<span class="ln">:456</span></td><td class="txt">请先选择结论。<i class="tone">祈使</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-309</td><td class="loc">views-lab.js<span class="ln">:31</span></td><td class="txt">条纹间距变大</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-331</td><td class="loc">views-lab.js<span class="ln">:54</span></td><td class="txt">一次一个光子</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-362</td><td class="loc">views-lab.js<span class="ln">:184</span></td><td class="txt">&lt;div class=&quot;tstep&quot; data-st=&quot;A&quot;&gt;&lt;div class=&quot;tstep__k&quot;&gt;A · 预测&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-365</td><td class="loc">views-lab.js<span class="ln">:196</span></td><td class="txt">&lt;div class=&quot;tstep&quot; data-st=&quot;B&quot;&gt;&lt;div class=&quot;tstep__k&quot;&gt;B · 测量&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-368</td><td class="loc">views-lab.js<span class="ln">:208</span></td><td class="txt">&lt;button class=&quot;btn btn--solid btn--sm&quot; id=&quot;btnSubmit&quot;&gt;提交结论 →&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-380</td><td class="loc">views-lab.js<span class="ln">:288</span></td><td class="txt">&lt;div class=&quot;probe__row&quot;&gt;&lt;span&gt;相位差 Δφ&lt;/span&gt;&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-381</td><td class="loc">views-lab.js<span class="ln">:289</span></td><td class="txt">&lt;div class=&quot;probe__row&quot;&gt;&lt;span&gt;折算级数 m&lt;/span&gt;&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-393</td><td class="loc">views-lab.js<span class="ln">:312</span></td><td class="txt">，条纹不可见</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-289</td><td class="loc">views-lab.js<span class="ln">:9</span></td><td class="txt">任务 01</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-302</td><td class="loc">views-lab.js<span class="ln">:24</span></td><td class="txt">任务 02</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-316</td><td class="loc">views-lab.js<span class="ln">:39</span></td><td class="txt">任务 03</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-330</td><td class="loc">views-lab.js<span class="ln">:54</span></td><td class="txt">任务 04</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-375</td><td class="loc">views-lab.js<span class="ln">:266</span></td><td class="txt">到达光子数</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-378</td><td class="loc">views-lab.js<span class="ln">:286</span></td><td class="txt">&lt;div class=&quot;probe__hd&quot;&gt;探测点 P&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-379</td><td class="loc">views-lab.js<span class="ln">:287</span></td><td class="txt">&lt;div class=&quot;probe__row&quot;&gt;&lt;span&gt;光程差 δ&lt;/span&gt;&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-409</td><td class="loc">views-lab.js<span class="ln">:489</span></td><td class="txt">请先提交「<i class="tone">祈使</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-345</td><td class="loc">views-lab.js<span class="ln">:119</span></td><td class="txt">自由探索</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-354</td><td class="loc">views-lab.js<span class="ln">:162</span></td><td class="txt">&lt;div class=&quot;ctrl-hd&quot;&gt;&lt;span&gt;参数面板&lt;/span&gt;&lt;span class=&quot;mono&quot; id=&quot;lockNote&quot; style=&quot;font-size:9px;color:var(--ink-3)&quot;&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-355</td><td class="loc">views-lab.js<span class="ln">:162</span></td><td class="txt">全部解锁</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-364</td><td class="loc">views-lab.js<span class="ln">:193</span></td><td class="txt">&lt;button class=&quot;btn btn--sm&quot; id=&quot;btnLockPred&quot;&gt;锁定预测&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-376</td><td class="loc">views-lab.js<span class="ln">:267</span></td><td class="txt">该点 δ</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-377</td><td class="loc">views-lab.js<span class="ln">:267</span></td><td class="txt">点击屏幕</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-395</td><td class="loc">views-lab.js<span class="ln">:316</span></td><td class="txt">相干长度 <i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-398</td><td class="loc">views-lab.js<span class="ln">:388</span></td><td class="txt"> 组数据。<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-405</td><td class="loc">views-lab.js<span class="ln">:462</span></td><td class="txt">已提交。</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-351</td><td class="loc">views-lab.js<span class="ln">:151</span></td><td class="txt">&lt;button data-mode=&quot;photon&quot;&gt;单光子&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-359</td><td class="loc">views-lab.js<span class="ln">:167</span></td><td class="txt">&lt;div class=&quot;dimmer mono&quot; style=&quot;font-size:9px;letter-spacing:.14em;margin-top:9px;text-align:center&quot;&gt;已记录 &lt;b id=&quot;recN&quot; style=&quot;color:var(--ink-1)&quot;&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-360</td><td class="loc">views-lab.js<span class="ln">:168</span></td><td class="txt">&lt;button class=&quot;btn btn--wide btn--sm btn--ghost&quot; id=&quot;btnTutor&quot; style=&quot;margin-top:10px&quot;&gt;问助教&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-369</td><td class="loc">views-lab.js<span class="ln">:209</span></td><td class="txt">已提交</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-397</td><td class="loc">views-lab.js<span class="ln">:388</span></td><td class="txt">已记录 <i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-350</td><td class="loc">views-lab.js<span class="ln">:150</span></td><td class="txt">&lt;button data-mode=&quot;wave&quot; data-on&gt;光场&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-352</td><td class="loc">views-lab.js<span class="ln">:152</span></td><td class="txt">&lt;button data-mode=&quot;fringe&quot;&gt;曲线&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-356</td><td class="loc">views-lab.js<span class="ln">:162</span></td><td class="txt">锁定 <i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>后测<span class="cnt">8 条 · 97 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-413</td><td class="loc">views-post.js<span class="ln">:31</span></td><td class="txt">与前测同维度，另含迁移题。提交后生成前测—后测对照表，该表不计分。</td><td class="n">33</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-410</td><td class="loc">views-post.js<span class="ln">:11</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;05&lt;/b&gt; / POST-TEST · 后测&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-411</td><td class="loc">views-post.js<span class="ln">:15</span></td><td class="txt">与前测同维度 · 5 题&lt;br&gt;含迁移题&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-412</td><td class="loc">views-post.js<span class="ln">:30</span></td><td class="txt">再答一次，&lt;br&gt;与实验前对照。<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-414</td><td class="loc">views-post.js<span class="ln">:32</span></td><td class="txt">提交并查看复盘</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-417</td><td class="loc">views-post.js<span class="ln">:46</span></td><td class="txt"> 题未作答。<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-415</td><td class="loc">views-post.js<span class="ln">:39</span></td><td class="txt">已回答 <i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-416</td><td class="loc">views-post.js<span class="ln">:46</span></td><td class="txt">还有 <i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>复盘<span class="cnt">74 条 · 497 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-566</td><td class="loc">views-review.js<span class="ln">:140</span></td><td class="txt">完整档案（参数改动、停留时长、卡点、提问、理由）保存在本机。</td><td class="n">30</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-567</td><td class="loc">views-review.js<span class="ln">:141</span></td><td class="txt">导出 JSON 交教师；导出 CSV 可直接进表格。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-557</td><td class="loc">views-review.js<span class="ln">:104</span></td><td class="txt">&lt;div class=&quot;note note--quiet&quot;&gt;&lt;span class=&quot;note__k&quot;&gt;—&lt;/span&gt;&lt;span&gt;无错因标签：前测与后测均命中正确选项。&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">20</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-540</td><td class="loc">views-review.js<span class="ln">:65</span></td><td class="txt">层级仅用于教学干预建议，不计入成绩。&lt;/div&gt;&lt;/div&gt;<i class="chip">含排版标记</i><i class="tone">鼓励</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-542</td><td class="loc">views-review.js<span class="ln">:72</span></td><td class="txt">&lt;p class=&quot;arc__sub&quot;&gt;层级仅用于教学干预建议，不计入成绩。&lt;/p&gt;<i class="chip">含排版标记</i><i class="tone">鼓励</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-545</td><td class="loc">views-review.js<span class="ln">:76</span></td><td class="txt">），仅用于调整下次进入时的提示顺序；</td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-538</td><td class="loc">views-review.js<span class="ln">:60</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;06&lt;/b&gt; / REVIEW · 复盘&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-555</td><td class="loc">views-review.js<span class="ln">:94</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:12px&quot;&gt;前测 → 后测 · 同一维度对照&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-547</td><td class="loc">views-review.js<span class="ln">:81</span></td><td class="txt">&lt;div class=&quot;arc__sideh&quot;&gt;支撑数据 · EVIDENCE&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-561</td><td class="loc">views-review.js<span class="ln">:118</span></td><td class="txt">&lt;div class=&quot;note note--quiet&quot;&gt;&lt;span class=&quot;note__k&quot;&gt;—&lt;/span&gt;&lt;span&gt;尚无已提交任务，无对照数据。&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-544</td><td class="loc">views-review.js<span class="ln">:76</span></td><td class="txt"> 另有一项内部掌握度指标（当前 <i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-546</td><td class="loc">views-review.js<span class="ln">:77</span></td><td class="txt">不参与层级判定，不计入成绩。&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-562</td><td class="loc">views-review.js<span class="ln">:122</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:12px&quot;&gt;操作记录 · 最近 16 条&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-559</td><td class="loc">views-review.js<span class="ln">:114</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:12px&quot;&gt;预测 · 实测 · 结论&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-560</td><td class="loc">views-review.js<span class="ln">:116</span></td><td class="txt">&lt;thead&gt;&lt;tr&gt;&lt;th&gt;任务&lt;/th&gt;&lt;th&gt;预测&lt;/th&gt;&lt;th&gt;实测数据&lt;/th&gt;&lt;th&gt;结论&lt;/th&gt;&lt;th&gt;自洽&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-574</td><td class="loc">views-review.js<span class="ln">:155</span></td><td class="txt">&lt;button class=&quot;btn btn--solid&quot; id=&quot;toPrintBtn&quot;&gt;打印 / 存 PDF &lt;span class=&quot;btn__arrow&quot;&gt;→&lt;/span&gt;&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-539</td><td class="loc">views-review.js<span class="ln">:61</span></td><td class="txt">&lt;h2 class=&quot;h-sec&quot; style=&quot;margin-top:14px&quot;&gt;本次实验的&lt;br&gt;记录与判定。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-522</td><td class="loc">views-review.js<span class="ln">:40</span></td><td class="txt">光子散点累积（定性）</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-541</td><td class="loc">views-review.js<span class="ln">:70</span></td><td class="txt">&lt;div class=&quot;arc__eyebrow&quot;&gt;&lt;span class=&quot;arc__n&quot;&gt;I.&lt;/span&gt;&lt;i&gt;分层判定&lt;/i&gt;&lt;span class=&quot;arc__tag&quot;&gt;TIER&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-581</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">总用时(min)</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-514</td><td class="loc">views-review.js<span class="ln">:26</span></td><td class="txt">A · 方法级</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-515</td><td class="loc">views-review.js<span class="ln">:26</span></td><td class="txt">B · 了解级</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-516</td><td class="loc">views-review.js<span class="ln">:26</span></td><td class="txt">C · 需关注</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-517</td><td class="loc">views-review.js<span class="ln">:26</span></td><td class="txt">— · 未评级</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-524</td><td class="loc">views-review.js<span class="ln">:44</span></td><td class="txt">预测错·已修正</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-568</td><td class="loc">views-review.js<span class="ln">:143</span></td><td class="txt">&lt;button class=&quot;btn btn--sm&quot; id=&quot;expJson&quot;&gt;导出 JSON&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-569</td><td class="loc">views-review.js<span class="ln">:144</span></td><td class="txt">&lt;button class=&quot;btn btn--sm&quot; id=&quot;expCsv&quot;&gt;导出 CSV&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-558</td><td class="loc">views-review.js<span class="ln">:105</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin:26px 0 12px&quot;&gt;个性化路径&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-575</td><td class="loc">views-review.js<span class="ln">:156</span></td><td class="txt">&lt;button class=&quot;btn&quot; id=&quot;toLab&quot;&gt;返回实验台&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-526</td><td class="loc">views-review.js<span class="ln">:53</span></td><td class="txt">进入步骤</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-531</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">记录数据</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-533</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">切换任务</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-536</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">切换视图</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-543</td><td class="loc">views-review.js<span class="ln">:74</span></td><td class="txt">&lt;span class=&quot;arc-note__k&quot;&gt;判定依据&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-550</td><td class="loc">views-review.js<span class="ln">:84</span></td><td class="txt">实验记录</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-551</td><td class="loc">views-review.js<span class="ln">:85</span></td><td class="txt">参数改动</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-552</td><td class="loc">views-review.js<span class="ln">:86</span></td><td class="txt">求助提问</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-556</td><td class="loc">views-review.js<span class="ln">:98</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:12px&quot;&gt;错因标签&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-565</td><td class="loc">views-review.js<span class="ln">:137</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:12px&quot;&gt;档案导出&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-573</td><td class="loc">views-review.js<span class="ln">:151</span></td><td class="txt">档案生成 <i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-579</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">实验提交</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-583</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">错因标签</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-584</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">更新时间</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-511</td><td class="loc">views-review.js<span class="ln">:13</span></td><td class="txt">未作答</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-512</td><td class="loc">views-review.js<span class="ln">:17</span></td><td class="txt">&lt;div class=&quot;cmp__a&quot;&gt;前测：&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-513</td><td class="loc">views-review.js<span class="ln">:18</span></td><td class="txt">&lt;div class=&quot;cmp__a&quot;&gt;后测：&lt;b&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-518</td><td class="loc">views-review.js<span class="ln">:27</span></td><td class="txt">方法级</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-519</td><td class="loc">views-review.js<span class="ln">:27</span></td><td class="txt">了解级</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-520</td><td class="loc">views-review.js<span class="ln">:27</span></td><td class="txt">需关注</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-521</td><td class="loc">views-review.js<span class="ln">:27</span></td><td class="txt">未评级</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-523</td><td class="loc">views-review.js<span class="ln">:40</span></td><td class="txt">未记录</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-525</td><td class="loc">views-review.js<span class="ln">:48</span></td><td class="txt">&lt;div class=&quot;dimmer&quot; style=&quot;font-size:11px;margin-top:4px;line-height:1.6&quot;&gt;依据：<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-529</td><td class="loc">views-review.js<span class="ln">:53</span></td><td class="txt">无操作</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-554</td><td class="loc">views-review.js<span class="ln">:88</span></td><td class="txt">总用时</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-580</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">记录数</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-527</td><td class="loc">views-review.js<span class="ln">:53</span></td><td class="txt">作答</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-528</td><td class="loc">views-review.js<span class="ln">:53</span></td><td class="txt">提交</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-530</td><td class="loc">views-review.js<span class="ln">:53</span></td><td class="txt">提问</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-532</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">停留</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-534</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">跳转</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-535</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">进入</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-537</td><td class="loc">views-review.js<span class="ln">:54</span></td><td class="txt">导出</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-548</td><td class="loc">views-review.js<span class="ln">:82</span></td><td class="txt">前测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-549</td><td class="loc">views-review.js<span class="ln">:83</span></td><td class="txt">后测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-553</td><td class="loc">views-review.js<span class="ln">:87</span></td><td class="txt">卡点</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-563</td><td class="loc">views-review.js<span class="ln">:129</span></td><td class="txt"> 停了 <i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-564</td><td class="loc">views-review.js<span class="ln">:129</span></td><td class="txt"> 分钟<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-570</td><td class="loc">views-review.js<span class="ln">:148</span></td><td class="txt">学号 <i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-571</td><td class="loc">views-review.js<span class="ln">:149</span></td><td class="txt">姓名 <i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-572</td><td class="loc">views-review.js<span class="ln">:150</span></td><td class="txt">班级 <i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-576</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">学号</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-577</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">姓名</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-578</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">班级</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-582</td><td class="loc">views-review.js<span class="ln">:171</span></td><td class="txt">层级</td><td class="n">2</td></tr></table></section><section><h2>控制台<span class="cnt">97 条 · 717 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-660</td><td class="loc">views-teacher.js<span class="ln">:304</span></td><td class="txt">d 0.3→0.6 时 Δy 由 2.5mm 变 1.27mm，因为 δ=d y/L 变大<i class="tone">解释</i></td><td class="n">45</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-612</td><td class="loc">views-teacher.js<span class="ln">:95</span></td><td class="txt">学生导出的 JSON 可经「导入学生档案」合并，形成班级视图。&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">31</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-647</td><td class="loc">views-teacher.js<span class="ln">:258</span></td><td class="txt">学生在本机完成流程后，档案会自动出现在此。</td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-611</td><td class="loc">views-teacher.js<span class="ln">:94</span></td><td class="txt">&lt;span&gt;数据仅存于本机浏览器，不上传任何内容。<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-675</td><td class="loc">views-teacher.js<span class="ln">:326</span></td><td class="txt">太阳角径太大，空间相干宽度只有几十微米</td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-585</td><td class="loc">views-teacher.js<span class="ln">:27</span></td><td class="txt">&lt;div class=&quot;sec-hd__n&quot;&gt;&lt;b&gt;07&lt;/b&gt; / CONSOLE · 控制台&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-673</td><td class="loc">views-teacher.js<span class="ln">:325</span></td><td class="txt">1.5λ 对应 3π，半整数级是暗纹</td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-679</td><td class="loc">views-teacher.js<span class="ln">:329</span></td><td class="txt">b 推到 1.27mm 时可见度归零</td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-648</td><td class="loc">views-teacher.js<span class="ln">:259</span></td><td class="txt">可载入 4 份示例数据查看版式。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-661</td><td class="loc">views-teacher.js<span class="ln">:305</span></td><td class="txt">中央干涉级次低，边缘先超相干长度</td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-677</td><td class="loc">views-teacher.js<span class="ln">:327</span></td><td class="txt">实测两组 Δy 与 d 成反比</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-594</td><td class="loc">views-teacher.js<span class="ln">:45</span></td><td class="txt">&lt;div class=&quot;arc__sideh&quot;&gt;存档信息 · ARCHIVE&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-672</td><td class="loc">views-teacher.js<span class="ln">:325</span></td><td class="txt">λL/d 代入，单位换成米</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-674</td><td class="loc">views-teacher.js<span class="ln">:326</span></td><td class="txt">589 的平方除以 0.6</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-589</td><td class="loc">views-teacher.js<span class="ln">:36</span></td><td class="txt">&lt;div class=&quot;arc__eyebrow&quot;&gt;&lt;span class=&quot;arc__n&quot;&gt;I.&lt;/span&gt;&lt;i&gt;班级分布&lt;/i&gt;&lt;span class=&quot;arc__tag&quot;&gt;COHORT&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-606</td><td class="loc">views-teacher.js<span class="ln">:64</span></td><td class="txt">&lt;thead&gt;&lt;tr&gt;&lt;th&gt;学号&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;th&gt;层级&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;后测&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;前测&lt;/th&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-607</td><td class="loc">views-teacher.js<span class="ln">:65</span></td><td class="txt">&lt;th class=&quot;al-r&quot;&gt;实验&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;记录&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;提问&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;卡点&lt;/th&gt;&lt;th class=&quot;al-r&quot;&gt;用时&lt;/th&gt;&lt;th&gt;更新&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;<i class="chip">含排版标记</i></td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-652</td><td class="loc">views-teacher.js<span class="ln">:300</span></td><td class="txt">缝开大了光更多，应该更宽</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-633</td><td class="loc">views-teacher.js<span class="ln">:172</span></td><td class="txt">已载入 4 份示例档案</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-586</td><td class="loc">views-teacher.js<span class="ln">:28</span></td><td class="txt">&lt;h2 class=&quot;h-sec&quot; style=&quot;margin-top:14px&quot;&gt;学生档案与&lt;br&gt;卡点分布。&lt;/h2&gt;<i class="chip">含排版标记</i></td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-630</td><td class="loc">views-teacher.js<span class="ln">:160</span></td><td class="txt">有一个文件解析失败：</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-602</td><td class="loc">views-teacher.js<span class="ln">:55</span></td><td class="txt">&lt;button class=&quot;btn btn--sm&quot; id=&quot;tJson&quot;&gt;导出全部 JSON&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-644</td><td class="loc">views-teacher.js<span class="ln">:235</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin:14px 0 8px&quot;&gt;任务结论与书面理由&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-657</td><td class="loc">views-teacher.js<span class="ln">:302</span></td><td class="txt">1.5λ→3π，暗</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-588</td><td class="loc">views-teacher.js<span class="ln">:31</span></td><td class="txt"> 份&lt;br&gt;可导出、可导入&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-601</td><td class="loc">views-teacher.js<span class="ln">:54</span></td><td class="txt">&lt;button class=&quot;btn btn--sm&quot; id=&quot;tCsv&quot;&gt;导出汇总 CSV&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-625</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">总用时(min)</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-646</td><td class="loc">views-teacher.js<span class="ln">:256</span></td><td class="txt">&lt;h3 class=&quot;h-sub&quot; style=&quot;margin:14px 0 8px;font-size:19px&quot;&gt;本机暂无学生档案&lt;/h3&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-658</td><td class="loc">views-teacher.js<span class="ln">:303</span></td><td class="txt">空间相干宽度太小</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-662</td><td class="loc">views-teacher.js<span class="ln">:306</span></td><td class="txt">各点条纹错位叠加</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-663</td><td class="loc">views-teacher.js<span class="ln">:310</span></td><td class="txt">为什么条纹会变密</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-667</td><td class="loc">views-teacher.js<span class="ln">:316</span></td><td class="txt">一个光子不能干涉</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-669</td><td class="loc">views-teacher.js<span class="ln">:320</span></td><td class="txt">Δy 单位怎么换</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-678</td><td class="loc">views-teacher.js<span class="ln">:328</span></td><td class="txt">相干长度限制级数</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-603</td><td class="loc">views-teacher.js<span class="ln">:56</span></td><td class="txt">&lt;button class=&quot;btn btn--sm btn--ghost&quot; id=&quot;tImport&quot;&gt;导入学生档案…&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-637</td><td class="loc">views-teacher.js<span class="ln">:197</span></td><td class="txt">（未填写理由）</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-639</td><td class="loc">views-teacher.js<span class="ln">:202</span></td><td class="txt">&lt;p class=&quot;dim&quot; style=&quot;font-size:12.5px&quot;&gt;暂无书面理由。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-641</td><td class="loc">views-teacher.js<span class="ln">:223</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:8px&quot;&gt;前测 / 后测&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-642</td><td class="loc">views-teacher.js<span class="ln">:228</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin-bottom:8px&quot;&gt;错因与建议路径&lt;/div&gt;<i class="chip">含排版标记</i><i class="tone">鼓励</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-659</td><td class="loc">views-teacher.js<span class="ln">:303</span></td><td class="txt">概率由光程差定</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-680</td><td class="loc">views-teacher.js<span class="ln">:330</span></td><td class="txt">单光子概率分布</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-587</td><td class="loc">views-teacher.js<span class="ln">:31</span></td><td class="txt">本机存档 · <i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-604</td><td class="loc">views-teacher.js<span class="ln">:57</span></td><td class="txt">&lt;button class=&quot;btn btn--sm btn--ghost&quot; id=&quot;tDemo&quot;&gt;载入示例数据&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-643</td><td class="loc">views-teacher.js<span class="ln">:231</span></td><td class="txt">&lt;p class=&quot;dim&quot; style=&quot;font-size:12.5px&quot;&gt;无明显错因。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-649</td><td class="loc">views-teacher.js<span class="ln">:260</span></td><td class="txt">&lt;div style=&quot;margin-top:20px&quot;&gt;&lt;button class=&quot;btn btn--sm&quot; id=&quot;tDemo2&quot;&gt;载入示例数据&lt;/button&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-597</td><td class="loc">views-teacher.js<span class="ln">:47</span></td><td class="txt"> · 未评级 <i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-600</td><td class="loc">views-teacher.js<span class="ln">:49</span></td><td class="txt">本机浏览器</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-613</td><td class="loc">views-teacher.js<span class="ln">:120</span></td><td class="txt">暂无档案。</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-645</td><td class="loc">views-teacher.js<span class="ln">:237</span></td><td class="txt">&lt;div class=&quot;eyebrow&quot; style=&quot;margin:14px 0 8px&quot;&gt;各步骤停留&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-651</td><td class="loc">views-teacher.js<span class="ln">:299</span></td><td class="txt">第 1 组</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-654</td><td class="loc">views-teacher.js<span class="ln">:301</span></td><td class="txt">紫光波长短</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-656</td><td class="loc">views-teacher.js<span class="ln">:301</span></td><td class="txt">太宽就糊了</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-665</td><td class="loc">views-teacher.js<span class="ln">:315</span></td><td class="txt">同一个光源</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-668</td><td class="loc">views-teacher.js<span class="ln">:317</span></td><td class="txt">好像变密了</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-671</td><td class="loc">views-teacher.js<span class="ln">:323</span></td><td class="txt">第 2 组</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-676</td><td class="loc">views-teacher.js<span class="ln">:326</span></td><td class="txt">概率幅叠加</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-595</td><td class="loc">views-teacher.js<span class="ln">:46</span></td><td class="txt">最近更新</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-598</td><td class="loc">views-teacher.js<span class="ln">:48</span></td><td class="txt">导出格式</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-599</td><td class="loc">views-teacher.js<span class="ln">:49</span></td><td class="txt">存放位置</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-608</td><td class="loc">views-teacher.js<span class="ln">:83</span></td><td class="txt">&quot;&gt;详情&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-609</td><td class="loc">views-teacher.js<span class="ln">:84</span></td><td class="txt">&quot;&gt;导出&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-620</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">实验提交</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-622</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">参数改动</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-626</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">错因标签</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-627</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">后测理由</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-628</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">实验理由</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-629</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">更新时间</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-634</td><td class="loc">views-teacher.js<span class="ln">:188</span></td><td class="txt">前测 Q</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-635</td><td class="loc">views-teacher.js<span class="ln">:191</span></td><td class="txt">后测 R</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-640</td><td class="loc">views-teacher.js<span class="ln">:222</span></td><td class="txt">&lt;div class=&quot;arc-note&quot; style=&quot;margin-top:0&quot;&gt;&lt;span class=&quot;arc-note__k&quot;&gt;分层依据&lt;/span&gt;&lt;div class=&quot;arc-note__x&quot;&gt;<i class="chip">含排版标记</i></td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-655</td><td class="loc">views-teacher.js<span class="ln">:301</span></td><td class="txt">频率一样</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-666</td><td class="loc">views-teacher.js<span class="ln">:316</span></td><td class="txt">缝细就行</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-590</td><td class="loc">views-teacher.js<span class="ln">:37</span></td><td class="txt">&lt;/b&gt;&lt;span&gt;份档案&lt;/span&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-591</td><td class="loc">views-teacher.js<span class="ln">:39</span></td><td class="txt">方法级</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-592</td><td class="loc">views-teacher.js<span class="ln">:40</span></td><td class="txt">了解级</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-593</td><td class="loc">views-teacher.js<span class="ln">:41</span></td><td class="txt">需关注</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-621</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">记录数</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-631</td><td class="loc">views-teacher.js<span class="ln">:161</span></td><td class="txt">已合并 <i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-632</td><td class="loc">views-teacher.js<span class="ln">:161</span></td><td class="txt"> 份档案<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-636</td><td class="loc">views-teacher.js<span class="ln">:196</span></td><td class="txt">未作答</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-638</td><td class="loc">views-teacher.js<span class="ln">:200</span></td><td class="txt">&lt;div class=&quot;dimmer&quot; style=&quot;margin-top:2px&quot;&gt;依据：<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-650</td><td class="loc">views-teacher.js<span class="ln">:299</span></td><td class="txt">王子航</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-664</td><td class="loc">views-teacher.js<span class="ln">:314</span></td><td class="txt">李思远</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-670</td><td class="loc">views-teacher.js<span class="ln">:323</span></td><td class="txt">陈语桐</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-681</td><td class="loc">views-teacher.js<span class="ln">:338</span></td><td class="txt">赵一鸣</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-596</td><td class="loc">views-teacher.js<span class="ln">:47</span></td><td class="txt">分布</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-605</td><td class="loc">views-teacher.js<span class="ln">:58</span></td><td class="txt">&lt;button class=&quot;btn btn--sm btn--ghost&quot; id=&quot;tPrint&quot;&gt;打印&lt;/button&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-610</td><td class="loc">views-teacher.js<span class="ln">:93</span></td><td class="txt">&lt;span class=&quot;note__k&quot;&gt;隐私&lt;/span&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-614</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">学号</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-615</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">姓名</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-616</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">班级</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-617</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">层级</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-618</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">后测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-619</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">前测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-623</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">提问</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-624</td><td class="loc">views-teacher.js<span class="ln">:121</span></td><td class="txt">卡点</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-653</td><td class="loc">views-teacher.js<span class="ln">:300</span></td><td class="txt">抵消</td><td class="n">2</td></tr></table></section><section><h2>AI 助教抽屉<span class="cnt">127 条 · 1787 字</span></h2><table><tr data-long="1" data-tag="1"><td class="id">C-077</td><td class="loc">tutor.js<span class="ln">:18</span></td><td class="txt">δ = λ/2 → Δφ = π（反相，暗）；δ = λ → 2π（同相，亮）；δ = 1.5λ → 3π（反相，暗）。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">60</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-141</td><td class="loc">tutor.js<span class="ln">:51</span></td><td class="txt">按三步判断：&lt;br&gt;1）该点&lt;b&gt;光程差&lt;/b&gt; δ 为多少；&lt;br&gt;2）δ 是 λ 的整数倍还是半整数奇数倍；&lt;br&gt;3）所改参数进入 δ 还是进入 λ。<i class="chip">含排版标记</i></td><td class="n">59</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-092</td><td class="loc">tutor.js<span class="ln">:27</span></td><td class="txt">可观察条纹级数约为 λ/Δλ。钠双线 λ = 589 nm、Δλ = 0.6 nm → L_c ≈ 0.58 mm。</td><td class="n">58</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-182</td><td class="loc">tutor.js<span class="ln">:159</span></td><td class="txt">填入 DeepSeek（或兼容 OpenAI 协议）的 API Key。\n只保存在本机浏览器，不会上传到任何服务器。<i class="chip">含排版标记</i></td><td class="n">58</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-084</td><td class="loc">tutor.js<span class="ln">:22</span></td><td class="txt">实际光源受两项限制：&lt;br&gt;· 时间相干 → 谱宽 Δλ（波列长度有限）&lt;br&gt;· 空间相干 → 光源宽度 b（各点相位独立）&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">55</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-073</td><td class="loc">tutor.js<span class="ln">:15</span></td><td class="txt">相位差 Δφ = 2πδ/λ：δ 增加 λ 对应相位转 2π，峰位重合；增加 λ/2 对应 π，峰谷重合。</td><td class="n">53</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-119</td><td class="loc">tutor.js<span class="ln">:41</span></td><td class="txt">d/L 超过百分之几后 sinθ ≈ tanθ 失真，条纹不等间距，Δy = λL/d 出现偏差。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">49</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-105</td><td class="loc">tutor.js<span class="ln">:34</span></td><td class="txt">V 下降时光强未必降低，只是两束光不再同步。观察包络：包络下降处仍亮，但无明暗周期。</td><td class="n">42</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-112</td><td class="loc">tutor.js<span class="ln">:38</span></td><td class="txt">本实验在空气中 n ≈ 1，光程差数值等于几何路程差；这是条件成立的结果，不是定义。</td><td class="n">42</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-118</td><td class="loc">tutor.js<span class="ln">:40</span></td><td class="txt">δ = d sinθ 为严格式；δ ≈ d·y/L 仅在小角、d ≪ L 时成立。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">41</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-174</td><td class="loc">tutor.js<span class="ln">:128</span></td><td class="txt">请用中文、简短（不超过 140 字）、苏格拉底式回答：只补概念，不直接给作业答案。<i class="tone">祈使</i></td><td class="n">41</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-126</td><td class="loc">tutor.js<span class="ln">:44</span></td><td class="txt">单光子落点随机，但&lt;b&gt;落点概率分布&lt;/b&gt;由两条路径的光程差决定，即 cos²(πδ/λ)。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-135</td><td class="loc">tutor.js<span class="ln">:49</span></td><td class="txt">建立因果关系至少需两组数据及其比值：d 加倍时 Δy 减半即可说明，无需更多组。</td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-158</td><td class="loc">tutor.js<span class="ln">:67</span></td><td class="txt">也可描述当前参数与屏上现象（条纹变宽还是变密、边缘变糊还是整体变暗），据此对照。</td><td class="n">40</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-098</td><td class="loc">tutor.js<span class="ln">:30</span></td><td class="txt">临界宽度 &lt;span class=&quot;k&quot;&gt;b = λR / d&lt;/span&gt;（R 为源到缝距）。超过该值，两缝光场不再同源。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">39</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-111</td><td class="loc">tutor.js<span class="ln">:37</span></td><td class="txt">相位由行进波数决定，介质中波长缩短，故须折算为光程，相位与光程才线性对应。&lt;br&gt;<i class="chip">含排版标记</i><i class="tone">断言</i></td><td class="n">37</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-065</td><td class="loc">tutor.js<span class="ln">:10</span></td><td class="txt">&lt;b&gt;波长增大、屏距增大、缝距减小，条纹间距随之增大&lt;/b&gt;；d 加倍则 Δy 减半。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">36</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-083</td><td class="loc">tutor.js<span class="ln">:21</span></td><td class="txt">相干条件：&lt;b&gt;频率相同&lt;/b&gt;、&lt;b&gt;相位差在观测时间内保持不变&lt;/b&gt;（偏振不垂直为附加条件）。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">36</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-091</td><td class="loc">tutor.js<span class="ln">:26</span></td><td class="txt">光程差超过 L_c 时，两束光来自不同波列，互不相干，该处只剩平均亮度。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">36</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-127</td><td class="loc">tutor.js<span class="ln">:45</span></td><td class="txt">「通过哪条缝」不存在确定答案：两路径振幅叠加给出分布，累积结果即条纹。</td><td class="n">35</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-097</td><td class="loc">tutor.js<span class="ln">:29</span></td><td class="txt">扩展光源可分解为多个点源，各点各成一套条纹，位置错开半格即互相填平。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">34</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-168</td><td class="loc">tutor.js<span class="ln">:98</span></td><td class="txt">&lt;p&gt;可询问光程、条纹间距、相干性、可见度、单光子等概念，或描述屏上现象。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">34</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-171</td><td class="loc">tutor.js<span class="ln">:126</span></td><td class="txt">&lt;p&gt;在线模型未配置。可在「配置」中填入 OpenAI 兼容 key。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-172</td><td class="loc">tutor.js<span class="ln">:127</span></td><td class="txt">当前学生在做「杨氏双缝干涉 / 光程与相干性」探究，处在「</td><td class="n">29</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-110</td><td class="loc">tutor.js<span class="ln">:36</span></td><td class="txt">光程 = n·s：几何长度按折射率折算为真空等效长度。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">27</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-064</td><td class="loc">tutor.js<span class="ln">:9</span></td><td class="txt">&lt;span class=&quot;k&quot;&gt;Δy = λL / d&lt;/span&gt;：λ、L 在分子，d 在分母。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-072</td><td class="loc">tutor.js<span class="ln">:14</span></td><td class="txt">&lt;span class=&quot;k&quot;&gt;δ = kλ&lt;/span&gt; → 亮；&lt;span class=&quot;k&quot;&gt;δ = (k+½)λ&lt;/span&gt; → 暗。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-157</td><td class="loc">tutor.js<span class="ln">:66</span></td><td class="txt">可将问题归结为：某点&lt;b&gt;光程差&lt;/b&gt;为多少、由哪个参数决定。<i class="chip">含排版标记</i></td><td class="n">25</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-066</td><td class="loc">tutor.js<span class="ln">:11</span></td><td class="txt">在实验台读数栏改 d，可直接核验 Δy 的变化。</td><td class="n">24</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-167</td><td class="loc">tutor.js<span class="ln">:97</span></td><td class="txt">&lt;p&gt;本模块助教。&lt;b&gt;不直接给答案&lt;/b&gt;，只补充缺失的环节。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">22</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-078</td><td class="loc">tutor.js<span class="ln">:19</span></td><td class="txt">量纲：δ 为长度，Δφ 为弧度，不可混用。</td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-090</td><td class="loc">tutor.js<span class="ln">:25</span></td><td class="txt">&lt;span class=&quot;k&quot;&gt;L_c = λ² / Δλ&lt;/span&gt;（矩形谱近似）。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-134</td><td class="loc">tutor.js<span class="ln">:48</span></td><td class="txt">单一变量，其余锁定；每组参数记录一次。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">19</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-076</td><td class="loc">tutor.js<span class="ln">:17</span></td><td class="txt">换算关系 &lt;span class=&quot;k&quot;&gt;Δφ = 2πδ / λ&lt;/span&gt;。&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-176</td><td class="loc">tutor.js<span class="ln">:138</span></td><td class="txt">&lt;p&gt;在线模型调用失败，已退回离线知识库。&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">18</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-146</td><td class="loc">tutor.js<span class="ln">:57</span></td><td class="txt">Δy = λL/d 为什么是反比？</td><td class="n">17</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-177</td><td class="loc">tutor.js<span class="ln">:146</span></td><td class="txt">在线模型 · 已配置（仅本机保存）</td><td class="n">17</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-099</td><td class="loc">tutor.js<span class="ln">:31</span></td><td class="txt">杨氏用针孔限制光源尺寸，即为此。</td><td class="n">16</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-155</td><td class="loc">tutor.js<span class="ln">:61</span></td><td class="txt">导出的 CSV 里各列什么意思？</td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-120</td><td class="loc">tutor.js<span class="ln">:42</span></td><td class="txt">实验台边界标签会实时给出余量。</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-151</td><td class="loc">tutor.js<span class="ln">:59</span></td><td class="txt">1.5λ 的光程差是亮还是暗？</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-154</td><td class="loc">tutor.js<span class="ln">:60</span></td><td class="txt">分层 A/B/C 是怎么判的？</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-085</td><td class="loc">tutor.js<span class="ln">:23</span></td><td class="txt">两者都降低可见度，机制不同。</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-128</td><td class="loc">tutor.js<span class="ln">:46</span></td><td class="txt">经典粒子图像无法解释该现象。</td><td class="n">14</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-142</td><td class="loc">tutor.js<span class="ln">:55</span></td><td class="txt">这套实验我该按什么顺序做？</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-152</td><td class="loc">tutor.js<span class="ln">:59</span></td><td class="txt">太阳照双缝为什么没有条纹？</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-156</td><td class="loc">tutor.js<span class="ln">:65</span></td><td class="txt">离线知识库中没有对应条目。</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-181</td><td class="loc">tutor.js<span class="ln">:157</span></td><td class="txt">已清除密钥，回到离线知识库</td><td class="n">13</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-144</td><td class="loc">tutor.js<span class="ln">:56</span></td><td class="txt">凭直觉答错会被记下来吗？</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-149</td><td class="loc">tutor.js<span class="ln">:58</span></td><td class="txt">可见度掉下来是什么意思？</td><td class="n">12</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-145</td><td class="loc">tutor.js<span class="ln">:56</span></td><td class="txt">「相干」到底要求什么？</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-178</td><td class="loc">tutor.js<span class="ln">:146</span></td><td class="txt">离线知识库 · 不联网</td><td class="n">11</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-153</td><td class="loc">tutor.js<span class="ln">:60</span></td><td class="txt">我这个错因该怎么补？</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-175</td><td class="loc">tutor.js<span class="ln">:136</span></td><td class="txt">（模型没有返回内容）</td><td class="n">10</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-143</td><td class="loc">tutor.js<span class="ln">:55</span></td><td class="txt">光程差到底是什么？</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-148</td><td class="loc">tutor.js<span class="ln">:58</span></td><td class="txt">为什么条纹会变密？</td><td class="n">9</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-125</td><td class="loc">tutor.js<span class="ln">:43</span></td><td class="txt">为什么不选一条缝</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-147</td><td class="loc">tutor.js<span class="ln">:57</span></td><td class="txt">相干长度怎么算？</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-150</td><td class="loc">tutor.js<span class="ln">:58</span></td><td class="txt">单光子也能干涉？</td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-170</td><td class="loc">tutor.js<span class="ln">:99</span></td><td class="txt">。对话仅存本机。&lt;/p&gt;&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">8</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-071</td><td class="loc">tutor.js<span class="ln">:13</span></td><td class="txt">判据为&lt;b&gt;光程差&lt;/b&gt;：&lt;br&gt;<i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-117</td><td class="loc">tutor.js<span class="ln">:39</span></td><td class="txt">什么时候不成立</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-183</td><td class="loc">tutor.js<span class="ln">:160</span></td><td class="txt">已接入在线模型</td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-081</td><td class="loc">tutor.js<span class="ln">:20</span></td><td class="txt">为什么能干涉</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-107</td><td class="loc">tutor.js<span class="ln">:35</span></td><td class="txt">光程差是什么</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-109</td><td class="loc">tutor.js<span class="ln">:35</span></td><td class="txt">为什么是光程</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-180</td><td class="loc">tutor.js<span class="ln">:147</span></td><td class="txt">接入在线模型</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-169</td><td class="loc">tutor.js<span class="ln">:99</span></td><td class="txt">&lt;p class=&quot;dimmer&quot; style=&quot;font-size:12px&quot;&gt;当前步骤：<i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-063</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">条纹怎么</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-082</td><td class="loc">tutor.js<span class="ln">:20</span></td><td class="txt">相干条件</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-086</td><td class="loc">tutor.js<span class="ln">:24</span></td><td class="txt">相干长度</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-093</td><td class="loc">tutor.js<span class="ln">:28</span></td><td class="txt">光源宽度</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-094</td><td class="loc">tutor.js<span class="ln">:28</span></td><td class="txt">扩展光源</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-095</td><td class="loc">tutor.js<span class="ln">:28</span></td><td class="txt">空间相干</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-115</td><td class="loc">tutor.js<span class="ln">:39</span></td><td class="txt">不等间距</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-122</td><td class="loc">tutor.js<span class="ln">:43</span></td><td class="txt">一个光子</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-132</td><td class="loc">tutor.js<span class="ln">:47</span></td><td class="txt">记录什么</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-133</td><td class="loc">tutor.js<span class="ln">:47</span></td><td class="txt">数据不够</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-173</td><td class="loc">tutor.js<span class="ln">:127</span></td><td class="txt">」环节。</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-179</td><td class="loc">tutor.js<span class="ln">:147</span></td><td class="txt">清除密钥</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-062</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">条纹数</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-080</td><td class="loc">tutor.js<span class="ln">:20</span></td><td class="txt">相干性</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-089</td><td class="loc">tutor.js<span class="ln">:24</span></td><td class="txt">单色性</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-100</td><td class="loc">tutor.js<span class="ln">:32</span></td><td class="txt">可见度</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-101</td><td class="loc">tutor.js<span class="ln">:32</span></td><td class="txt">对比度</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-103</td><td class="loc">tutor.js<span class="ln">:32</span></td><td class="txt">不清楚</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-108</td><td class="loc">tutor.js<span class="ln">:35</span></td><td class="txt">折射率</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-121</td><td class="loc">tutor.js<span class="ln">:43</span></td><td class="txt">单光子</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-129</td><td class="loc">tutor.js<span class="ln">:47</span></td><td class="txt">怎么测</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-131</td><td class="loc">tutor.js<span class="ln">:47</span></td><td class="txt">读数据</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-138</td><td class="loc">tutor.js<span class="ln">:50</span></td><td class="txt">怎么办</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-139</td><td class="loc">tutor.js<span class="ln">:50</span></td><td class="txt">看不懂</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-140</td><td class="loc">tutor.js<span class="ln">:50</span></td><td class="txt">没思路</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-165</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">控制台</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-184</td><td class="loc">tutor.js<span class="ln">:195</span></td><td class="txt">&lt;div class=&quot;msg__hd&quot;&gt;助教&lt;/div&gt;&lt;p class=&quot;dimmer&quot;&gt;…&lt;/p&gt;<i class="chip">含排版标记</i></td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-058</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">间距</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-059</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">变宽</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-060</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">变窄</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-061</td><td class="loc">tutor.js<span class="ln">:8</span></td><td class="txt">变密</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-067</td><td class="loc">tutor.js<span class="ln">:12</span></td><td class="txt">明暗</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-068</td><td class="loc">tutor.js<span class="ln">:12</span></td><td class="txt">抵消</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-069</td><td class="loc">tutor.js<span class="ln">:12</span></td><td class="txt">加强</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-070</td><td class="loc">tutor.js<span class="ln">:12</span></td><td class="txt">半波</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-074</td><td class="loc">tutor.js<span class="ln">:16</span></td><td class="txt">相位</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-075</td><td class="loc">tutor.js<span class="ln">:16</span></td><td class="txt">换算</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-079</td><td class="loc">tutor.js<span class="ln">:20</span></td><td class="txt">相干</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-087</td><td class="loc">tutor.js<span class="ln">:24</span></td><td class="txt">波列</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-088</td><td class="loc">tutor.js<span class="ln">:24</span></td><td class="txt">谱宽</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-096</td><td class="loc">tutor.js<span class="ln">:28</span></td><td class="txt">太阳</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-102</td><td class="loc">tutor.js<span class="ln">:32</span></td><td class="txt">模糊</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-104</td><td class="loc">tutor.js<span class="ln">:32</span></td><td class="txt">包络</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-106</td><td class="loc">tutor.js<span class="ln">:35</span></td><td class="txt">光程</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-113</td><td class="loc">tutor.js<span class="ln">:39</span></td><td class="txt">小角</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-114</td><td class="loc">tutor.js<span class="ln">:39</span></td><td class="txt">近似</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-116</td><td class="loc">tutor.js<span class="ln">:39</span></td><td class="txt">边界</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-123</td><td class="loc">tutor.js<span class="ln">:43</span></td><td class="txt">量子</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-124</td><td class="loc">tutor.js<span class="ln">:43</span></td><td class="txt">概率</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-130</td><td class="loc">tutor.js<span class="ln">:47</span></td><td class="txt">测量</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-136</td><td class="loc">tutor.js<span class="ln">:50</span></td><td class="txt">不会</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-137</td><td class="loc">tutor.js<span class="ln">:50</span></td><td class="txt">卡住</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-159</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">入口</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-160</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">前测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-161</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">概念</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-162</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">实验</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-163</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">后测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-164</td><td class="loc">tutor.js<span class="ln">:86</span></td><td class="txt">复盘</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-166</td><td class="loc">tutor.js<span class="ln">:96</span></td><td class="txt">&lt;div class=&quot;msg&quot; data-who=&quot;a&quot;&gt;&lt;div class=&quot;msg__hd&quot;&gt;助教&lt;/div&gt;<i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>错因 / 分层 / 个性化路径<span class="cnt">31 条 · 697 字</span></h2><table><tr data-long="1" data-tag="0"><td class="id">C-006</td><td class="loc">analysis.js<span class="ln">:8</span></td><td class="txt">回概念第 II 节，用 Δy = λL/d 计算 d 与 λ 各加倍的两种情形，再回任务 01 记录两组数据</td><td class="n">54</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-008</td><td class="loc">analysis.js<span class="ln">:10</span></td><td class="txt">任务 01 中把 d 由 0.30 mm 调至 0.90 mm，观察条纹数变化，并用公式核对两组 Δy 之比</td><td class="n">54</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-018</td><td class="loc">analysis.js<span class="ln">:20</span></td><td class="txt">回概念第 III 节用 L_c = λ²/Δλ 计算钠双线：589² ≈ 3.47e5 nm²</td><td class="n">47</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-007</td><td class="loc">analysis.js<span class="ln">:9</span></td><td class="txt">任务 01 中仅调 λ（400→700 nm），记录 Δy 变化，写出 Δy 与 λ 的关系</td><td class="n">46</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-016</td><td class="loc">analysis.js<span class="ln">:18</span></td><td class="txt">先统一到 SI 再代公式（nm→1e-9 m，mm→1e-3 m），结果再换算回原位</td><td class="n">42</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-012</td><td class="loc">analysis.js<span class="ln">:14</span></td><td class="txt">偏振为相干附加条件；先掌握「同频率 + 相位差恒定」（概念第 III 节）</td><td class="n">37</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-011</td><td class="loc">analysis.js<span class="ln">:13</span></td><td class="txt">任务 02、03 中观察「光强高但无条纹」的状态：亮度与可见度相互独立</td><td class="n">35</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-015</td><td class="loc">analysis.js<span class="ln">:17</span></td><td class="txt">回概念第 I 节做 3 个 δ→Δφ 换算（λ/2、λ、1.5λ）</td><td class="n">33</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-010</td><td class="loc">analysis.js<span class="ln">:12</span></td><td class="txt">回概念第 II 节明暗条件：由峰位重合与峰谷重合判定，勿只记结论</td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-036</td><td class="loc">analysis.js<span class="ln">:92</span></td><td class="txt">无明显短板。可在自由探索中把 d 推至与 L 可比，观察条纹失效</td><td class="n">32</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-014</td><td class="loc">analysis.js<span class="ln">:16</span></td><td class="txt">任务 03 中把 b 推至 λR/d 附近，观察可见度趋于 0</td><td class="n">31</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-019</td><td class="loc">analysis.js<span class="ln">:21</span></td><td class="txt">任务 04 再看散点累积：落点服从概率分布，不存在「选定某缝」</td><td class="n">31</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-030</td><td class="loc">analysis.js<span class="ln">:77</span></td><td class="txt"> 组：判定为需关注，关键概念尚未分清，按下列路径重做。<i class="chip">含排版标记</i></td><td class="n">26</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-009</td><td class="loc">analysis.js<span class="ln">:11</span></td><td class="txt">任务 01 中仅改波长，分别记录红光与紫光的 Δy</td><td class="n">25</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-013</td><td class="loc">analysis.js<span class="ln">:15</span></td><td class="txt">任务 03：同一光源在足够宽时，两缝光场互不相关</td><td class="n">24</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-029</td><td class="loc">analysis.js<span class="ln">:75</span></td><td class="txt"> 组：判定为了解级，结论基本正确，证据链不完整。<i class="chip">含排版标记</i></td><td class="n">23</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-035</td><td class="loc">analysis.js<span class="ln">:91</span></td><td class="txt">全程未向助教提问。卡顿时可先描述现象再提问</td><td class="n">21</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-017</td><td class="loc">analysis.js<span class="ln">:19</span></td><td class="txt">逐步代入 Δy = λL/d 并检查量纲</td><td class="n">20</td></tr>
+<tr data-long="1" data-tag="0"><td class="id">C-034</td><td class="loc">analysis.js<span class="ln">:89</span></td><td class="txt">」尚未提交结论，请补做并记录至少两组数据<i class="tone">祈使</i></td><td class="n">20</td></tr>
+<tr data-long="1" data-tag="1"><td class="id">C-028</td><td class="loc">analysis.js<span class="ln">:73</span></td><td class="txt"> 组，结论附有理由：判定为方法级。<i class="chip">含排版标记</i></td><td class="n">16</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-024</td><td class="loc">analysis.js<span class="ln">:71</span></td><td class="txt">尚无作答与实验记录，暂不评级。</td><td class="n">15</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-026</td><td class="loc">analysis.js<span class="ln">:73</span></td><td class="txt">/5，实验提交 <i class="chip">含排版标记</i></td><td class="n">7</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-027</td><td class="loc">analysis.js<span class="ln">:73</span></td><td class="txt">/4，记录 <i class="chip">含排版标记</i></td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-032</td><td class="loc">analysis.js<span class="ln">:85</span></td><td class="txt">」相关内容</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-031</td><td class="loc">analysis.js<span class="ln">:85</span></td><td class="txt">复习「</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-033</td><td class="loc">analysis.js<span class="ln">:89</span></td><td class="txt">任务「</td><td class="n">3</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-020</td><td class="loc">analysis.js<span class="ln">:38</span></td><td class="txt">前测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-021</td><td class="loc">analysis.js<span class="ln">:45</span></td><td class="txt">后测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-022</td><td class="loc">analysis.js<span class="ln">:50</span></td><td class="txt">预测</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-023</td><td class="loc">analysis.js<span class="ln">:51</span></td><td class="txt">结论</td><td class="n">2</td></tr>
+<tr data-long="0" data-tag="1"><td class="id">C-025</td><td class="loc">analysis.js<span class="ln">:73</span></td><td class="txt">后测 <i class="chip">含排版标记</i></td><td class="n">2</td></tr></table></section><section><h2>物理量标签<span class="cnt">6 条 · 29 字</span></h2><table><tr data-long="0" data-tag="0"><td class="id">C-055</td><td class="loc">physics.js<span class="ln">:63</span></td><td class="txt">光源宽度 b</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-056</td><td class="loc">physics.js<span class="ln">:64</span></td><td class="txt">源到缝距 R</td><td class="n">6</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-057</td><td class="loc">physics.js<span class="ln">:65</span></td><td class="txt">谱宽 Δλ</td><td class="n">5</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-052</td><td class="loc">physics.js<span class="ln">:60</span></td><td class="txt">缝距 d</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-053</td><td class="loc">physics.js<span class="ln">:61</span></td><td class="txt">屏距 L</td><td class="n">4</td></tr>
+<tr data-long="0" data-tag="0"><td class="id">C-054</td><td class="loc">physics.js<span class="ln">:62</span></td><td class="txt">波长 λ</td><td class="n">4</td></tr></table></section><foot>生成于 2026-11-17 · 数据源 文案/strings.json · 改完双击「重写文案并打包.bat」即可应用（或把新文案发我，我来灌）</foot>
+</div>
+<script>
+const rows=[...document.querySelectorAll('tr[data-long]')];
+const secs=[...document.querySelectorAll('section')];
+const q=document.getElementById('q'), stat=document.getElementById('stat');
+let f='all';
+function apply(){
+  const s=q.value.trim().toLowerCase();
+  let n=0;
+  rows.forEach(r=>{
+    const long=r.dataset.long==='1', tag=r.dataset.tag==='1';
+    const hasTone=r.querySelector('.tone');
+    let ok = (f==='all') || (f==='long'&&long) || (f==='tone'&&!!hasTone);
+    if(s) ok = ok && r.textContent.toLowerCase().includes(s);
+    r.classList.toggle('hide',!ok); if(ok)n++;
+  });
+  secs.forEach(sc=>{
+    const vis=[...sc.querySelectorAll('tr[data-long]')].filter(r=>!r.classList.contains('hide')).length;
+    sc.classList.toggle('hide',vis===0);
+  });
+  stat.textContent=n+' / '+rows.length+' 条';
+}
+document.querySelectorAll('.bar button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.bar button').forEach(x=>x.removeAttribute('data-on'));
+  b.setAttribute('data-on',''); f=b.dataset.f; apply();
+}));
+q.addEventListener('input',apply); apply();
+</script></body></html>

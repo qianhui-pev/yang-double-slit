@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>双缝之外 · 杨氏干涉与光程相干性实验室</title>
+<meta name="description" content="杨氏双缝干涉 · 光程差与相干性 交互探究实验室">
+<meta name="color-scheme" content="dark light">
+<style>/*__CSS__*/</style>
+</head>
+<body data-step="enter">
+<div class="app">
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#" id="brandHome">
+      <span class="brand__mark"></span>
+      <span>
+        <span class="brand__name">双缝之外</span>
+        <span class="brand__sub">YDS · OPTICS LAB</span>
+      </span>
+    </a>
+    <nav class="stepper" id="stepper"></nav>
+    <div class="topact">
+      <button class="btn btn--sm" id="btnConcept">回顾概念</button>
+      <button class="btn btn--sm" id="btnTeacher" title="仅任课教师 · 需口令">控制台</button>
+    </div>
+  </header>
+  <main id="view"></main>
+</div>
+
+<button class="tutor-fab" id="tutorFab" aria-label="打开 AI 助教">AI</button>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="AI 助教">
+  <div class="drawer__hd">
+    <span class="panel__hd" style="padding:0;border:0"><span class="dot"></span>助教 · 概念补充</span>
+    <div style="margin-left:auto;display:flex;gap:6px">
+      <button class="btn btn--sm btn--ghost" id="tutorClear">清空</button>
+      <button class="btn btn--sm btn--ghost" id="tutorClose">关闭</button>
+    </div>
+  </div>
+  <div class="drawer__bd" id="drawerBody"></div>
+  <div class="drawer__ft">
+    <div class="sugg" id="sugg"></div>
+    <div class="askrow">
+      <textarea class="textarea" id="ask" rows="1" placeholder="问一个关于光程、条纹或相干性的问题…"></textarea>
+      <button class="btn btn--solid btn--sm" id="askSend">发送</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:7px">
+      <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-4)" id="tutorMode">离线知识库 · 不联网</span>
+      <button class="btn btn--sm btn--ghost" id="tutorKey" style="padding:3px 8px;min-height:24px;font-size:9px">接入在线模型</button>
+    </div>
+  </div>
+</aside>
+
+<script>/*__JS__*/</script>
+</body>
+</html>

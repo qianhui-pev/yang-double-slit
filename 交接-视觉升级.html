@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>交接 · 视觉升级</title><style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f1ea;color:#16151a;font-family:"Noto Serif SC","Songti SC",serif;line-height:1.85}
+.wrap{max-width:900px;margin:0 auto;padding:56px 40px 120px}
+h1{font-size:32px;margin:0 0 18px;line-height:1.3}
+h2{font-size:21px;margin:44px 0 10px;padding-top:18px;border-top:1px solid rgba(22,21,26,.16)}
+h3{font-size:17px;margin:26px 0 6px}
+p,li{font-size:15.5px}
+blockquote{margin:0 0 18px;padding:10px 16px;border-left:3px solid #b3382c;background:#fffaf0;color:#453c25;font-size:14px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{border-bottom:1px solid rgba(22,21,26,.12);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-family:"Noto Sans SC",sans-serif;font-size:12px;letter-spacing:.1em;color:#4a4750;background:rgba(22,21,26,.03)}
+code{font-family:"Cascadia Mono",Consolas,monospace;font-size:12.5px;background:rgba(22,21,26,.06);padding:1px 5px}
+pre{background:#14171c;color:#e6edf2;padding:16px 18px;overflow-x:auto;font-size:12.5px;line-height:1.6;border-radius:2px}
+pre code{background:none;color:inherit;padding:0}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+a{color:#b3382c}
+</style></head><body><div class='wrap'><h1 id="_1">交接 · 下一步「更精美的动效/光效」</h1>
+<blockquote>
+<p>读者：接手这个工程的 agent（人或模型）。读完这一份 + <code>HANDOFF.md</code> 就能直接开工，不用再问背景。
+生成于 2026-11-24，对应版本 <code>dist/index.html</code> = <strong>1515213 B / sha256 前16位 <code>bbffe31497bf255a</code></strong>。</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 一句话现状</h2>
+<p>杨氏双缝教学网页（单文件、内联字体、断网可用、手机可用），六个学生步骤 + 口令控制台，功能与文案都已定稿并验收过；<strong>剩下要做的只有「视觉/动效」这一层</strong>。
+当前调性是 <strong>暗室光学仪器 + 档案纸</strong>：深色冷调机械线 + 单一暖色激光红 + 衬线大标题 / DIN 仪表字 / Castellar 罗马数字三种语气。</p>
+<h2 id="1">1. 硬约束（违反就退回）</h2>
+<ol>
+<li><strong>单文件交付</strong>：<code>dist/index.html</code> 一个文件，零外链、零 CDN、断网可跑。新依赖必须内联（字体同理，<code>build.py</code> 会自动子集化并打印缺字）。</li>
+<li><strong>不引第三方动效库</strong>（anime.js / framer-motion / GSAP 一律不用），全部手写 CSS/Canvas。</li>
+<li><strong>仪器感优先</strong>：用户原话「要高级感不是花」。位移 ≤1px、时长 ≤180ms（表格展开 420ms 除外）、一次性动效不循环、不加常驻背景动画。</li>
+<li><strong>物理不能为了好看改错</strong>：显示层可放大尺度，读数面板必须真量纲。</li>
+<li>每个新增效果都要能<strong>一键关掉</strong>（建议统一 <code>?fx=0</code> 或 <code>body[data-fx="off"]</code>）。</li>
+<li>尊重 <code>prefers-reduced-motion</code>。</li>
+</ol>
+<h2 id="2">2. 结构与关键文件</h2>
+<pre><code>build.py                内联 CSS/JS + 字体子集（改完必须跑，约 10 秒）
+src/shell.html          外壳（顶栏、抽屉、画布容器）
+src/css/base.css app.css refine.css
+                        refine.css 是视觉层，按编号分节（22 字体 / 23 手感 / 24–26 最近修补），
+                        新样式另起一节，不要插进旧节
+src/js/core.js          状态 / 存储 / 路由（★ 别改存档格式 yds.v1.students）
+src/js/optics.js        光场引擎 Bench（光场 / 单光子 / 曲线 / 探针 / 探针磁吸）
+src/js/fx.js            光效层，现有 6 段：颗粒暗角 / 换页光扫 / 面板聚光 / 滑杆填色 / 光谱条 / 入口手电
+src/js/views-*.js       六个页面 + 控制台
+src/js/physics.js       物理模型 + 滑杆刻度磁吸（window.Snap）
+src/js/boot.js          口令门 gate、App.go 包装
+src/js/dev.js           ?dev=1 调试面板
+文案/                    改稿工具（文案清单.html 可读，apply_copy.py 精确替换）
+shots/验收/             当前版本验收截图（桌面 7 + 手机 3）
+</code></pre>
+<p>构建（<strong>别用 bash <code>cd</code></strong>，Windows 用户名带撇号会炸；用 execute_code + subprocess）：</p>
+<pre><code class="language-python">subprocess.run([sys.executable, &quot;build.py&quot;], cwd=r&quot;D:\hermes-workspace\courses\yang-double-slit&quot;)
+</code></pre>
+<p>打包要三处同步：<code>dist/index.html</code> → <code>docs/index.html</code> → 重打 zip → <code>传GitHub（拖这两个文件）/index.html</code>，最后核对 sha 一致。</p>
+<h2 id="3">3. 「效果明显不明显」的判断线（先定标准再动手）</h2>
+<p>用户原话：「你说的那些我不知道实际上效果明显不明显」。所以每个效果交付必须带前后对比 + 数值，按下面阈值判断，达不到就换方案：</p>
+<table>
+<thead>
+<tr>
+<th>观感维度</th>
+<th>肉眼可辨的最低量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>亮度差</td>
+<td><strong>ΔL ≥ 12/255</strong></td>
+<td>暗场里更敏感，低于 10 基本无感</td>
+</tr>
+<tr>
+<td>色相差</td>
+<td><strong>ΔE ≥ 15</strong></td>
+<td>光谱 / 波长类靠这个判</td>
+</tr>
+<tr>
+<td>帧间变化</td>
+<td><strong>差异像素 ≥ 3%</strong></td>
+<td>光扫、余晖、幽灵条纹靠这个</td>
+</tr>
+<tr>
+<td>位移</td>
+<td>≥1px（本设计要求 ≤1px）</td>
+<td>所以别靠位移，靠亮度 / 色彩 / 时长</td>
+</tr>
+<tr>
+<td>时长</td>
+<td>100–180ms 最舒服</td>
+<td>&gt;400ms 显拖沓，&lt;60ms 看不见</td>
+</tr>
+<tr>
+<td>循环</td>
+<td>只做一次性</td>
+<td>循环＝廉价感</td>
+</tr>
+</tbody>
+</table>
+<p>交付格式：同参数的 前/后 PNG（裁同一块）+ 2–3 秒 GIF + 一行数值（ΔE / 帧差占比 / 衰减曲线）。</p>
+<h2 id="4">4. 动效 / 光效清单</h2>
+<h3 id="1-1">第 1 批（都在现有文件里改，单条 ≤1 小时，风险低）</h3>
+<p><strong>V1 入口「光斑照字」</strong>
+做法：<code>fx.js</code> 第 6 段已有指针牵引光晕（写 <code>--lx/--ly</code>）。用同一组坐标做遮罩层：光斑内文字提亮到 <code>--ink-0</code>，其余压到 55%，径向 22% 软过渡，跟随延迟 40ms。
+为什么明显：文字区 ΔL 能到 30+，且覆盖整个标题区。
+验收：量「光斑中心 120px 内平均亮度」与「左侧同高边缘」之差 ≥12；GIF 3 秒。
+风险：与 <code>.stage__scrim</code> 抢层，注意 z-index（scrim 在画布上、文字下）。</p>
+<p><strong>V2 光谱取样器（最看好的一条）</strong>
+做法：λ 滑杆轨道改成 380–780 nm 真实光谱渐变（CSS 12 个色标）；拖动时滑块下方浮出当前 λ 的窄带（±2nm）与色块；<strong>光场颜色随 λ 连续插值</strong>（<code>optics.js</code> 现在取离散色，改成按 λ 求值 + 120ms 缓动）。
+为什么明显：整幅光场换色，ΔE 轻松 30+，而且这是物理上本来就该有的效果。
+验收：λ=405 / 532 / 632.8 / 700 各截一张，取屏带中线平均色，相邻两张 ΔE ≥15；GIF 拖滑杆。
+风险：逐像素渲染里别每帧重算取色，缓存色值表，λ 变才重算。</p>
+<p><strong>V3 幽灵条纹（参数变化的记忆）</strong>
+做法：滑杆 handler 里，参数变化时把当前画布 <code>drawImage</code> 到离屏 canvas，作为幽灵层 35% 不透明度叠 1.2s 后淡出（rAF 里做 alpha 衰减）；只对 d / λ / L 启用。
+为什么明显：改 d 时条纹「长/缩」被可视化，帧差 3–8%。
+验收：同区域改参数前后各截一帧，帧差 ≥3%；1.2s 后残留 &lt;0.3%。
+风险：与磁吸联动会每帧触发，需 120ms 节流；单光子模式别启用。</p>
+<p><strong>V4 单光子余晖</strong>
+做法：photon 模式改两层 —— 永久累积层（alpha 0.18）+ 活跃层（最近 1.5s，亮度按 <code>e^-t/0.6</code> 衰减），每帧只重绘活跃层。
+为什么明显：能看见「曝光正在发生」，并让概率分布更可信。
+验收：固定区域取 0 / 0.5 / 1.5s 三点亮度单调下降；累积 2000 光子后与理论 cos² 曲线相关系数 &gt;0.9（canvas 像素取样算）。
+风险：叠加层 alpha 总和必须 &lt;1（否则死白，见坑 3）。</p>
+<p><strong>V5 数字滚动（只两处）</strong>
+做法：<code>.read__v</code> 的「条纹间距 Δy」「该点 δ」值变化 120ms 插值滚动（rAF + <code>tabular-nums</code> 防抖宽），别全站铺。
+验收：拖滑杆截两帧能看到中间态数值。</p>
+<h3 id="2_1">第 2 批（改动稍大，观感更整）</h3>
+<p><strong>V6 屏带材质</strong>：亮纹偏暖 <code>#FFB27A</code>、暗纹偏冷 <code>#0B1A26</code>，条纹边缘 1px 柔化。验收：亮纹像素 R−B ≥25。风险：会与现有的「波长→颜色」映射打架，两处要配套改。</p>
+<p><strong>V7 换页揭幕升级</strong>：<code>.beam-wipe</code> 改成沿光轴方向（左→右）扫过并留 0.15s 拖尾。验收：帧差 ≥3%，总时长 ≤220ms。</p>
+<p><strong>V8 入口 HUD 联动</strong>：HUD 的 λ 是装饰漂移（622±62 nm 正弦）；给 Δy 加数字滚动，让「仪表在跑」更明显。</p>
+<h3 id="3_1">第 3 批（物理向，用户没点名但最值）</h3>
+<p><strong>B1 单缝衍射包络 + 缺级</strong>：新增第 7 个参数「缝宽 a」，屏上强度 <code>cos²(πδ/λ) · sinc²(πa y/(λL))</code>；推到临界时出现缺级（某些亮纹直接消失）。改：<code>physics.js</code> 加参数与公式、<code>optics.js</code> 加包络、<code>views-lab.js</code> 加滑杆与读数、任务预设与文案同步。验收：数亮纹条数（9→6 这种整数变化）。风险：<code>params.a</code> 新字段，旧存档要默认值。</p>
+<p><strong>B2 数据舱</strong>：曲线模式旁加「Δy–d」小图，每次「记录」自动落一个散点，画 1/d 拟合线 + R²。验收：记录 5 组后 R² 显示、散点落在线上。</p>
+<h3 id="_2">不建议做（会破坏仪器感）</h3>
+<p>粒子飞舞 / 常驻背景动画 / 玻璃拟态卡片 / 3D 透视卡片 / 满屏鼠标拖尾 / 大面积 blur 玻璃 —— 在深色仪器风里会立刻变成「网页模板感」。</p>
+<h2 id="5">5. 施工规范</h2>
+<ul>
+<li>新样式写在 <code>refine.css</code> 末尾<strong>新开一节</strong>（现在到第 26 节）。</li>
+<li>只用现有 token：<code>--void / --bg / --panel / --rule / --rule-soft / --rule-hard / --ease / --ink-2..4 / --laser / --jade / --amber</code>。</li>
+<li>动效只用 <code>transform / opacity / filter</code>，别改 <code>width/height/top/left</code>（触发布局，手机掉帧）。</li>
+<li>画布层：亮度 0–190 必须 <code>/255</code> 再乘通道；多层叠加 alpha 总和 &lt;1；<strong>不要在画布上写字</strong>（用户明确反感过「神秘文字」）。</li>
+<li>加新中文会改变字符集 → 必须重跑 <code>build.py</code> 并看缺字打印（站酷小薇缺 34 个数学符号是已知可接受）。</li>
+<li>手机 ≤820px 的样式集中在第 25 节，新按钮记得加热区。</li>
+<li>每个效果都加 <code>data-fx</code> 开关，便于 A/B 与回退。</li>
+</ul>
+<h2 id="6">6. 验收流程（每轮都跑，别抽查）</h2>
+<ol>
+<li>构建 + 四处同步（dist / docs / zip / 传GitHub），核对 sha 一致。</li>
+<li>桌面 1440×900 与手机 390×844 逐页：<code>scrollWidth == clientWidth</code>、无未兜住的越界元素、<code>window.onError == []</code>。</li>
+<li>字体：<code>document.fonts.check</code> 四款全 true。</li>
+<li>物理回归：d=0.30 / L=1.20 / λ=632.8 时 Δy 必须 <strong>2.53 mm</strong>；滑杆磁吸档位单测（<code>d 0.31→0.30</code>、<code>0.55→0.55</code>、<code>λ 634→632.8</code>）。</li>
+<li>动效指标按第 3 节阈值量 ΔL / ΔE / 帧差。</li>
+<li>截图覆盖更新 <code>shots/验收/</code>，别堆积历史图。</li>
+</ol>
+<p>越界探测表达式（复制即用）：</p>
+<pre><code class="language-js">(()=&gt;{const cw=document.documentElement.clientWidth,o=[];document.querySelectorAll('#view *').forEach(el=&gt;{
+  const r=el.getBoundingClientRect(); if(!r.width) return;
+  if(r.right&gt;cw+1){let p=el.parentElement,ok=false;while(p){if(/auto|scroll/.test(getComputedStyle(p).overflowX)){ok=true;break;}p=p.parentElement;}
+  if(!ok) o.push(el.className)}}); return document.documentElement.scrollWidth+'/'+cw+' over='+o.length})()
+</code></pre>
+<h2 id="7-handoff-6">7. 已知坑（完整版见 HANDOFF §6）</h2>
+<ol>
+<li><strong>用户名带撇号</strong>：<code>bash -c "cd …"</code> 直接炸；用 execute_code + <code>subprocess(cwd=…)</code> 与 <code>io.open</code>。</li>
+<li>浏览器标签页在两次调用之间会回到 about:blank：<strong>每次调用先 <code>goto_url</code></strong>，并先 <code>Emulation.setDeviceMetricsOverride</code>，否则 <code>elementFromPoint</code> 为 null、点击全打空。</li>
+<li>canvas 上别写字；多层叠加 alpha &lt;1；亮度要 <code>/255</code>。</li>
+<li><code>.view-in</code> 带 <code>animation … both</code> 会把 <code>position:fixed</code> 关进页面坐标。</li>
+<li>定宽子元素会撑破栅格而 <code>scrollWidth</code> 仍显示正常 → 越界检查要连容器内滚动一起看。</li>
+<li><code>input[type=range]</code> 的 CSS 别写 <code>!important</code>（会压掉 <code>fx.js</code> 每帧写的填充渐变）。</li>
+<li>动画简写里两个时间值 = duration + delay，容易写出「永远停在 0%」。</li>
+<li>内联 style 里的 font-family 必须用单引号。</li>
+<li>固定 FAB + 满高侧栏 = 结构性重叠；实验台已隐藏 FAB，改由面板按钮开抽屉，别放回去。</li>
+<li>改文案 / 加中文 → 必须重跑 build，否则新字回落系统字体。</li>
+<li>别改 <code>core.js</code> 存档格式；选项已做过轮转（<code>window.BankRot</code> / <code>LabRot</code>），<strong>旧存档 ans 索引会对不上</strong>，测试前先「清空本机」。</li>
+</ol>
+<h2 id="8">8. 第一次会话建议</h2>
+<ol>
+<li>先把 <code>dist/index.html</code> 备份成 <code>dist_prev.html</code>（用户要「可一键回退」）。</li>
+<li>只做 <strong>V2 光谱取样器 + V3 幽灵条纹</strong> 两条样片（各 30–40 分钟），别的先别碰。</li>
+<li>产出：同参数 前/后 PNG（裁同一块）+ 3 秒 GIF + 一行数值（ΔE / 帧差）。</li>
+<li>让用户在手机上滑一遍再拍板；通过后再做 V1 / V4 / V5，最后考虑 B1。</li>
+<li><strong>用户不信描述、只信对比</strong> —— 先给图，再给话。</li>
+</ol>
+<hr />
+<h2 id="9">9. 上一轮已完成（别重做）</h2>
+<ul>
+<li>六页文案按「报告体」全量重写（约 220 处字符串）；否定铺垫、碎句、口语已清。</li>
+<li>修：学生书面理由在复盘/控制台/CSV 里可见；空档案显示「— · 未评级」；选项正确位轮转；自由探索不再显示任务卡；探针框点击穿透；路径序号统一；多档案可自助恢复。</li>
+<li>手机竖屏手感：输入框 16px、把握按钮热区 54px、模式键 38px、选项 48px、读数两列不截断。</li>
+<li>滑杆刻度磁吸（<code>Snap</code>）：档位表见 <code>physics.js</code>；磁滞 1.4×，吸附时刻度提亮 620ms。</li>
+<li>探针磁吸：落在亮/暗纹中心 <code>min(8px, dyPx*0.35)</code> 内归中，读数显示「已吸附亮纹中心 · m = +3 λ」。</li>
+</ul></div></body></html>

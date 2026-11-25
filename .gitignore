@@ -1,0 +1,7 @@
+# 交付仓库只放能重建的源码与发布副本，过程产物不进库
+shots/
+build/fonts/cache/
+文案/backup/
+传GitHub（拖这两个文件）/
+*.zip
+dist_prev.html

@@ -1,0 +1,1221 @@
+
+/* ============================================================
+   REFINE · 暗室光路 —— 视觉升级层（在 app.css 之后加载）
+   ------------------------------------------------------------
+   设计意图：把界面从「好看的深色网页」推到「一台光学仪器」：
+   光学刻度、注册角标、极细的机械线、波长驱动的强调色、
+   衬线大标题 + DIN 仪表字 + 罗马数字的三种语气。
+   ============================================================ */
+
+:root{
+  /* 三套字 */
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",STSong,serif;
+  --din:"Bahnschrift SemiCondensed","Bahnschrift","DIN Alternate","Segoe UI Variable",sans-serif;
+  --roman:"Castellar","Trajan Pro","Optima",serif;
+
+  /* 层次更深的暗场 */
+  --void:#030507;
+  --bg:#05070A;
+  --panel:#090C10;
+  --panel-2:#0C1015;
+  --panel-3:#121820;
+
+  /* 机械线 */
+  --rule:rgba(158,197,216,.14);        /* 冷调细线，替代纯灰 */
+  --rule-soft:rgba(158,197,216,.07);
+  --rule-hard:rgba(158,197,216,.26);
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ink-2:#95A1AA;
+  --ink-3:#7C8892;
+  --ink-4:#4E5A64;
+
+  --mode:500ms var(--ease);                /* 主入场曲线 */
+  --mode-soft:900ms var(--ease);
+}
+
+/* ---------- 1. 大标题：更高反差、更紧的排 ---------- */
+.display{
+  font-weight:700;
+  font-size:clamp(36px,5.6vw,78px);
+  line-height:1.06;
+  letter-spacing:.005em;
+  color:#F7F8F5;
+}
+.h-sec{font-weight:700;letter-spacing:.01em}
+.lead{font-size:16.5px;line-height:1.78;color:#C6CDD2}
+
+/* 行内强调：西文斜体 + 强调色句点，档案感 */
+.em{font-family:var(--serif);font-style:italic;color:var(--laser-soft)}
+.dot-accent::after{content:"。";color:var(--laser)}
+
+/* ---------- 2. 光学刻度线（替代普通 hairline） ---------- */
+.tick-rule{
+  height:9px;position:relative;
+  background:
+    repeating-linear-gradient(90deg,var(--rule-soft) 0 1px,transparent 1px 11px) bottom/100% 5px no-repeat,
+    linear-gradient(var(--rule),var(--rule)) bottom/100% 1px no-repeat;
+}
+.tick-rule--wide{
+  height:13px;
+  background:
+    repeating-linear-gradient(90deg,var(--rule-soft) 0 1px,transparent 1px 22px) bottom/100% 8px no-repeat,
+    linear-gradient(var(--rule),var(--rule)) bottom/100% 1px no-repeat;
+}
+.hr-rule::after{
+  background:
+    linear-gradient(90deg,var(--laser) 0 34px,var(--rule) 34px 100%);
+  opacity:.85;
+}
+.hr-rule span{color:#8B98A3}
+
+/* ---------- 3. 顶栏：一条会发光的腰线 ---------- */
+.topbar{
+  height:64px;
+  background:linear-gradient(180deg,rgba(6,8,11,.94),rgba(5,7,10,.80));
+  border-bottom:1px solid var(--rule-soft);
+  backdrop-filter:blur(20px) saturate(1.35);
+}
+.topbar::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--laser) 18%,rgba(255,255,255,.35) 50%,var(--laser) 82%,transparent);
+  opacity:.28;pointer-events:none;
+}
+.brand__mark{border-color:var(--rule-hard);background:rgba(255,255,255,.02)}
+.brand__mark::before{box-shadow:0 0 12px 1px rgba(255,59,46,.5)}
+.brand__name{letter-spacing:.16em;font-weight:700}
+.brand__sub{color:#7A8792;letter-spacing:.34em}
+
+/* 进度轨：把胶囊换成一条光学导轨 */
+.stepper{position:relative;gap:0;padding-bottom:1px}
+.stepper::before{
+  content:"";position:absolute;left:14px;right:14px;bottom:9px;height:1px;
+  background:linear-gradient(90deg,var(--rule-soft),var(--rule),var(--rule-soft));
+}
+.step-dot{
+  border:0;border-radius:0;background:none;padding:7px 14px 15px;
+  font-family:var(--din);font-size:10px;letter-spacing:.2em;
+  color:#69757F;position:relative;
+}
+.step-dot:hover{color:#AFBAC2;border:0;background:none}
+.step-dot i{
+  position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+  width:5px;height:5px;opacity:.55;box-shadow:none;background:#5A6670;
+}
+.step-dot[data-on]{
+  color:#F2F5F6;border:0;background:none;
+}
+.step-dot[data-on] i{
+  background:var(--laser);opacity:1;width:7px;height:7px;bottom:5px;
+  box-shadow:0 0 0 1px rgba(255,59,46,.35),0 0 14px 2px rgba(255,59,46,.75);
+}
+.step-dot[data-on]::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;
+  background:var(--laser);opacity:.5;
+}
+.step-dot[data-done]{color:#84929C}
+.step-dot[data-done] i{background:var(--jade);opacity:.85}
+
+/* ---------- 4. 按钮：实心按钮带一道扫光 ---------- */
+.btn{
+  border-radius:0;border-color:var(--rule-hard);
+  font-family:var(--din);font-size:10.5px;letter-spacing:.22em;
+  padding:13px 22px;min-height:44px;
+}
+.btn:hover{border-color:var(--laser);background:rgba(255,59,46,.06)}
+.btn--solid{
+  background:linear-gradient(180deg,#FF5544,#E82C1E);
+  border-color:#FF6A5E;color:#0B0402;
+  box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 10px 34px -14px rgba(255,59,46,.9);
+}
+.btn--solid::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 62%);
+  transform:translateX(-120%);transition:transform .75s cubic-bezier(.16,1,.3,1);
+}
+.btn--solid:hover{background:linear-gradient(180deg,#FF6A5E,#F03A2B)}
+.btn--solid:hover::after{transform:translateX(120%)}
+
+/* ---------- 5. 仪器面板：内衬高光 + 角标 ---------- */
+.panel,.bench,.taskcard,.pathcard{
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border-color:var(--rule);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);
+  position:relative;
+}
+.panel__hd{border-bottom:1px solid var(--rule-soft);letter-spacing:.24em;color:#93A0AA}
+.panel__hd .dot{box-shadow:0 0 10px 1px rgba(255,59,46,.85)}
+
+/* 四角注册标记 —— 只给主画布/主卡 */
+.crop{position:relative}
+.crop::before,.crop::after,.crop>.crop-b::before,.crop>.crop-b::after{
+  content:"";position:absolute;width:13px;height:13px;pointer-events:none;z-index:4;
+  border-color:rgba(158,197,216,.42);border-style:solid;
+}
+.crop::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.crop::after{top:-1px;right:-1px;border-width:1px 1px 0 0}
+.crop>.crop-b::before{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
+.crop>.crop-b::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+
+/* 光标聚光（fx.js 写 --mx/--my） */
+.spot::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.055),transparent 70%);
+  opacity:0;transition:opacity .4s;mix-blend-mode:screen;
+}
+.spot:hover::before{opacity:1}
+
+/* ---------- 6. 滑杆：填色 + 辉光 + 刻度尺 ---------- */
+input[type=range]{
+  height:26px;
+  background:
+    linear-gradient(90deg,rgba(158,197,216,.34),rgba(158,197,216,.34)) center/100% 1px no-repeat;
+}
+input[type=range]::-webkit-slider-runnable-track{
+  height:1px;background:transparent;
+}
+input[type=range]::-webkit-slider-thumb{
+  width:12px;height:12px;margin-top:-6px;
+  background:#0A0E13;border:1px solid var(--laser);
+  box-shadow:0 0 0 3px rgba(5,7,10,.9),0 0 18px 2px rgba(255,59,46,.55);
+}
+input[type=range]:hover::-webkit-slider-thumb{
+  background:var(--laser);box-shadow:0 0 0 3px rgba(5,7,10,.9),0 0 24px 4px rgba(255,59,46,.8);
+}
+.sld__val{font-size:13.5px;letter-spacing:.01em}
+.sld__val u{color:#7E8A94}
+.sld__nm{font-size:13px}
+.sld__nm i{opacity:.75}
+.sld{border-bottom:1px solid var(--rule-soft)}
+.sld[data-locked]{opacity:.46}
+.sld__scale{font-family:var(--din);letter-spacing:.08em;color:#5F6B75}
+
+/* ---------- 7. 读数条：仪表盘 ---------- */
+.reads{background:linear-gradient(180deg,rgba(12,16,21,.55),rgba(9,12,16,.2));border-top:1px solid var(--rule)}
+.read{border-right:1px solid var(--rule-soft);padding:13px 15px}
+.read__k{font-family:var(--din);font-size:10px;letter-spacing:.16em;color:#7B8792;white-space:nowrap}
+.read__v{font-size:16.5px;letter-spacing:-.01em;color:#EFF3F4}
+.read--hi .read__v{color:var(--laser);text-shadow:0 0 18px rgba(255,59,46,.45)}
+
+/* ---------- 8. 任务条：编号更像章节 ---------- */
+.taskbar{border-color:var(--rule);background:rgba(9,12,16,.6)}
+.tasktab{border-right:1px solid var(--rule-soft);padding:13px 17px}
+.tasktab__n{font-family:var(--roman);letter-spacing:.22em;font-size:10px;color:#6B7883}
+.tasktab__t{font-size:13.5px;letter-spacing:.01em}
+.tasktab[data-on]{background:linear-gradient(180deg,rgba(255,59,46,.13),rgba(255,59,46,.02))}
+.tasktab[data-on]::after{height:1px;left:0;right:0;bottom:0;background:linear-gradient(90deg,var(--laser),rgba(255,59,46,.15) 70%,transparent)}
+.tasktab[data-on]{box-shadow:inset 2px 0 0 var(--laser)}
+
+/* ---------- 9. 章节头：罗马数字 + 刻度 ---------- */
+.sec-hd__n{font-family:var(--roman);font-size:10.5px;letter-spacing:.3em;color:#6E7B85}
+.sec-hd__n b{color:var(--laser);font-family:var(--mono);font-size:11px}
+
+/* ---------- 10. 纸面（概念页）：真正的纸 ---------- */
+.paper{
+  background:
+    radial-gradient(120% 80% at 50% 0%,#F7F4EC 0%,#EDE8DC 70%,#E6E0D2 100%);
+  box-shadow:inset 0 0 120px rgba(120,96,52,.10);
+}
+.paper::before{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(22,21,26,.05) 0 1px,transparent 1px 30px),
+    radial-gradient(circle at 18% 12%,rgba(180,150,90,.07),transparent 45%),
+    radial-gradient(circle at 82% 70%,rgba(120,90,40,.06),transparent 40%);
+  opacity:.8;
+}
+.paper .display,.paper .h-sec{color:#15141A}
+.paper .lead{color:#3E3B43}
+
+/* ---------- 11. 入场：从「淡入上移」换成「光扫 + 揭幕」 ---------- */
+@keyframes reveal-up{from{opacity:0;transform:translateY(22px) scale(.995);filter:blur(3px)}
+  to{opacity:1;transform:none;filter:none}}
+@keyframes reveal-line{from{clip-path:inset(0 0 105% 0)}to{clip-path:inset(0 0 -12% 0)}}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.anim-up{
+  animation:reveal-up 1s var(--ease) both;
+}
+.display.anim-line{animation:reveal-line 1.15s var(--ease) both}
+
+/* 换页时一道光扫过 */
+#view{position:relative}
+.view-in{animation:reveal-up .7s var(--ease)}
+#view>.beam-wipe{
+  position:absolute;top:0;bottom:0;left:0;width:34%;pointer-events:none;z-index:50;
+  mix-blend-mode:screen;opacity:0;
+  background:linear-gradient(90deg,
+    rgba(255,59,46,0) 0%, rgba(255,80,50,.05) 42%, rgba(255,150,110,.13) 74%,
+    rgba(255,236,220,.26) 92%, rgba(255,246,236,.46) 100%);
+  animation:wipe-x .21s cubic-bezier(.5,0,.9,1) both;
+}
+@keyframes wipe-x{
+  0%{opacity:0;transform:translateX(-110%)}
+  18%{opacity:.92}
+  72%{opacity:.72}
+  100%{opacity:0;transform:translateX(310%)}
+}
+
+/* ---------- 12. 舞台：满幅光场 + 左侧可读性护罩 ---------- */
+.stage{position:relative;display:block;min-height:calc(100vh - 64px);overflow:hidden}
+.stage__canvas{position:absolute;inset:0;min-height:0;background:
+  radial-gradient(120% 90% at 62% 45%,#080C12 0%,#04060A 55%,#030507 100%)}
+.stage__canvas::after{  /* 暗角 */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 100% at 55% 50%,transparent 45%,rgba(2,4,6,.85) 100%);
+}
+.stage__scrim{position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(3,5,7,.96) 0%, rgba(3,5,7,.93) 34%, rgba(4,6,9,.80) 44%,
+    rgba(4,7,10,.52) 52%, rgba(5,8,11,.24) 60%, rgba(5,8,11,.06) 68%, rgba(5,8,11,0) 76%)}
+.stage__txt{
+  position:relative;z-index:5;
+  min-height:calc(100vh - 64px);
+  justify-content:center;
+  width:min(660px,52vw);
+  padding:clamp(34px,5vw,74px) clamp(22px,3vw,58px);
+  gap:26px;
+}
+@media (max-width:980px){
+  .stage{min-height:0;display:flex;flex-direction:column}
+  .stage__canvas{position:relative;inset:auto;height:300px;order:-1;border-bottom:1px solid var(--rule-soft)}
+  .stage__scrim{order:-1;display:none}
+  .stage__txt{width:100%;min-height:0;padding-top:30px}
+}
+
+/* 舞台右侧竖排档案 rail */
+.stage__rail{
+  position:absolute;right:14px;top:0;bottom:60px;width:18px;z-index:6;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--din);font-size:9px;letter-spacing:.42em;color:rgba(158,197,216,.42);
+  pointer-events:none;
+}
+.stage__rail::before,.stage__rail::after{
+  content:"";width:1px;flex:0 0 40px;background:linear-gradient(var(--rule),transparent);
+}
+.stage__rail::after{background:linear-gradient(transparent,var(--rule))}
+@media (max-width:980px){.stage__rail{display:none}}
+
+/* 角上的状态标记 */
+.stage__tag{
+  position:absolute;left:clamp(22px,3vw,58px);bottom:22px;z-index:6;
+  display:flex;gap:14px;align-items:center;
+  font-family:var(--din);font-size:9px;letter-spacing:.28em;color:#6D7983;
+}
+.stage__tag b{display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--jade);box-shadow:0 0 10px rgba(99,230,168,.8)}
+
+/* 入口表单：更松、更仪表 */
+.enter-form{gap:14px;max-width:540px}
+.field__lb{font-family:var(--din);letter-spacing:.24em;color:#96A3AD}
+.input::placeholder{color:#6E7A85}
+.input{
+  background:rgba(255,255,255,.045);border-color:rgba(158,197,216,.22);
+  border-radius:0;padding:13px 14px;font-size:14.5px;
+}
+.input:hover{border-color:rgba(158,197,216,.34)}
+.input:focus{
+  border-color:var(--laser);background:rgba(255,59,46,.05);
+  box-shadow:0 0 0 1px var(--laser),0 8px 30px -18px rgba(255,59,46,.9);
+}
+.enter-meta{color:#8A96A0;font-size:12.5px;line-height:1.75}
+.verline{color:rgba(158,197,216,.34);font-family:var(--din);letter-spacing:.3em}
+
+/* ---------- 13. 细颗粒与暗角（fx.js 挂的全局层） ---------- */
+#fxGrain{
+  position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.30;
+  mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+#fxVig{
+  position:fixed;inset:0;z-index:69;pointer-events:none;
+  background:radial-gradient(130% 110% at 50% 40%,transparent 52%,rgba(1,3,5,.62) 100%);
+}
+/* 概念页是浅色纸，颗粒要换混合模式 */
+body[data-step=concept] #fxGrain{mix-blend-mode:multiply;opacity:.14}
+body[data-step=concept] #fxVig{background:radial-gradient(130% 110% at 50% 40%,transparent 60%,rgba(90,72,40,.16) 100%)}
+
+/* ---------- 14. 收尾细节 ---------- */
+.opt{border-color:var(--rule);background:rgba(255,255,255,.012)}
+.opt:hover{border-color:var(--rule-hard);background:rgba(255,255,255,.045)}
+.opt[data-sel]{
+  border-color:var(--laser);background:rgba(255,59,46,.07);
+  box-shadow:0 0 0 1px rgba(255,59,46,.25),0 10px 30px -22px rgba(255,59,46,.9);
+}
+.eyebrow{font-family:var(--din);letter-spacing:.26em}
+.note{border-left-width:1px;background:linear-gradient(90deg,rgba(255,59,46,.07),rgba(255,59,46,.015))}
+.chip{font-family:var(--din);letter-spacing:.18em;border-radius:0}
+.tier{font-family:var(--din);border-radius:0;letter-spacing:.24em}
+.eq{font-family:var(--serif);border-radius:0;background:
+  linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.tbl th{font-family:var(--din);letter-spacing:.2em;color:#84929C}
+.tbl th{color:#84929C}
+.stat__k{font-family:var(--din);letter-spacing:.2em}
+.stat__v{font-family:var(--mono);letter-spacing:-.02em}
+.tutor-fab{
+  border-radius:0;width:50px;height:50px;
+  border-color:var(--rule-hard);background:rgba(8,11,15,.92);
+  font-family:var(--din);letter-spacing:.18em;
+}
+.tutor-fab::after{border-radius:0;inset:-6px}
+.drawer{border-left:1px solid var(--rule-hard);background:rgba(6,9,13,.98)}
+::selection{background:rgba(255,59,46,.34)}
+
+/* 响应式兜底 */
+@media (max-width:1180px){
+  .display{font-size:clamp(32px,6vw,58px)}
+}
+@media (prefers-reduced-motion:reduce){
+  #view>.beam-wipe{display:none}
+}
+
+/* ---------- 15. 光谱条：λ 在可见光里的位置 ---------- */
+.specbar{position:relative;height:3px;margin:11px 16px 0;
+  background:linear-gradient(90deg,#6a1fd0,#3b4bff,#00a6ff,#00e0b0,#b5e02a,#ffd400,#ff8000,#ff2d1f,#9c0b30);
+  opacity:.92}
+.specbar i{position:absolute;top:-5px;left:0;width:2px;height:13px;background:#fff;
+  box-shadow:0 0 10px 1px rgba(255,255,255,.8);transition:left .18s linear}
+.specbar b{position:absolute;right:0;top:-16px;font-family:var(--din);font-size:8px;letter-spacing:.2em;
+  color:#6E7B85;font-weight:400}
+
+/* ---------- 16. 入口舞台的「手电」 ---------- */
+.hero-light{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;
+  background:
+    radial-gradient(320px circle at var(--lx,32%) var(--ly,46%),rgba(255,150,110,.13),transparent 62%),
+    radial-gradient(620px circle at var(--lx,32%) var(--ly,46%),rgba(120,170,255,.055),transparent 70%);
+  transition:opacity .6s}
+
+/* 滑杆：加大命中区与端点可读性 */
+input[type=range]{height:30px}
+input[type=range]::-webkit-slider-thumb{width:14px;height:14px;margin-top:-6.5px}
+.sld__scale{font-size:10.5px;color:#818D97;margin-top:5px}
+.read__k{font-size:10.5px}
+
+/* 入口舞台的仪表 HUD */
+.stage__hud{position:absolute;right:clamp(26px,3vw,56px);top:clamp(26px,4vw,54px);z-index:6;
+  display:flex;flex-direction:column;gap:9px;text-align:right;
+  font-family:var(--din);letter-spacing:.16em;pointer-events:none;
+  padding:13px 15px 11px;border:1px solid rgba(158,197,216,.16);
+  background:rgba(4,7,10,.82);backdrop-filter:blur(10px) saturate(1.1);
+  box-shadow:0 18px 40px -26px #000, inset 0 1px 0 rgba(255,255,255,.05)}
+.stage__hud div{display:flex;align-items:baseline;gap:7px;justify-content:flex-end}
+.stage__hud span{font-size:10px;color:#6F7C87;font-style:italic;font-family:var(--serif)}
+.stage__hud b{font-family:var(--mono);font-size:14px;color:#DDE4E6;font-weight:400;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.stage__hud i{font-style:normal;font-size:9px;color:#6F7C87}
+.stage__hud::before{content:"LIVE";font-size:8px;letter-spacing:.34em;color:var(--laser);opacity:.75;margin-bottom:2px}
+@media (max-width:980px){.stage__hud{display:none}}
+
+/* 把握程度：真正可点的拨片 */
+.conf{gap:12px;margin-top:12px}
+.conf__lb{font-family:var(--din);letter-spacing:.2em;color:#8A96A0}
+.conf__pips{gap:5px;align-items:center}
+.conf__pips button{width:30px;height:11px;border-color:rgba(158,197,216,.34);background:rgba(255,255,255,.03)}
+.conf__pips button:hover{border-color:var(--laser);background:rgba(255,59,46,.12)}
+.conf__pips button[data-on]{background:linear-gradient(180deg,var(--amber),#E5942A);border-color:var(--amber);
+  box-shadow:0 0 14px -2px rgba(255,176,58,.8)}
+.conf__pips::after{content:"1 → 5";font-family:var(--din);font-size:9px;letter-spacing:.16em;color:#6E7A85;margin-left:8px}
+/* 未选中的选项卡片：给一点底色，别和背景糊在一起 */
+.opt{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.008))}
+
+/* ---------- 17. 窄屏：顶栏收敛，别把页面撑宽 ---------- */
+@media (max-width:820px){
+  .topbar{gap:8px;height:56px;padding:0 14px}
+  .brand{gap:8px}
+  .brand__name{font-size:14px;letter-spacing:.1em}
+  .brand__sub{display:none}
+  .brand__mark{width:22px;height:22px}
+  .brand__mark::before{height:22px}
+  .stepper{min-width:0;flex:1 1 auto;justify-content:flex-start;margin-left:6px}
+  .step-dot{padding:6px 8px 14px;font-size:9px;letter-spacing:.1em}
+  .step-dot[data-on]::after{left:6px;right:6px}
+  .topact{display:none}
+  .stage__tag{display:none}
+  .display{font-size:clamp(30px,9vw,46px);line-height:1.1}
+  .lead{font-size:15px}
+  .verline{display:none}
+  .enter-form{grid-template-columns:1fr;gap:12px}
+  .enter-form .field--wide{grid-column:auto}
+  .bench__stage #benchCv{min-height:260px}
+  .read__k{font-size:9.5px}
+  .read__v{font-size:14px}
+}
+@media (max-width:520px){
+  .stepper{display:none}
+  .stage__hud{display:none}
+}
+
+/* ============================================================
+   18. 纸页「档案」化（概念导读）
+   ------------------------------------------------------------
+   把整页当成一份印刷的课程档案：顶部档案条 / 竖排 rail /
+   印章 / 四段式分节线（III. ——— 节名 ——— 018 / 024）。
+   只作用于 body[data-step=concept] 下的 .paper，别外溢。
+   ============================================================ */
+
+/* 顶部档案条：档案号 · 校次 · 页码 */
+.paper__strip{
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding-bottom:9px;margin-bottom:26px;
+  border-bottom:1px solid rgba(22,21,26,.24);
+  font-family:var(--din);font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--paper-ink-3);
+}
+.paper__strip b{color:var(--paper-ink);font-weight:400;letter-spacing:.3em}
+.paper__strip-r{text-align:right}
+.paper__strip-dot{
+  display:inline-block;width:3px;height:3px;margin:0 10px;vertical-align:middle;
+  background:#C2341F;opacity:.8;
+}
+
+/* 左侧竖排 archive rail */
+.paper__rail{
+  position:absolute;left:16px;top:96px;bottom:72px;width:16px;z-index:2;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--din);font-size:9.5px;letter-spacing:.42em;
+  color:rgba(22,21,26,.46);pointer-events:none;white-space:nowrap;
+  text-transform:uppercase;
+}
+.paper__rail::before{
+  content:"";position:absolute;left:50%;top:-46px;bottom:-46px;width:1px;
+  background:linear-gradient(transparent,rgba(22,21,26,.22) 22%,rgba(22,21,26,.22) 78%,transparent);
+}
+@media (max-width:1180px){.paper__rail{display:none}}
+
+/* 右上印章 —— 只在真有余量的宽屏出现 */
+.paper__stamp{
+  position:absolute;right:26px;top:212px;z-index:2;pointer-events:none;
+  display:grid;gap:2px;justify-items:center;
+  padding:9px 14px 8px;transform:rotate(-3deg);
+  border:1px solid rgba(194,52,31,.45);color:rgba(194,52,31,.86);
+  font-family:var(--din);font-size:8.5px;letter-spacing:.3em;line-height:1.5;
+  text-transform:uppercase;
+}
+.paper__stamp b{font-family:var(--serif);font-size:13px;letter-spacing:.12em;font-weight:600}
+.paper__stamp i{font-style:normal;font-size:7.5px;letter-spacing:.24em;opacity:.85}
+@media (max-width:1500px){.paper__stamp{display:none}}
+
+/* 四段式分节线：III. ——— 节名 ——— 018 / 024 */
+.sec-rule{
+  display:flex;align-items:center;gap:16px;
+  margin:56px 0 30px;padding-top:12px;
+  border-top:1px solid rgba(22,21,26,.28);
+  font-family:var(--din);font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--paper-ink-3);
+}
+.sec-rule__n{
+  font-family:var(--roman);font-size:12px;letter-spacing:.12em;
+  color:#C2341F;min-width:24px;
+}
+.sec-rule__t{
+  display:flex;align-items:center;gap:13px;min-width:0;
+  color:var(--paper-ink);letter-spacing:.2em;
+}
+.sec-rule__t i{display:block;width:34px;height:1px;background:rgba(22,21,26,.38);flex:0 0 auto}
+.sec-rule__f{
+  margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.18em;
+  color:var(--paper-ink-3);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+@media (max-width:820px){
+  .sec-rule{margin:38px 0 22px;gap:10px;font-size:9px;letter-spacing:.16em}
+  .sec-rule__t{gap:9px}
+  .sec-rule__t i{width:16px}
+  .sec-rule__f{display:none}
+}
+
+/* 图版：FIG 编号 + 图注 + 脚注，做成台上的一张图纸 */
+/* 图卡不得撑宽栅格：窄屏时图在自己卡内横向滚动，不把整页顶出去 */
+.paper .grid > *{min-width:0}
+.figwrap{min-width:0}
+.figbody{max-width:100%}
+
+.figwrap{background:rgba(255,255,255,.55);overflow:hidden}
+.figcap{
+  display:flex;align-items:baseline;gap:12px;padding:11px 15px 10px;
+  border-bottom:1px solid rgba(22,21,26,.14);
+  font-family:var(--din);font-size:9.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--paper-ink-2);
+}
+.figcap__n{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:#C2341F}
+.figcap__t{color:var(--paper-ink);letter-spacing:.16em}
+.figcap__s{margin-left:auto;font-size:9px;letter-spacing:.2em;color:var(--paper-ink-3)}
+.figbody{padding:16px 8px 12px;overflow-x:auto;overflow-y:hidden}
+.figbody svg{min-width:100%}
+.figfoot{
+  padding:14px 16px 15px;border-top:1px solid rgba(22,21,26,.12);
+  font-size:13px;line-height:1.8;color:var(--paper-ink-2);
+}
+.figfoot .mono{font-size:11.5px;color:#C2341F}
+/* 窄屏：图不缩成蚂蚁，宁可横向滑动 */
+@media (max-width:820px){
+  .figbody svg{min-width:560px}
+  .figcap{font-size:9px;letter-spacing:.14em;gap:8px;padding:9px 12px}
+  .figcap__s{display:none}
+  .figfoot{font-size:12px;padding:10px 12px 12px}
+}
+
+/* 主式：给 Δy 一个印刷上「重点公式」的分量 */
+.eq--key{
+  border-color:rgba(194,52,31,.34);
+  background:
+    linear-gradient(180deg,rgba(194,52,31,.055),rgba(194,52,31,.02));
+  letter-spacing:.06em;
+}
+
+/* 适用边界：顶线 + 小标 */
+.bound{padding-top:10px;border-top:1px solid rgba(194,52,31,.45)}
+.bound__hd{display:flex;align-items:baseline;gap:9px}
+.bound__k{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:#C2341F}
+.bound__t{font-family:var(--serif);font-weight:600;font-size:15.5px;margin:0;color:var(--paper-ink)}
+.bound__p{font-size:13px;line-height:1.78;margin:9px 0 0;color:var(--paper-ink-2)}
+
+/* 页脚：收束线 + 页码 */
+.paper__end{border-top:1px solid rgba(22,21,26,.26);padding-top:26px;margin-top:56px}
+.paper__endfolio{
+  margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.22em;
+  color:rgba(22,21,26,.42);
+}
+@media (max-width:820px){.paper__endfolio{display:none}}
+
+/* ============================================================
+   19. 档案式版面（复盘 / 教师端）
+   ------------------------------------------------------------
+   把「等分格子 + 有框表格」换成出版物的排法：
+   一条粗顶线 → 主结论跨栏（罗马编号做眉、巨型数字）
+   → 右侧 1/3 窄列的支撑数据（细行、tabular-nums）
+   → 判定依据降为边注（竖排细线 + 斜体衬线）
+   ============================================================ */
+
+.arc{
+  display:grid;grid-template-columns:minmax(0,1.95fr) minmax(0,1fr);
+  gap:clamp(26px,3.2vw,44px);align-items:start;
+  border-top:1px solid var(--rule-hard);padding-top:22px;
+}
+@media (max-width:900px){.arc{grid-template-columns:1fr;gap:26px}}
+
+.arc__main{min-width:0}
+.arc__eyebrow{
+  display:flex;align-items:baseline;gap:12px;
+  font-family:var(--din);font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.arc__eyebrow .arc__n{font-family:var(--roman);font-size:12px;letter-spacing:.12em;color:var(--laser)}
+.arc__eyebrow i{font-style:normal;color:#C9D2D6;letter-spacing:.2em}
+.arc__eyebrow .arc__tag{margin-left:auto;font-size:8.5px;letter-spacing:.3em;color:var(--ink-4)}
+
+.arc__lead{display:flex;align-items:baseline;gap:14px;margin-top:16px;line-height:1}
+.arc__lead b{
+  font-family:var(--roman);font-weight:400;font-size:clamp(46px,6vw,74px);
+  color:#F7F8F5;letter-spacing:.02em;
+}
+.arc__lead span{font-family:var(--serif);font-size:21px;letter-spacing:.04em;color:#C9D2D6}
+.arc__sub{margin:16px 0 0;font-size:13.5px;line-height:1.82;color:#A9B4BB;max-width:42ch}
+
+/* 教师端的 A/B/C 分列：三段不对等，数字右压 */
+.arc__dist{display:flex;gap:0;margin-top:22px;flex-wrap:wrap}
+.arc__d{
+  display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:9px;row-gap:2px;
+  padding:0 22px 0 0;margin-right:22px;border-right:1px solid var(--rule);
+}
+.arc__d:last-child{border-right:0;margin-right:0;padding-right:0}
+.arc__d b{font-family:var(--roman);font-weight:400;font-size:20px;letter-spacing:.06em;grid-row:span 2}
+.arc__d i{font-style:normal;font-family:var(--din);font-size:9px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase}
+.arc__d span{grid-column:2;font-family:var(--mono);font-size:26px;line-height:1;color:#EFF3F4;font-variant-numeric:tabular-nums}
+
+.arc__side{min-width:0;border-top:1px solid var(--rule-soft);padding-top:12px}
+.arc__sideh{
+  font-family:var(--din);font-size:9px;letter-spacing:.3em;color:var(--ink-4);
+  text-transform:uppercase;padding-bottom:8px;
+}
+.arc__row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:10px 0;border-bottom:1px solid rgba(158,197,216,.10);
+}
+.arc__row:last-child{border-bottom:0}
+.arc__row-k{font-family:var(--din);font-size:10.5px;letter-spacing:.16em;color:#A8B3BA;white-space:nowrap}
+.arc__row-v{
+  font-family:var(--mono);font-size:14.5px;letter-spacing:-.01em;color:#EFF3F4;
+  font-variant-numeric:tabular-nums;text-align:right;
+}
+.arc__row--hi .arc__row-v{color:var(--laser)}
+
+/* 边注：判定依据等，窄栏 + 竖排细线 + 斜体衬线 */
+.arc-note{display:flex;gap:18px;margin-top:26px;max-width:48ch}
+.arc-note::before{
+  content:"";flex:0 0 1px;
+  background:linear-gradient(var(--rule-hard),rgba(158,197,216,.02));
+}
+.arc-note__k{
+  flex:0 0 auto;padding-top:3px;
+  font-family:var(--din);font-size:9px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--laser);white-space:nowrap;
+}
+.arc-note__x{
+  font-family:var(--serif);font-style:italic;font-size:13.5px;line-height:1.95;color:var(--ink-2);
+}
+
+/* 边注放在右窄栏里（复盘页） */
+.arc-note--side{display:block;margin-top:24px;padding:14px 0 0 14px;max-width:none;
+  border-top:1px solid var(--rule-soft);border-left:1px solid var(--rule-hard)}
+.arc-note--side::before{display:none}
+.arc-note--side .arc-note__k{display:block;padding:0 0 7px}
+.arc-note--side .arc-note__x{font-size:12.5px;line-height:1.9}
+
+/* 无框表格：只留顶底细线 + 行间 --rule-soft */
+.tblwrap{border-top:1px solid var(--rule-hard);border-bottom:1px solid var(--rule-hard)}
+.tbl--arc{width:100%;border-collapse:collapse}
+.tbl--arc thead th{
+  font-family:var(--din);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;text-align:left;
+  padding:10px 9px 9px;border-bottom:1px solid var(--rule-hard);white-space:nowrap;
+}
+.tbl--arc thead th.al-r{text-align:right}
+.tbl--arc tbody td{
+  padding:12px 9px;border-bottom:1px solid rgba(158,197,216,.11);
+  color:var(--ink-1);vertical-align:top;font-size:12.5px;
+}
+.tbl--arc tbody tr:last-child td{border-bottom:0}
+.tbl--arc tbody td.num{
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  color:#EFF3F4;font-size:12.5px;text-align:right;
+}
+.tbl--arc tbody td.numc{
+  font-family:var(--mono);color:#EFF3F4;font-size:12.5px;letter-spacing:.02em;
+  white-space:nowrap;
+}
+.tbl--arc tbody tr:hover td{background:rgba(255,255,255,.022)}
+
+/* 前后测对照：去边框，改成两条细线分隔的记录串 */
+.compare--arc{border:0;gap:0 34px}
+.compare--arc .cmp{border:0;border-top:1px solid var(--rule);padding:14px 0 16px}
+.compare--arc .cmp__hd{font-family:var(--din);font-size:9.5px;letter-spacing:.22em;color:var(--ink-3)}
+.compare--arc .cmp__q{font-family:var(--serif);font-size:13.5px;line-height:1.62;color:#C9D2D6}
+.compare--arc .cmp__a{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+
+/* 打印：档案该是白纸黑字 */
+@media print{
+  body,.section,.paper,.arc,.tblwrap,.arc__side,.arc-note,.compare--arc{background:#fff !important;color:#111 !important}
+  #fxGrain,#fxVig,.tutor-fab,.topbar{display:none !important}
+  .arc,.arc__side,.tblwrap,.arc__row,.tbl--arc thead th,.tbl--arc tbody td,
+  .compare--arc .cmp,.arc__d{border-color:#b8b8b8 !important}
+  .arc-note::before{background:#b8b8b8 !important}
+  .arc__eyebrow,.arc__sideh,.arc__row-k,.tbl--arc thead th,
+  .arc__d i,.compare--arc .cmp__hd,.arc__sub,.arc-note__x{color:#444 !important}
+  .arc__lead b,.arc__row-v,.tbl--arc tbody td,.tbl--arc tbody td.num,
+  .arc__d span,.compare--arc .cmp__q,.compare--arc .cmp__a{color:#111 !important}
+  .arc-note__k{color:#8a2a1c !important}
+  .anim-up,.view-in{animation:none !important;opacity:1 !important;transform:none !important}
+}
+
+/* ============================================================
+   20. 实验台：编辑式层级（标题收缩 / 任务条 / A-B-C 不对等栅格）
+   ============================================================ */
+
+/* 滚动后压进顶栏的那条标头（不是普通 sticky，是「收缩」后的编号行） */
+.labrail{
+  position:fixed;left:0;right:0;top:64px;z-index:40;
+  display:flex;align-items:center;gap:18px;
+  height:46px;padding:0 clamp(16px,3vw,40px);
+  background:linear-gradient(180deg,rgba(5,7,10,.95),rgba(5,7,10,.76));
+  border-bottom:1px solid var(--rule);
+  backdrop-filter:blur(16px) saturate(1.25);
+  opacity:0;transform:translateY(-10px);pointer-events:none;
+  transition:opacity .4s var(--ease),transform .4s var(--ease);
+}
+.labrail[data-on]{opacity:1;transform:none}
+.labrail::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,var(--laser),rgba(255,59,46,.05) 38%,transparent 70%);
+  opacity:.5;
+}
+.labrail__n{font-family:var(--roman);font-size:12.5px;letter-spacing:.14em;color:var(--laser)}
+.labrail__t{
+  font-family:var(--din);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
+}
+.labrail__task{
+  margin-left:auto;font-family:var(--din);font-size:9.5px;letter-spacing:.2em;
+  color:var(--ink-3);white-space:nowrap;flex:0 0 auto;
+}
+.labrail__task::before{content:"";display:inline-block;width:5px;height:5px;margin-right:9px;
+  background:var(--laser);vertical-align:1px;box-shadow:0 0 10px 1px rgba(255,59,46,.6)}
+@media (max-width:820px){
+  .labrail{top:56px;height:40px;gap:12px}
+  .labrail__t{font-size:9px;letter-spacing:.16em}
+  .labrail__task{display:none}
+}
+
+/* 大标题滚出视口后整块收起（内容靠浏览器滚动锚定，不会跳） */
+.labhead[data-compact]{max-height:0;overflow:hidden;margin-bottom:0 !important;opacity:0}
+
+/* 任务条：罗马序号 + 当前任务 1.6 倍宽，其余收窄 */
+.tasktab{flex:1 1 0;min-width:112px}
+.tasktab[data-on]{flex-grow:1.7;min-width:150px}
+.tasktab__n{display:flex;align-items:baseline;gap:7px}
+.tasktab__r{font-family:var(--roman);font-size:12.5px;letter-spacing:.1em;font-weight:400;color:var(--ink-2)}
+.tasktab[data-on] .tasktab__r{color:var(--laser)}
+.tasktab__n i{font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-3)}
+
+/* 任务卡：A 预测窄 / B 实验宽 / C 解释中 */
+.taskcard__bd{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) minmax(0,1fr)}
+.taskcard__hd{grid-template-columns:minmax(0,.92fr) minmax(0,1.35fr)}
+.taskcard__hd .dim{max-width:52ch}
+@media (max-width:1180px){
+  .taskcard__bd{grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr) minmax(0,1fr)}
+}
+@media (max-width:980px){
+  .taskcard__bd,.taskcard__hd{grid-template-columns:1fr}
+  .tasktab{min-width:96px}
+  .tasktab[data-on]{flex-grow:1.4;min-width:120px}
+}
+
+/* ---------- 21. 控制台口令门 ---------- */
+#gateGo{flex:0 0 auto;min-width:112px;height:48px;padding:0 22px}
+.gate{
+  border-top:1px solid var(--rule-hard);
+  padding-top:24px;
+}
+.gate__n{display:flex;align-items:baseline;gap:12px;
+  font-family:var(--din);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-3)}
+.gate__r{font-family:var(--roman);font-size:13px;letter-spacing:.16em;color:var(--laser)}
+.gate__n i{font-style:normal;color:#C9D2D6}
+.gate__t{margin:16px 0 0;font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,38px);
+  line-height:1.24;color:#F7F8F5;letter-spacing:.01em}
+.gate__p{margin:14px 0 0;font-size:13.5px;line-height:1.85;color:var(--ink-2);max-width:44ch}
+.gate__row{display:flex;gap:12px;margin-top:22px;align-items:stretch}
+.gate__in{flex:1 1 auto;font-family:var(--mono);letter-spacing:.22em;font-size:15px;text-align:center;min-width:0;height:48px}
+.gate__in[data-bad]{border-color:var(--laser);box-shadow:0 0 0 1px var(--laser)}
+.gate__hint{margin:14px 0 0;font-family:var(--din);font-size:10.5px;letter-spacing:.14em;color:#8A96A0}
+@media (max-width:520px){
+  .gate__row{flex-direction:column}
+  .gate__in{text-align:left}
+}
+
+/* ============================================================
+   22. T 趟 · 字体落地
+   ------------------------------------------------------------
+   内嵌三款中文字（站酷小薇 / 思源宋 / 思源黑）+ 一款拉丁科技字（Orbitron）。
+   全部由 build.py 按「实际用到的字符」子集化后 base64 内嵌，
+   所以换设备、断网、手机上看到的都是同一套字。
+   分工：标题=小薇（版刻宋）· 正文=思源宋 · 界面=思源黑 · 读数=Orbitron
+   ============================================================ */
+:root{
+  --display:"YDS xiaowei","YDS notoserif","Noto Serif SC",serif;
+  --serif:"YDS notoserif","Noto Serif SC","Source Han Serif SC",serif;
+  --sans:"YDS notosans","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  --num:"YDS orbit","Bahnschrift","Cascadia Mono",sans-serif;
+}
+
+/* 大标题：版刻宋。字距略放，避免小薇的横细竖粗挤在一起 */
+.display,.h-sec,.h-sub,
+.arc__lead span,.gate__t,.gate__n i,
+.taskcard__hd h3,.tstep__k+.h-sub,
+.bound__t{font-family:var(--display)}
+.display,.h-sec{letter-spacing:.022em}
+.h-sub,.arc__lead span,.gate__t{letter-spacing:.018em}
+.cmp__q,.arc-note__x{font-family:var(--serif);font-style:normal;letter-spacing:.01em}
+
+/* 界面正文：思源黑（原来走系统 sans，现在锁死一套） */
+body,.lead,.dim,.dimmer,.opt__txt,.tasktab__t,.pathstep__t{font-family:var(--sans)}
+
+/* 仪表读数：Orbitron —— 科技感只出现在这里 */
+.read__v,.read--hi .read__v,.stage__hud b,.sld__val,.probe__row b,.hud b{
+  font-family:var(--num);letter-spacing:.02em;font-variant-numeric:tabular-nums;
+}
+.read__v{font-size:15.5px}
+.sld__val{font-size:13px}
+.stage__hud b{font-size:13px}
+/* 纯数字/单位的小字仍用等宽，保证表格列宽不跳动 */
+.num,.stat__v,.arc__row-v,.tbl--arc td.num{font-family:"Cascadia Mono",Consolas,monospace}
+
+/* Orbitron 只有大写体感，小写字高偏矮；读数里避免全大写混排 */
+.sld__val u,.read__k{font-family:"Bahnschrift SemiCondensed",sans-serif}
+
+
+/* ============================================================
+   23. U 趟 · 手感（交互态 / 边框光 / 刻度 / 留白 / 空态）
+   ------------------------------------------------------------
+   纪律：位移 ≤1px、动效 160–420ms、缓动统一 var(--ease)；
+   光只在「悬停 / 已选中 / 已记录」三种状态出现，平时静默。
+   留白收敛为三档：块内 28 · 块间 40 · 大段 56（--sp-1/2/3）。
+   只加手感，不改结构、不改存档、不碰 base/app。
+   ============================================================ */
+:root{
+  /* 留白三档，所有区块间距只允许取这三个值 */
+  --sp-1:28px;   /* 块内：标题与正文之间、卡片与卡片之间 */
+  --sp-2:40px;   /* 块间：两个功能块之间 */
+  --sp-3:56px;   /* 大段：章节与章节之间 */
+}
+
+/* ---------- 23.1 按钮：抬 1px / 压 1px / 一道扫光 ---------- */
+.btn{
+  transition:border-color 180ms var(--ease),background 180ms var(--ease),
+    color 180ms var(--ease),transform 180ms var(--ease),box-shadow 240ms var(--ease);
+}
+/* 只有描边按钮扫光；实心按钮第 4 节已有自己的扫光，ghost 不扫 */
+.btn:not(.btn--solid):not(.btn--ghost)::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.16) 50%,transparent 64%);
+  transform:translateX(-130%);transition:transform .7s var(--ease);
+}
+.btn:not(.btn--solid):not(.btn--ghost):hover::after{transform:translateX(130%)}
+.btn:not(.btn--solid):not(.btn--ghost):hover{
+  transform:translateY(-1px);box-shadow:0 12px 28px -24px rgba(255,59,46,.85);
+}
+.btn:not(.btn--solid):not(.btn--ghost):active{
+  transform:translateY(0) scale(.995);
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.42);background:rgba(255,59,46,.10);
+}
+.btn--solid:active{
+  transform:translateY(1px);
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.30),0 4px 16px -12px rgba(255,59,46,.9);
+}
+/* 「← 回到学生端」这类：往箭头方向蹭 1px */
+.btn--ghost:hover{transform:translateX(-1px)}
+/* 纸面：扫光要换成淡墨，否则白扫光在浅底上等于没扫还发脏 */
+.paper .btn:not(.btn--solid):not(.btn--ghost)::after{
+  background:linear-gradient(105deg,transparent 36%,rgba(22,21,26,.10) 50%,transparent 64%);
+}
+.paper .btn:not(.btn--solid):not(.btn--ghost):hover{box-shadow:0 12px 24px -22px rgba(22,21,26,.85)}
+.paper .btn:not(.btn--solid):not(.btn--ghost):active{background:rgba(22,21,26,.07)}
+
+/* ---------- 23.2 选项：选中时左缘一道朱红细光推下 ---------- */
+.opt{
+  transition:border-color 170ms var(--ease),background 170ms var(--ease),
+    box-shadow 240ms var(--ease),transform 170ms var(--ease);
+}
+.opt:hover{transform:translateX(1px)}
+.opt::after{
+  content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:2px;
+  background:var(--laser);opacity:.9;
+  transform:scaleY(0);transform-origin:50% 0;
+  transition:transform 280ms var(--ease);
+}
+.opt[data-sel]::after{transform:scaleY(1)}
+.opt[data-sel]{animation:opt-pop .44s var(--ease)}
+@keyframes opt-pop{
+  0%{box-shadow:0 0 0 0 rgba(255,59,46,0)}
+  46%{box-shadow:0 0 0 4px rgba(255,59,46,.15)}
+  100%{box-shadow:0 0 0 1px rgba(255,59,46,.25),0 10px 30px -22px rgba(255,59,46,.9)}
+}
+.paper .opt::after{background:#C2341F}
+.paper .opt[data-sel]{animation:none}   /* 纸面不做辉光脉冲，只留细线 */
+
+/* ---------- 23.3 任务条：悬停亮顶线，当前项不闪 ---------- */
+.tasktab{
+  transition:background 170ms var(--ease),box-shadow 220ms var(--ease),flex-grow 420ms var(--ease);
+}
+.tasktab::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(158,197,216,.34),transparent 62%);
+  opacity:0;transition:opacity 170ms var(--ease);
+}
+.tasktab:hover::before{opacity:1}
+.tasktab:hover{background:rgba(255,255,255,.045)}
+.tasktab:hover .tasktab__t{color:#EFF3F4}
+.tasktab[data-on]:hover{background:linear-gradient(180deg,rgba(255,59,46,.16),rgba(255,59,46,.02))}
+
+/* ---------- 23.4 滑杆：拖拽态（握 → 攥） ---------- */
+input[type=range]{cursor:grab}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-thumb{
+  transition:transform 140ms var(--ease),box-shadow 140ms var(--ease),background 140ms var(--ease);
+}
+input[type=range]:active::-webkit-slider-thumb{
+  background:var(--laser);border-color:#FFE7E3;transform:scale(1.15);
+  box-shadow:0 0 0 3px rgba(5,7,10,.9),0 0 26px 5px rgba(255,59,46,.85);
+}
+.sld:hover .sld__nm{color:#EFF3F4}
+.paper input[type=range]:active::-webkit-slider-thumb{
+  background:#C2341F;border-color:#fff;
+  box-shadow:0 0 0 3px var(--paper),0 0 0 5px rgba(194,52,31,.22);
+}
+
+/* ---------- 23.5 表格行：悬停时左缘 2px 朱红标记 ---------- */
+.tbl--arc tbody tr{transition:background 160ms var(--ease)}
+.tbl--arc tbody tr:hover td{background:rgba(255,255,255,.03)}
+.tbl--arc tbody tr:hover td:first-child{box-shadow:inset 2px 0 0 var(--laser)}
+
+/* ---------- 23.6 面板边框光 + 角标点亮 ---------- */
+.panel,.bench,.taskcard,.pathcard{
+  border-color:var(--rule);
+  transition:border-color 180ms var(--ease),box-shadow 280ms var(--ease);
+}
+.panel:hover,.bench:hover,.taskcard:hover,.pathcard:hover{
+  border-color:var(--rule-hard);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 26px 60px -50px rgba(158,197,216,.75);
+}
+.paper .panel,.paper .pathcard{border-color:rgba(22,21,26,.16)}
+.paper .panel:hover,.paper .pathcard:hover{
+  border-color:rgba(22,21,26,.36);box-shadow:0 22px 44px -38px rgba(22,21,26,.8);
+}
+/* 注册角标：hover 才亮，平时几乎看不见 */
+.crop::before,.crop::after,.crop>.crop-b::before,.crop>.crop-b::after{
+  transition:border-color 180ms var(--ease),box-shadow 180ms var(--ease);
+}
+.crop:hover::before,.crop:hover::after,
+.crop:hover>.crop-b::before,.crop:hover>.crop-b::after{
+  border-color:rgba(158,197,216,.82);box-shadow:0 0 10px rgba(158,197,216,.20);
+}
+/* 角标向内收 1px 的变体：宿主 overflow:hidden 时不被裁掉 */
+.crop--in::before{top:0;left:0}
+.crop--in::after{top:0;right:0}
+.crop--in>.crop-b::before{bottom:0;left:0}
+.crop--in>.crop-b::after{bottom:0;right:0}
+
+/* ---------- 23.7 读数条：顶部加 1px 刻度 ---------- */
+.read{position:relative;transition:background 160ms var(--ease)}
+.read::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:4px;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(90deg,rgba(158,197,216,.30) 0 1px,transparent 1px 9px);
+}
+.read:hover{background:rgba(255,255,255,.028)}
+.read:hover .read__k{color:#A9B4BB}
+.read--hi:hover{background:rgba(255,59,46,.055)}
+
+/* ---------- 23.8 光谱条：380 / 780 抬到条子上沿，与 SPECTRUM 同一行 ---------- */
+.specbar{margin:18px 16px 16px}
+.specbar::before,.specbar::after{
+  position:absolute;top:-12px;
+  font-family:var(--din);font-size:7.5px;letter-spacing:.18em;color:#5F6B75;
+}
+.specbar::before{content:"380 nm";left:0}
+.specbar::after{content:"780 nm";right:0}
+/* SPECTRUM 从右端挪到正中，给两端数字腾位置 */
+.specbar b{right:50%;transform:translateX(50%);letter-spacing:.34em;font-size:7.5px}
+
+/* ---------- 23.9 空态：统一的虚线仪器框 ---------- */
+.reclist__empty{
+  margin-top:10px;padding:20px 12px 22px;text-align:center;
+  font-size:12.5px;line-height:1.9;color:#6B7781;
+  border:1px dashed rgba(158,197,216,.14);background:rgba(255,255,255,.012);
+}
+.reclist__empty::before{
+  content:"NO DATA";display:block;margin-bottom:9px;
+  font-family:var(--din);font-size:9px;letter-spacing:.32em;color:#4E5A64;
+}
+.empty--arc{position:relative;overflow:hidden}
+.empty--arc::before{
+  content:"";position:absolute;inset:16px;pointer-events:none;
+  border:1px dashed rgba(158,197,216,.16);
+}
+.empty--arc .eyebrow{letter-spacing:.36em}
+.empty--arc .h-sub{letter-spacing:.02em}
+
+/* ---------- 23.10 留白三档：把 26/30/34/36 全收进 28/40/56 ---------- */
+.sec-hd{margin-bottom:var(--sp-2)}
+.paper__strip{margin-bottom:var(--sp-1)}
+.sec-rule{margin:var(--sp-3) 0 var(--sp-1)}
+.arc-note{margin-top:var(--sp-1)}
+.paper__end{margin-top:var(--sp-3)}
+
+@media (max-width:820px){
+  .sec-rule{margin:38px 0 22px}   /* 窄屏保持原有节奏，不额外加压 */
+}
+
+@media print{
+  .empty--arc::before,.reclist__empty{border-color:#b8b8b8 !important}
+  .opt::after,.tbl--arc tbody tr:hover td:first-child{box-shadow:none !important}
+  .read::before,.specbar::before,.specbar::after{display:none !important}
+}
+
+
+/* ============ 24. 交互修补（2026-11-24） ============ */
+/* 探针读数框不再吃掉屏带上的点击：整块穿透，只有关闭按钮可点 */
+.probe{ pointer-events:none; }
+.probe__x{ pointer-events:auto; cursor:pointer; }
+/* 实验台内不再用右下角固定 FAB：改由参数面板底部的「问助教」按钮打开，
+   避免固定元素与满高侧栏在某个宽度必然重叠 */
+body[data-step="lab"] .tutor-fab{ display:none; }
+
+/* 复盘/控制台表格在窄屏上改为横向滚动，避免被压成 240px 高的多行单元格 */
+.tblwrap .tbl--arc{ min-width:720px; }
+
+
+/* ============ 25. 手机竖屏手感（2026-11-24） ============ */
+@media (max-width:820px){
+  /* 输入/文本域 16px：iOS 聚焦不再自动放大页面 */
+  .input, .textarea, .askrow .textarea{ font-size:16px; }
+  /* 把握程度：视觉尺寸不变，触控热区扩到约 46×46 */
+  .conf__pips button{ position:relative; width:34px; height:26px; }
+  .conf__pips button::before{ content:""; position:absolute; inset:-10px; }
+  /* 模式切换、任务页签加高，便于点按 */
+  #modeBar button{ min-height:38px; padding:7px 13px; }
+  .tasktab{ min-height:56px; }
+  /* 读数在窄屏放大一档 */
+  .read__k{ font-size:11.5px; }
+  .read__v{ font-size:17px; }
+  /* 滑杆热区与拇指加粗 */
+  .sld input[type=range]{ height:34px; }
+  .sld input[type=range]::-webkit-slider-thumb{ width:20px; height:20px; margin-top:-8px; }
+  /* 选项整行更大，减少误触 */
+  .opt{ min-height:48px; padding:12px 14px; }
+}
+
+/* 读数在窄屏排两列，标签不截断 */
+@media (max-width:820px){
+  .reads{ grid-template-columns:1fr 1fr; }
+  .read__k{ white-space:normal; letter-spacing:.1em; line-height:1.35; }
+  .read:nth-child(odd){ border-right:1px solid var(--rule-soft); }
+}
+
+/* ============ 26. 滑杆刻度档位（磁吸，2026-11-24） ============ */
+.sld__track{ position:relative; display:block; }
+.sld__det{ position:absolute; left:7px; right:7px; top:0; bottom:0; pointer-events:none; }
+.sld__det i{ position:absolute; top:50%; width:1px; height:8px; margin-top:-4px;
+  background:rgba(158,197,216,.32); transition:background 160ms var(--ease), box-shadow 160ms var(--ease); }
+.sld__track[data-snap] .sld__det i{ background:rgba(158,197,216,.72); }
+.sld__track[data-snap] input[type=range]::-webkit-slider-thumb{
+  box-shadow:0 0 0 4px rgba(255,59,46,.16), 0 0 14px rgba(255,59,46,.42);
+}
+.paper .sld__det i{ background:rgba(22,21,26,.26); }
+.paper .sld__track[data-snap] .sld__det i{ background:rgba(194,52,31,.65); }
+
+/* ============ 27. 光谱滑杆 + 幽灵条纹（2026-11-24） ============ */
+/* λ 滑杆：轨道是真实光谱，拇指填当前波长色 + 白环（在彩虹上才分得清） */
+.sld[data-p="lam"] input[type=range]::-webkit-slider-thumb{
+  background:var(--lam-col,#0A0E13);
+  border:1.5px solid #F2F4F5;
+  box-shadow:0 0 0 3px rgba(5,7,10,.92), 0 0 14px 2px rgba(255,255,255,.35);
+  transition:box-shadow 160ms var(--ease);
+}
+.sld[data-p="lam"] input[type=range]:hover::-webkit-slider-thumb{
+  box-shadow:0 0 0 3px rgba(5,7,10,.92), 0 0 22px 4px rgba(255,255,255,.6);
+}
+.sld[data-p="lam"] .sld__track[data-drag] input[type=range]::-webkit-slider-thumb{
+  box-shadow:0 0 0 3px rgba(5,7,10,.92), var(--lam-glow,0 0 16px 3px rgba(255,255,255,.5));
+}
+.sld[data-p="lam"] .sld__val{ color:#EFF3F4; }
+.paper .sld[data-p="lam"] input[type=range]::-webkit-slider-thumb{
+  border-color:#16151A; box-shadow:0 0 0 3px rgba(237,232,220,.9), 0 0 12px 2px rgba(0,0,0,.25);
+}
+/* λ 的光谱条上只留「可吸附谱线」的档位刻度，且改成浅色（深色刻度在彩虹上会把它切碎） */
+.sld[data-p="lam"] .sld__det i{
+  background:rgba(255,255,255,.42);
+  height:9px; margin-top:-4.5px;
+  box-shadow:0 0 4px rgba(5,7,10,.8);
+}
+.sld[data-p="lam"] .sld__track[data-snap] .sld__det i{ background:rgba(255,255,255,.9); }
+.paper .sld[data-p="lam"] .sld__det i{ background:rgba(22,21,26,.45); box-shadow:none; }
+.paper .sld[data-p="lam"] .sld__track[data-snap] .sld__det i{ background:rgba(194,52,31,.8); }
+/* 档位刻度：只标「能吸住的值」，压到 1px×7px 的淡色细线，别抢滑杆本身 */
+.sld__det i{ width:1px; height:7px; margin-top:-3.5px; background:rgba(158,197,216,.30); }
+
+/* ============ 28. 装饰专场（V1 手电照字 / V6 屏带材质 / V7 换页光扫，2026-11-24） ============ */
+/* V1：入口页一层暗纱，只有指针周围那一块是透的 —— 光斑里的字被「照亮」，其余压暗。
+   只在入口页存在（.stage 只出现在入口页）；指针驱动、一次性、不循环。 */
+.hero-veil{
+  position:absolute;left:0;top:0;bottom:0;width:min(660px,52vw);z-index:6;pointer-events:none;
+  background:rgba(3,5,9,.58);
+  --mask: radial-gradient(circle clamp(190px,17vw,300px) at var(--lx,52%) var(--ly,44%),
+            transparent 0 30%, rgba(0,0,0,.62) 50%, #000 64%);
+  -webkit-mask-image:var(--mask); mask-image:var(--mask);
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+}
+.stage__hud{z-index:9}
+body[data-fx="off"] .hero-veil{display:none}
+/* 光斑本身的一小片暖光：让「手电」有边缘，而不只是「中间没那么暗」 */
+.hero-glow{
+  position:absolute;left:0;top:0;bottom:0;width:min(660px,52vw);z-index:7;pointer-events:none;
+  mix-blend-mode:screen;
+  background: radial-gradient(circle clamp(190px,17vw,300px) at var(--lx,52%) var(--ly,44%),
+    rgba(255,196,140,.17) 0 44%, rgba(255,150,110,.07) 62%, rgba(255,140,100,0) 78%);
+}
+body[data-fx="off"] .hero-glow{display:none}
+
+/* ============ 29. 中间两页的装饰（前测/后测/概念，2026-11-24） ============ */
+/* 29.1 答题进度光轨：答一题亮一格，亮起瞬间一道光扫过 */
+.qa-wrap{display:flex;align-items:center;gap:14px;margin:2px 0 2px}
+.qa-rail{display:flex;gap:6px;flex:1}
+.qa-seg{height:2px;flex:1;position:relative;overflow:visible;
+  background:rgba(158,197,216,.20);transition:background .18s var(--ease), box-shadow .18s var(--ease)}
+.qa-seg[data-on]{background:var(--laser);box-shadow:0 0 12px rgba(255,59,46,.5)}
+.qa-seg.qa-flash::after{content:"";position:absolute;left:-6px;right:-6px;top:-3px;height:8px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,246,236,.85) 50%,transparent);
+  animation:qa-sweep .7s cubic-bezier(.3,.6,.4,1) both}
+@keyframes qa-sweep{0%{transform:translateX(-100%);opacity:0}25%{opacity:.95}100%{transform:translateX(100%);opacity:0}}
+.qa-rail__m{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:#7B8792;min-width:46px;text-align:right}
+
+/* 29.2 分节线：进入视口时两侧细线从中间展开 */
+.sec-rule__t i{transform-origin:50% 50%;will-change:transform}
+.sec-rule[data-in] .sec-rule__t i{animation:rule-draw .62s cubic-bezier(.16,1,.3,1) both}
+@keyframes rule-draw{from{transform:scaleX(0);opacity:.2}to{transform:scaleX(1);opacity:1}}
+
+/* 29.3 图卡：进视口时一道冷光从左扫到右（只扫一次，像被读一遍） */
+.figwrap{position:relative;overflow:hidden}
+.figwrap[data-in]::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:linear-gradient(90deg,transparent 0,rgba(22,21,26,.04) 42%,
+    rgba(22,21,26,.13) 50%,rgba(22,21,26,.04) 58%,transparent 100%);
+  transform:translateX(-112%);
+  animation:fig-scan 1.05s cubic-bezier(.3,.5,.35,1) .08s both;
+}
+@keyframes fig-scan{from{transform:translateX(-112%)}to{transform:translateX(112%)}}
+
+/* 29.4 题卡：落定 —— 左缘一道朱红细标记从上落下 + 眉标淡入 */
+.qcard{position:relative}
+.qcard[data-in]::before{
+  content:"";position:absolute;left:-13px;top:20px;width:2px;height:0;background:var(--laser);
+  animation:qc-tick .52s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes qc-tick{from{height:0;opacity:0}to{height:26px;opacity:.6}}
+.qcard[data-in] .eyebrow{animation:qc-fade .46s var(--ease) both}
+@keyframes qc-fade{from{opacity:.35;letter-spacing:.06em}to{opacity:1;letter-spacing:inherit}}
+
+/* ============ 30. 复盘盖章 + 读数滚动（2026-11-24） ============ */
+/* 30.1 层级「印章」：进页时盖下来（一次性，不循环） */
+.arc__main{position:relative}
+.stamp{
+  position:absolute;right:6px;top:2px;width:104px;height:104px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  border:2px solid rgba(178,48,32,.80);
+  box-shadow:inset 0 0 0 3px rgba(178,48,32,.12), inset 0 0 0 1px rgba(178,48,32,.34);
+  color:rgba(178,48,32,.96);pointer-events:none;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(178,48,32,.09), transparent 60%),
+    radial-gradient(circle at 66% 74%, rgba(178,48,32,.06), transparent 58%);
+  filter:saturate(.84) contrast(1.06) blur(.2px);
+  opacity:0;transform:rotate(-14deg) scale(1.42);
+  animation:stamp-in .46s cubic-bezier(.2,1.5,.4,1) .22s forwards;
+}
+.stamp b{font-family:var(--roman, Castellar), var(--serif);font-size:31px;line-height:1;letter-spacing:.02em}
+.stamp span{font-family:var(--din);font-size:11px;letter-spacing:.18em;opacity:.97}
+.stamp[data-t="—"]{border-style:dashed;color:rgba(120,116,108,.85);border-color:rgba(120,116,108,.6)}
+@keyframes stamp-in{
+  0%{opacity:0;transform:rotate(-14deg) scale(1.42)}
+  62%{opacity:.94;transform:rotate(-6.5deg) scale(.975)}
+  84%{opacity:.9;transform:rotate(-8deg) scale(1.012)}
+  100%{opacity:.9;transform:rotate(-9deg) scale(1)}
+}
+@media (prefers-reduced-motion: reduce){.stamp{animation:none;opacity:.9;transform:rotate(-9deg)}}
+@media (max-width:980px){.stamp{width:78px;height:78px;right:2px;top:0}.stamp b{font-size:23px}.stamp span{font-size:8px;letter-spacing:.14em}}
+@media print{
+  .stamp{animation:none;opacity:1;transform:rotate(-7.6deg);border-color:#a33;color:#a33;
+    box-shadow:inset 0 0 0 3px rgba(170,51,51,.18), inset 0 0 0 1px rgba(170,51,51,.45)}
+}
+/* 30.2 读数数字滚动时锁住字宽，避免抖动 */
+.read__v{font-variant-numeric:tabular-nums}
+
+/* ============ 31. 暗室「墙面材质」（静态，2026-11-24） ============ */
+/* 原来全站背景是纯黑平涂一层色，所有元素都像浮在真空里。
+   这一层给暗室做出「墙」：右上远处一盏灯的漏光（暖）、左下补光（冷）、
+   台面上方一片被照亮的中性亮区、以及一道极淡的斜向柔光。
+   全部是静态渐变，不跑任何动画，零性能成本；?fx=0 或概念纸页自动不生效。 */
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(42vw 32vw at 90% -4%, rgba(255,132,92,.135), rgba(255,132,92,0) 66%),
+    radial-gradient(36vw 30vw at 0% 102%, rgba(100,156,218,.115), rgba(100,156,218,0) 68%),
+    radial-gradient(70vw 44vw at 42% -6%, rgba(206,228,242,.020), rgba(206,228,242,0) 72%),
+    linear-gradient(116deg, rgba(255,255,255,0) 34%, rgba(255,232,206,.022) 49%, rgba(255,255,255,0) 64%),
+    repeating-linear-gradient(90deg, rgba(226,240,250,.013) 0 1px, rgba(0,0,0,0) 1px 260px);
+  background-attachment:fixed,fixed,fixed,fixed,fixed;
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat;
+}
+/* 论文纸页有自己的纸面渐变，这层暗室材质不能透出来 */
+body[data-step=concept]{background-image:none}
+body[data-fx="off"]{background-image:none}
+/* 暗色页：soft-light 在近黑底上几乎是零，颗粒形同不存在；改用 screen 的极淡细颗粒，
+   这才是"墙面有砂"的那层微尺度材质（纸页仍走 multiply，见第 13 节） */
+body:not([data-step=concept]) #fxGrain{mix-blend-mode:screen;opacity:.062}

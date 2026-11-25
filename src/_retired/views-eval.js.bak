@@ -1,0 +1,130 @@
+
+/* ============ Views: 自评 / 互评 ============ */
+(function(){
+'use strict';
+const App = window.App, esc = App.esc, Views = App.Views;
+
+const SELF_DIMS = [
+  { k:'done', t:'选题完成度', d:'杨氏双缝 + 光程与相干性这条线，讲清楚了没有？仿真、任务、复盘是否闭环。' },
+  { k:'know', t:'知识达成', d:'光程差、明暗条件、条纹间距、时间/空间相干，你现在能不能不看公式讲一遍？' },
+  { k:'skill',t:'能力达成', d:'控制变量、用数据说话、把「感觉」换成「证据」——这次练到了哪一层？' }
+];
+
+const PEER_DIMS = [
+  { k:'design', t:'设计完整性', d:'功能是否覆盖老师要求的四项功能与仿真支持。' },
+  { k:'physics',t:'物理正确性', d:'模型、公式、边界说明是否站得住。' },
+  { k:'use',    t:'好用程度', d:'上手成本、反馈是否及时、卡住时有没有台阶。' },
+  { k:'look',   t:'呈现与做工', d:'视觉、排版、动效是否克制而准确。' }
+];
+
+function scale(name, dims, store){
+  return dims.map(function(d){
+    const cur = (store && store[d.k]) || 0;
+    return '<div style="padding:16px 0;border-bottom:1px solid var(--line-2)">' +
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">' +
+        '<span style="font-size:14px">'+esc(d.t)+'</span>' +
+        '<span class="mono dimmer" style="font-size:10px;letter-spacing:.14em">'+cur+' / 5</span>' +
+      '</div>' +
+      '<div class="dimmer" style="font-size:12px;line-height:1.65;margin:6px 0 10px">'+esc(d.d)+'</div>' +
+      '<div class="scale" data-dim="'+d.k+'">' +
+        [1,2,3,4,5].map(function(n){
+          return '<button type="button" data-n="'+n+'"'+(cur===n?' data-on':'')+'>'+n+'</button>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+Views.eval = {
+  html: function(){
+    const S = App.state;
+    const se = S.eval && S.eval.self, pe = S.eval && S.eval.peer;
+    return '<section class="section" style="padding-top:34px"><div class="wrap" style="max-width:1200px">' +
+      '<div class="sec-hd anim-up">' +
+        '<div>' +
+          '<div class="sec-hd__n"><b>07</b> / EVAL · 自评与互评</div>' +
+          '<h2 class="h-sec" style="margin-top:14px">给自己和同伴<br>各写一份诚实的评语。</h2>' +
+        '</div>' +
+        '<div class="dimmer mono" style="font-size:10px;letter-spacing:.16em;text-align:right;line-height:1.9">' +
+          '不强制 · 不公开<br>随档案一起交给老师</div>' +
+      '</div>' +
+
+      '<div class="evalgrid anim-up d1" style="margin-top:10px">' +
+        '<div class="panel" style="padding:22px 24px">' +
+          '<div class="panel__hd" style="border:0;padding:0 0 6px"><span class="dot"></span>自评 · 我做得怎么样</div>' +
+          '<p class="dim" style="font-size:13px;margin:0 0 6px;line-height:1.7">按 1–5 分给自己打分，然后写两句真话。没人会因为低分被扣分。</p>' +
+          scale('self', SELF_DIMS, se) +
+          '<textarea class="textarea" id="selfWhy" placeholder="哪一步最费劲？哪一步忽然通了？" style="margin-top:16px;min-height:92px">'+esc(se&&se.why||'')+'</textarea>' +
+          '<div style="display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap">' +
+            '<button class="btn btn--solid btn--sm" id="saveSelf">保存自评</button>' +
+            '<span class="dimmer mono" style="font-size:9.5px;letter-spacing:.14em" id="selfState">'+(se?'已保存':'')+'</span>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="panel" style="padding:22px 24px">' +
+          '<div class="panel__hd" style="border:0;padding:0 0 6px"><span class="dot"></span>互评 · 评同伴的智能体</div>' +
+          '<div class="field" style="margin-bottom:6px">' +
+            '<label class="field__lb">被评对象</label>' +
+            '<input class="input" id="peerName" placeholder="例如：第 3 组《迟滞与共振》" value="'+esc(pe&&pe.target||'')+'">' +
+          '</div>' +
+          scale('peer', PEER_DIMS, pe) +
+          '<textarea class="textarea" id="peerWhy" placeholder="一条具体可改的建议，比一句「做得不错」有用得多。" style="margin-top:16px;min-height:92px">'+esc(pe&&pe.why||'')+'</textarea>' +
+          '<div style="display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap">' +
+            '<button class="btn btn--solid btn--sm" id="savePeer">保存互评</button>' +
+            '<span class="dimmer mono" style="font-size:9.5px;letter-spacing:.14em" id="peerState">'+(pe?'已保存':'')+'</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div style="display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;border-top:1px solid var(--line-2);padding-top:22px">' +
+        '<button class="btn" id="backReview">← 回复盘</button>' +
+        '<button class="btn" id="toTeacher">看教师端汇总</button>' +
+        '<button class="btn btn--ghost" id="expAll">导出整份档案（含评价）</button>' +
+      '</div>' +
+    '</div></section>';
+  },
+  mount: function(){
+    const S = App.state;
+    S.eval = S.eval || {};
+    S.eval.self = S.eval.self || {};
+    S.eval.peer = S.eval.peer || {};
+
+    document.querySelectorAll('.scale').forEach(function(box){
+      const which = box.closest('.panel').querySelector('.panel__hd').textContent.indexOf('自评') >= 0 ? 'self' : 'peer';
+      box.addEventListener('click', function(e){
+        const b = e.target.closest('button'); if(!b) return;
+        const n = Number(b.dataset.n);
+        box.querySelectorAll('button').forEach(function(x){ x.removeAttribute('data-on'); });
+        b.setAttribute('data-on','');
+        S.eval[which][box.dataset.dim] = n;
+        const lbl = box.parentElement.querySelector('.mono.dimmer');
+        if(lbl) lbl.textContent = n + ' / 5';
+        App.track('eval', { which:which, dim: box.dataset.dim, n:n });
+        App.saveSoon();
+      });
+    });
+
+    document.getElementById('saveSelf').addEventListener('click', function(){
+      S.eval.self.why = document.getElementById('selfWhy').value;
+      S.eval.self.at = App.now();
+      App.save();
+      document.getElementById('selfState').textContent = '已保存';
+      App.toast('自评已存进档案');
+    });
+    document.getElementById('savePeer').addEventListener('click', function(){
+      S.eval.peer.target = document.getElementById('peerName').value;
+      S.eval.peer.why = document.getElementById('peerWhy').value;
+      S.eval.peer.at = App.now();
+      App.save();
+      document.getElementById('peerState').textContent = '已保存';
+      App.toast('互评已存进档案');
+    });
+    document.getElementById('backReview').addEventListener('click', function(){ App.go('review'); });
+    document.getElementById('toTeacher').addEventListener('click', function(){ App.go('teacher'); });
+    document.getElementById('expAll').addEventListener('click', function(){
+      App.track('export', { fmt:'json-all' });
+      App.download('yds-'+S.student.id+'-full.json', JSON.stringify(S,null,2), 'application/json');
+    });
+  }
+};
+})();

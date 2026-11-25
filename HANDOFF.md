@@ -612,3 +612,6 @@ V1 入口光斑照字 / V4 单光子余辉 / V5 读数数字滚动 / V6 屏带�
 
 改源码 → `python build.py` → 把 `dist/index.html` 覆盖到 `docs/index.html` → 再跑一次 `gh_publish.py`（或网页上传 / 代理稳定时 `git push`）。
 本地仓库已 init 并提交过一次（`.git`，remote 指向该仓库，凭据在 URL 里，别把 `.git/config` 外发）。
+
+**坑（已踩过）**：连续两条 API 提交后 Pages 会卡在 `errored`（`builds/latest` 却一直显示 `building`），站点本身仍正常返回。
+修法：`POST /repos/qianhui-pev/yang-double-slit/pages/builds` 手动重跑一次，15–30 s 后回到 `built`。

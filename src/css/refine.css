@@ -1229,3 +1229,9 @@ body:not([data-step=concept]) #fxGrain{mix-blend-mode:screen;opacity:.062}
 @media (max-width: 820px) {
   body { background-attachment: scroll; }
 }
+/* 31.2 手机端「AI 悬浮球压住表单」修复：
+   390 宽实测 .tutor-fab 环(318..368 × 772..822) 与学号/姓名输入框横向重叠 50px、纵向 11px。
+   窄屏直接隐藏悬浮球 —— 实验台本来就有「问助教」按钮，窄屏从那里开抽屉即可。 */
+@media (max-width: 820px) {
+  .tutor-fab { display: none !important; }
+}
